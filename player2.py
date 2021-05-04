@@ -10,4 +10,4 @@ class Player2(Caractere):
         self.jauge_de_confiance = 0
 
     def cc(self):
-        print(323467456)
+        print(32346756)
