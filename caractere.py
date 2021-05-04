@@ -42,3 +42,7 @@ class Caractere:
         elif choix == 2:
             boutdephrase_choisie = self.choix_boutdephrase()
             # return boutdephrase_choisie
+            
+            
+            
+            
