@@ -79,7 +79,7 @@ class Game():
                 if self.curr_menu == self.select_player:
                     if self.select_player.carte_liam_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.liam_select == False and self.select_player.player2 == False:
-                            self.select_player.carte_liam = pygame.image.load("assets/select_player/dos_carte_or.png")
+                            self.select_player.carte_liam = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.liam_select = True
                             if self.select_player.player1 == False:
                                 self.select_player.player1 = "Liam"
@@ -88,7 +88,7 @@ class Game():
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_ambre_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.ambre_select == False and self.select_player.player2 == False:
-                            self.select_player.carte_ambre = pygame.image.load("assets/select_player/dos_carte_or.png")
+                            self.select_player.carte_ambre = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.ambre_select = True
                             if self.select_player.player1 == False:
                                 self.select_player.player1 = "Ambre"
@@ -97,7 +97,7 @@ class Game():
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_alfred_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.alfred_select == False and self.select_player.player2 == False:
-                            self.select_player.carte_alfred = pygame.image.load("assets/select_player/dos_carte_or.png")
+                            self.select_player.carte_alfred = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.alfred_select = True
                             if self.select_player.player1 == False:
                                 self.select_player.player1 = "Alfred"
@@ -106,7 +106,7 @@ class Game():
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_crystal_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.crystal_select == False and self.select_player.player2 == False:
-                            self.select_player.carte_crystal = pygame.image.load("assets/select_player/dos_carte_or.png")
+                            self.select_player.carte_crystal = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.crystal_select = True
                             if self.select_player.player1 == False:
                                 self.select_player.player1 = "Crystal"

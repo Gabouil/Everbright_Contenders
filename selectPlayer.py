@@ -23,22 +23,22 @@ class SelectPlayer():
         self.button_start_rect = self.button_start.get_rect()
         self.button_start_rect.center = (self.startx, self.starty)
 
-        self.carte_liam = pygame.image.load("assets/select_player/carte_liam.png")
+        self.carte_liam = pygame.image.load("assets/cartes/carte_liam.png")
         self.carte_liam_rect = self.carte_liam.get_rect()
         self.carte_liam_rect.center = (self.liamx, self.liamy)
         self.liam_select = False
 
-        self.carte_ambre = pygame.image.load("assets/select_player/carte_ambre.png")
+        self.carte_ambre = pygame.image.load("assets/cartes/carte_ambre.png")
         self.carte_ambre_rect = self.carte_ambre.get_rect()
         self.carte_ambre_rect.center = (self.ambrex, self.ambrey)
         self.ambre_select = False
 
-        self.carte_alfred = pygame.image.load("assets/select_player/carte_alfred.png")
+        self.carte_alfred = pygame.image.load("assets/cartes/carte_alfred.png")
         self.carte_alfred_rect = self.carte_alfred.get_rect()
         self.carte_alfred_rect.center = (self.alfredx, self.alfredy)
         self.alfred_select = False
 
-        self.carte_crystal = pygame.image.load("assets/select_player/carte_crystal.png")
+        self.carte_crystal = pygame.image.load("assets/cartes/carte_crystal.png")
         self.carte_crystal_rect = self.carte_crystal.get_rect()
         self.carte_crystal_rect.center = (self.crystalx, self.crystaly)
         self.crystal_select = False
