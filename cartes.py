@@ -1,5 +1,6 @@
 import random
 import pygame
+from game import *
 
 class Cartes :
     def __init__(self, game, name, type):
@@ -435,3 +436,10 @@ class Avantage_du_nombre(Cartes):
 
     def effect_carte(self):
         pass
+
+
+class Liste_carte():
+    def __init__(self):
+        self.True_story = True_story(Game, "True_story", "Unique")
+        self.Peche_davarice = Peche_davarice(Game, "Peche davarice", "Unique")
+        self.Gamin_des_rues = Gamin_des_rues(Game, "Gamin_des_rues", "Unique")

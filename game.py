@@ -1,6 +1,7 @@
 from menu import *
 from selectPlayer import *
-
+from player1 import *
+from player2 import *
 
 class Game():
     def __init__(self):
@@ -10,11 +11,14 @@ class Game():
         self.display = pygame.Surface((self.DISPLAY_W,self.DISPLAY_H))
         self.window = pygame.display.set_mode(((self.DISPLAY_W,self.DISPLAY_H)))
         self.font_name = 'Seagram.ttf'
+        self.background = pygame.image.load("assets/game/bg.png")
 
         #import de game dans les class menu
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
         self.credits = CreditsMenu(self)
+        self.player1 = Player1()
+        self.player2 = Player2()
 
         #import de game dans la class selctplayer
         self.select_player = SelectPlayer(self)
@@ -22,9 +26,26 @@ class Game():
 
         self.curr_menu = self.main_menu
 
+        #position des images
+        self.optionx, self.optiony = self.DISPLAY_W - 80, self.DISPLAY_H - 60
+
+        #Bouton du jeux
+        #bouton des options
+        self.opion_button = pygame.image.load("assets/option_button.png")
+        self.opion_button_rect = self.opion_button.get_rect()
+        self.opion_button_rect.center = (self.optionx, self.optiony)
+
+    def update_screen(self):
+        self.window.blit(self.display, (0, 0))
+        pygame.display.update()
+
     def game_loop(self):
+        self.playing = True
         while self.playing:
-            pass
+            self.check_events()
+            self.display.blit(self.background, (0, 0))
+            self.display.blit(self.opion_button, self.opion_button_rect)
+            self.update_screen()
 
     def check_events(self):
         for event in pygame.event.get():
@@ -77,14 +98,18 @@ class Game():
 
                     # Button selection player
                 if self.curr_menu == self.select_player:
+                    if self.select_player.button_start_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu = Game
+                        self.select_player.run_display = False
+                        self.curr_menu.game_loop(self)
                     if self.select_player.carte_liam_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.liam_select == False and self.select_player.player2 == False:
                             self.select_player.carte_liam = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.liam_select = True
                             if self.select_player.player1 == False:
-                                self.select_player.player1 = "Liam"
+                                self.player1.caractere = Liam("Liam", "McWarren", "P")
                             else:
-                                self.select_player.player2 = "Liam"
+                                self.player2.caractere = Liam("Liam", "McWarren", "P")
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_ambre_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.ambre_select == False and self.select_player.player2 == False:
@@ -112,7 +137,6 @@ class Game():
                                 self.select_player.player1 = "Crystal"
                             else:
                                 self.select_player.player2 = "Crystal"
-                            print(self.select_player.player1, self.select_player.player2)
 
 
     def draw_text(self, text, size, color, x, y):

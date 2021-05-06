@@ -1,13 +1,11 @@
 from caractere import Caractere
 
 
-class Player2(Caractere):
-    def __init__(self, firstname, name, classe_sociale, age, sexe):
-        super().__init__(firstname, name, classe_sociale, age, sexe)
-
-        self.list_cartes = [1, 2, 3]
+class Player2():
+    def __init__(self):
         self.list_boutdephrase = [1, 2, 3]
         self.jauge_de_confiance = 0
+        self.caractere = None
 
     def cc(self):
-        print(334656)
+        pass

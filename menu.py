@@ -47,7 +47,6 @@ class MainMenu(Menu):
         pygame.mixer.music.play(0)
         self.run_display = True
         while self.run_display:
-            self.game.display.fill((0,0,0))
             self.game.display.blit(self.background, (0, 0))
             self.game.check_events()
             self.game.display.blit(self.play_button, self.play_button_rect)

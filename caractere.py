@@ -1,5 +1,8 @@
 
 from cartes import Cartes
+from cartes import *
+from game import *
+
 class Caractere:
     def __init__(self, firstname, name, classe_sociale, age, sexe):
         self.firstname = firstname
@@ -53,7 +56,11 @@ class Caractere:
         elif choix == 2:
             boutdephrase_choisie = self.choix_boutdephrase()
             # return boutdephrase_choisie
-            
-            
-            
-            
+
+class Liam(Caractere):
+    def __init__(self, firstname, name, classe_sociale, age, sexe):
+        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe)
+        self.cartes = Liste_carte()
+        self.list_cartes = [
+            self.cartes.True_story,
+        ]
