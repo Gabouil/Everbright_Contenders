@@ -1,3 +1,5 @@
+
+from cartes import Cartes
 class Caractere:
     def __init__(self, firstname, name, classe_sociale, age, sexe):
         self.firstname = firstname
@@ -5,6 +7,15 @@ class Caractere:
         self.classe_sociale = classe_sociale
         self.age = age
         self.sexe = sexe
+        self.list_cartes = []
+    
+    def distribution_cartes(self):
+        nbrcartes = list_cartes[4]
+        for i in range(len(list_cartes)):
+            if list_cartes[i] >= nbrcartes :
+                nbrcartes = liste[i]
+        return nbrcartes
+
 
     def choix_cartes(self):
         # self.list_cartes()
