@@ -19,7 +19,6 @@ class SelectPlayer():
         self.crystalx, self.crystaly = self.mid_w + 490, self.mid_h - 20
 
         self.button_start = pygame.image.load("assets/select_player/button_start.png")
-
         self.button_start_rect = self.button_start.get_rect()
         self.button_start_rect.center = (self.startx, self.starty)
 
