@@ -107,36 +107,39 @@ class Game():
                             self.select_player.carte_liam = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.liam_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Liam("Liam", "McWarren", "P")
+                                self.player1.caractere = Liam("Liam", "mcWarren", "populaire", "jeune", "M")
                             else:
-                                self.player2.caractere = Liam("Liam", "McWarren", "P")
+                                self.player2.caractere = Liam("Liam", "mcWarren", "populaire", "jeune", "M")
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_ambre_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.ambre_select == False and self.select_player.player2 == False:
                             self.select_player.carte_ambre = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.ambre_select = True
                             if self.select_player.player1 == False:
-                                self.select_player.player1 = "Ambre"
+                                self.player1.caractere = Ambre("Ambre", "deCroy", "noble", "jeune", "F")
+                                
                             else:
-                                self.select_player.player2 = "Ambre"
+                                self.player2.caractere = Ambre("Ambre", "deCroy", "noble", "jeune", "F")
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_alfred_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.alfred_select == False and self.select_player.player2 == False:
                             self.select_player.carte_alfred = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.alfred_select = True
                             if self.select_player.player1 == False:
-                                self.select_player.player1 = "Alfred"
+                                self.player1.caractere = Alfred("Alfred", "Heimsworth", "noble", "vieux", "M")
                             else:
-                                self.select_player.player2 = "Alfred"
+                                self.player2.caractere = Alfred("Alfred", "Heimsworth", "noble", "vieux", "M")
+                        
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_crystal_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.crystal_select == False and self.select_player.player2 == False:
                             self.select_player.carte_crystal = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.crystal_select = True
                             if self.select_player.player1 == False:
-                                self.select_player.player1 = "Crystal"
+                                self.player1.caractere = Crystal("Crystal", "Devereux", "populaire", "vieux", "F") 
+
                             else:
-                                self.select_player.player2 = "Crystal"
+                                self.player2.caractere = Crystal("Crystal", "Devereux", "populaire", "vieux", "F") 
 
 
     def draw_text(self, text, size, color, x, y):

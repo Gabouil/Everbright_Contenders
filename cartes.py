@@ -440,6 +440,51 @@ class Avantage_du_nombre(Cartes):
 
 class Liste_carte():
     def __init__(self):
-        self.True_story = True_story(Game, "True_story", "Unique")
+        #Liam
+        self.True_story = True_story(Game, "True story", "Unique")
         self.Peche_davarice = Peche_davarice(Game, "Peche davarice", "Unique")
-        self.Gamin_des_rues = Gamin_des_rues(Game, "Gamin_des_rues", "Unique")
+        self.Gamin_des_rues = Gamin_des_rues(Game, "Gamin des rues", "Unique")
+        #Ambre
+        self.Secret_familial = Secret_familial(Game, "Secret familial", "Unique")
+        self.Regard_enjoleur = Regard_enjoleur( Game, "Regard enjoleur", "Unique")
+        self.Conseils_avisees = Conseils_avisees( Game, "Conseils avisees", "Unique")
+        #Alfred
+        self.Cest_pas_au_vieux_singe = Cest_pas_au_vieux_singe(Game, "Cest pas au vieux singe", "Unique")
+        self.Seconde_vie = Seconde_vie(Game, "Seconde vie", "Unique")  
+        self.Service_sur_mesure = Service_sur_mesure(Game, "Service sur mesure", "Unique") 
+        #Crystal
+        self.Rhetorique_de_limperatrice = Rhetorique_de_limperatrice(Game, "Rhetorique de limperatrice", "Unique")    
+        self.Sombre_formule = Sombre_formule( Game, "Sombre formule", "Unique") 
+        self.Influence_mystique = Influence_mystique(Game, "Influence mystique", "Unique")    
+        #Cartes Comune
+        #Jeune
+        self.Gout_du_risque = Gout_du_risque( Game, "Gout du risque", "Jeune") 
+        self.Sante_de_fer = Sante_de_fer ( Game, "Sante de fer", "Jeune")
+        self.Adaptation = Adaptation( Game, "Adaptation ", "Jeune")
+        self.Esprit_vif = Esprit_vif( Game, "Esprit vif ", "Jeune")
+        #âgé
+        self.Experience_de_lage = Experience_de_lage = Experience_de_lage(Game, "Experience de lage ", "âgé")
+        self.Veteran = Veteran(Game, " Veteran ", "âgé")
+        self.Sante_fragile = Sante_fragile(Game, " Sante fragile ", "âgé")  
+        self.Oeil_sage = Oeil_sage( Game, " Oeil sage", "âgé")    
+        #Homme
+        self.Avantage_masculin = Avantage_masculin( Game, "Avantage masculin", "Homme")
+        self.Tonalite_virile = Tonalite_virile ( Game, "Tonalite virile", "Homme") 
+        self.Sens_du_sacrifice = Sens_du_sacrifice(Game, "Sens du sacrifice", "Homme") 
+        self.Monotache = Monotache(Game, "Monotache", "Homme")
+        #Femme
+        self.Avantage_feminin = Avantage_feminin(Game, "Avantage feminin", "Femme") 
+        self.Mauvaise_foi = Mauvaise_foi(Game, "Mauvaise foi", "Femme")
+        self.Seduction = Seduction(Game, "Seduction", "Femme") 
+        self.Multitache = Multitache( Game, "Multitache", "Femme")  
+        #Noble
+        self.Opulence = Opulence(Game, "Opulence", "Noble") 
+        self.Hautes_relations = Hautes_relations( Game, "Hautes relations", "Noble")     
+        self.Mepris_du_fortune = Mepris_du_fortune( Game, "Mepris du fortune", "Noble")   
+        self.Pot_de_vin = Pot_de_vin( Game, "Pot de vin", "Noble")   
+        #Populaire
+        self.Solidarite = Solidarite(Game, "Solidarite", "Populaire") 
+        self.Priere_misericordieuse = Priere_misericordieuse( Game, "Priere misericordieuse", "Populaire")     
+        self.Coup_de_chance = Coup_de_chance( Game, "Coup de chance", "Populaire") 
+        self.Avantage_du_nombre = Avantage_du_nombre( Game, "Avantage du nombre", "Populaire")    
+
