@@ -6,7 +6,7 @@ class Player1():
     def __init__(self):
         self.list_boutdephrase = [1, 2, 3]
         self.jauge_de_confiance = 0
-        self.caractere = Liam("Liam", "McWarren", "P")
+        self.caractere = None
         self.carte1 = 0
         self.number_carte1 = 0
         self.carte2 = 0

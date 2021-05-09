@@ -3,6 +3,7 @@ from selectPlayer import *
 from player1 import *
 from player2 import *
 
+
 class Game():
     def __init__(self):
         self.running, self.playing = True, False
