@@ -63,10 +63,30 @@ class Nobles_et_guerriers(Crowds):
 
 
 class Liste_crowd():
-    def __init__(self):
+    def __init__(self, game):
+        self.game = game
         self.Erudits_et_guerriers = Erudits_et_guerriers("Erudits_et_guerriers","à voir")
         self.Horslaloi_et_erudits = Horslaloi_et_erudits("Horslaloi_et_erudits","à voir")
         self.Horslaloi_et_guerriers = Horslaloi_et_guerriers("Horslaloi_et_guerriers","à voir")
         self.Horslaloi_et_nobles = Horslaloi_et_nobles("Horslaloi_et_nobles","à voir")
         self.Nobles_et_erudits = Nobles_et_erudits("Nobles_et_erudits","à voir")
         self.Nobles_et_guerriers = Nobles_et_guerriers("Nobles_et_guerriers","à voir")
+
+        self.liste_crowd = [
+            self.Erudits_et_guerriers,
+            self.Horslaloi_et_erudits,
+            self.Horslaloi_et_guerriers,
+            self.Horslaloi_et_nobles,
+            self.Nobles_et_erudits,
+            self.Nobles_et_guerriers,
+        ]
+
+    def charge_crowd(self):
+        self.alea_crowd()
+        self.button_crowd = self.crowd.img
+        self.button_crowd_rect = self.button_crowd.get_rect()
+        self.button_crowd_rect.center = (self.game.crowdx, self.game.crowdy)
+
+    def alea_crowd(self):
+        self.number_crowd = randint(0, 5)
+        self.crowd = self.liste_crowd[self.number_crowd]

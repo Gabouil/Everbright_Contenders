@@ -2,7 +2,7 @@ from menu import *
 from selectPlayer import *
 from player1 import *
 from player2 import *
-#from crowds import *
+from crowds import *
 
 
 class Game():
@@ -13,7 +13,7 @@ class Game():
         self.mid_w, self.mid_h = self.DISPLAY_W / 2, self.DISPLAY_H / 2
         self.display = pygame.Surface((self.DISPLAY_W,self.DISPLAY_H))
         self.window = pygame.display.set_mode(((self.DISPLAY_W,self.DISPLAY_H)))
-        self.font_name = 'Seagram.ttf'
+        self.font_name = 'BLKCHCRY.ttf'
         self.background = pygame.image.load("assets/game/bg.png")
         
 
@@ -25,7 +25,7 @@ class Game():
         self.p1_maine_carte = Main_carte_p1(self)
         self.p2_maine_carte = Main_carte_p2(self)
         self.player2 = Player2(self)
-        #self.list_crowd = []
+        self.list_crowd = Liste_crowd(self)
 
         #import de game dans la class selctplayer
         self.select_player = SelectPlayer(self)
@@ -54,6 +54,7 @@ class Game():
         self.button_victoire1_pl2x, self.button_victoire1_pl2y = self.mid_w + 399, self.mid_h - 405
         self.button_victoire2_pl2x, self.button_victoire2_pl2y = self.mid_w + 464, self.mid_h - 405
 
+        self.crowdx, self.crowdy = self.mid_w, self.mid_h + 220
         #Bouton du jeux
         self.button_carte_pl1 = pygame.image.load("assets/game/bouton_menu_carte.png")
         self.button_carte_pl1_rect = self.button_carte_pl1.get_rect()
@@ -96,13 +97,15 @@ class Game():
         pygame.display.update()
 
     def init_game(self):
-        self.init_manche()
-        self.player1.charge_sprit()
-        self.player2.charge_sprit()
-
-    def init_manche(self):
         self.player1.main_cartes()
         self.player2.main_cartes()
+        self.player1.charge_sprit()
+        self.player2.charge_sprit()
+        self.list_crowd.charge_crowd()
+
+
+    def init_manche(self):
+        pass
 
     def game_loop(self):
         self.playing = True
@@ -118,6 +121,7 @@ class Game():
             self.display.blit(self.button_carte_pl2, self.button_carte_pl2_rect)
             self.display.blit(self.player1.sprit_player1, self.player1.sprit_player1_rect)
             self.display.blit(self.player2.sprit_player2, self.player2.sprit_player2_rect)
+            self.display.blit(self.list_crowd.button_crowd, self.list_crowd.button_crowd_rect)
             self.display.blit(self.opion_button, self.opion_button_rect)
             self.display.blit(self.button_exlamation_pl1, self.button_exlamation_pl1_rect)
             self.display.blit(self.button_exlamation_pl2, self.button_exlamation_pl2_rect)
@@ -153,17 +157,6 @@ class Game():
         self.button_carte3 = self.player2.carte3.img
         self.button_carte3_rect = self.button_carte3.get_rect()
         self.button_carte3_rect.center = (self.player2.pcarte3x, self.player2.pcarte3y)
-    
-    #def charge_crowd(self):
-    #    self.button_crowd = self.crowd.img
-    #    self.button_crowd_rect = self.button_crowd.get_rect()
-    #    self.button_crowd_rect.center = (self.crowdx, self.crowdy)
-
-    #def alea_crowd(self):
-    #    self.number_crowd = randint(0, 5)
-    #    self.carte1 = self.game.list_crowd[self.number_crowd]
-
-
 
 
     def check_events(self):
@@ -188,17 +181,21 @@ class Game():
                 if self.curr_menu == self.p1_maine_carte:
                     if self.p1_maine_carte.close_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.curr_menu.run_display = False
+                        self.p1_maine_carte.no_option = False
                         self.curr_menu = Game
                 if self.curr_menu == self.p2_maine_carte:
                     if self.p2_maine_carte.close_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.curr_menu.run_display = False
+                        self.p2_maine_carte.no_option = False
                         self.curr_menu = Game
 
 
                 # Button main menu
-                if self.main_menu.opion_button_rect.collidepoint(pygame.mouse.get_pos()):
-                    self.curr_menu = self.options
-                    self.curr_menu.display_menu()
+
+                if self.p1_maine_carte.no_option == False and self.p2_maine_carte.no_option == False:
+                    if self.main_menu.opion_button_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu = self.options
+                        self.curr_menu.display_menu()
                 if self.curr_menu == self.main_menu:
                     if self.main_menu.play_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.curr_menu = self.select_player
@@ -209,11 +206,16 @@ class Game():
                         pygame.quit()
                 if self.curr_menu == self.options:
                     if self.options.close_option_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.curr_menu.run_display = False
                         if self.select_player_confirme:
+                            self.curr_menu.run_display = False
                             self.curr_menu = self.select_player
+                        elif self.playing:
+                            self.curr_menu.run_display = False
+                            self.curr_menu = Game
                         else:
+                            self.curr_menu.run_display = False
                             self.curr_menu = self.main_menu
+
 
 
                 # button option#

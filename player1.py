@@ -53,11 +53,13 @@ class Main_carte_p1(Player1):
         self.close_button = pygame.image.load("assets/game/close_menu_carte.png")
         self.close_button_rect = self.close_button.get_rect()
         self.close_button_rect.center = (self.closex, self.closey)
+        self.no_option = False
 
 
     def display_menu(self):
         self.run_display = True
         self.game.charge_carte_p1()
+        self.no_option = True
         while self.run_display:
             self.game.display.blit(self.background, (0,0))
             self.game.display.blit(self.close_button, self.close_button_rect)
