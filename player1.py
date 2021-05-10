@@ -48,14 +48,20 @@ class Player1():
 class Main_carte_p1(Player1):
     def __init__(self, game):
         Player1.__init__(self, game)
-
         self.background = pygame.image.load("assets/game/menu_cartes_bg.png")
+        self.closex, self.closey = self.game.mid_w + 420 , self.game.mid_h - 300
+        self.close_button = pygame.image.load("assets/game/close_menu_carte.png")
+        self.close_button_rect = self.close_button.get_rect()
+        self.close_button_rect.center = (self.closex, self.closey)
+
 
     def display_menu(self):
         self.run_display = True
         self.game.charge_carte_p1()
         while self.run_display:
             self.game.display.blit(self.background, (0,0))
+            print(self.game.display.blit(self.close_button, self.close_button_rect))
+            self.game.display.blit(self.close_button, self.close_button_rect)
             self.game.check_events()
             self.game.display.blit(self.game.button_carte1, self.game.button_carte1_rect)
             self.game.display.blit(self.game.button_carte2, self.game.button_carte2_rect)

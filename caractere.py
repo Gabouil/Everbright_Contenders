@@ -4,12 +4,13 @@ from cartes import *
 from game import *
 
 class Caractere:
-    def __init__(self, firstname, name, classe_sociale, age, sexe):
+    def __init__(self, firstname, name, classe_sociale, age, sexe, surnom):
         self.firstname = firstname
         self.name = name
         self.classe_sociale = classe_sociale
         self.age = age
         self.sexe = sexe
+        self.surnom = surnom
         self.list_cartes = []
 
 
@@ -26,8 +27,8 @@ class Caractere:
         pass
 
 class Liam(Caractere):
-    def __init__(self, firstname, name, classe_sociale, age, sexe):
-        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe)
+    def __init__(self, firstname, name, classe_sociale, age, sexe, surnom):
+        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe, surnom)
         self.img = pygame.image.load("assets/cartes/carte_liam.png")
         self.cartes = Liste_carte()
         self.list_cartes = [
@@ -53,8 +54,8 @@ class Liam(Caractere):
 
         ]
 class Ambre(Caractere):
-    def __init__(self, firstname, name, classe_sociale, age, sexe):
-        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe)
+    def __init__(self, firstname, name, classe_sociale, age, sexe, surnom):
+        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe, surnom)
         self.img = pygame.image.load("assets/cartes/carte_ambre.png")
         self.cartes = Liste_carte()
         self.list_cartes = [
@@ -80,8 +81,8 @@ class Ambre(Caractere):
             
         ]
 class Alfred(Caractere):
-    def __init__(self, firstname, name, classe_sociale, age, sexe):
-        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe)
+    def __init__(self, firstname, name, classe_sociale, age, sexe, surnom):
+        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe, surnom)
         self.cartes = Liste_carte()
         self.img = pygame.image.load("assets/cartes/carte_alfred.png")
         self.list_cartes = [
@@ -106,8 +107,8 @@ class Alfred(Caractere):
             self.cartes.Monotache
         ]
 class Crystal(Caractere):
-    def __init__(self, firstname, name, classe_sociale, age, sexe):
-        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe)
+    def __init__(self, firstname, name, classe_sociale, age, sexe, surnom):
+        Caractere.__init__(self, firstname, name, classe_sociale, age, sexe, surnom)
         self.cartes = Liste_carte()
         self.img = pygame.image.load("assets/cartes/carte_crystal.png")
         self.list_cartes = [
