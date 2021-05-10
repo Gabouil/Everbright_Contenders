@@ -229,7 +229,7 @@ class Tonalite_virile(Cartes):
     def __init__(self,  name, type):
         Cartes.__init__(self,  name, type)
         self.img = pygame.image.load("assets/cartes/tonalite_virile.png")
-
+        
 
     def effect_carte(self):
         pass

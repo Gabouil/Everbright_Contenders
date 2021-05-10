@@ -32,7 +32,7 @@ class Horslaloi_et_guerriers(Crowds):
     def __init__(self,  name, type):
         Crowds.__init__(self,  name, type)
         self.img = pygame.image.load("assets/crowd/Horslaloi_et_guerriers.png")
-
+        
 
     def effect_crowd(self):
         pass

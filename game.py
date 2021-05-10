@@ -216,7 +216,7 @@ class Game():
                             self.curr_menu = self.main_menu
 
 
-                # button option
+                # button option#
 
                 if self.curr_menu == self.options:
                     if self.options.songM_rect.collidepoint(pygame.mouse.get_pos()):
