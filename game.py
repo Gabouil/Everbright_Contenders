@@ -2,6 +2,7 @@ from menu import *
 from selectPlayer import *
 from player1 import *
 from player2 import *
+#from crowds import *
 
 
 class Game():
@@ -24,6 +25,7 @@ class Game():
         self.p1_maine_carte = Main_carte_p1(self)
         self.p2_maine_carte = Main_carte_p2(self)
         self.player2 = Player2(self)
+        #self.list_crowd = []
 
         #import de game dans la class selctplayer
         self.select_player = SelectPlayer(self)
@@ -151,6 +153,18 @@ class Game():
         self.button_carte3 = self.player2.carte3.img
         self.button_carte3_rect = self.button_carte3.get_rect()
         self.button_carte3_rect.center = (self.player2.pcarte3x, self.player2.pcarte3y)
+    
+    #def charge_crowd(self):
+    #    self.button_crowd = self.crowd.img
+    #    self.button_crowd_rect = self.button_crowd.get_rect()
+    #    self.button_crowd_rect.center = (self.crowdx, self.crowdy)
+
+    #def alea_crowd(self):
+    #    self.number_crowd = randint(0, 5)
+    #    self.carte1 = self.game.list_crowd[self.number_crowd]
+
+
+
 
     def check_events(self):
         for event in pygame.event.get():
