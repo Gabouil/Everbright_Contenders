@@ -34,7 +34,7 @@ class Game():
         #position des images
         self.optionx, self.optiony = self.DISPLAY_W - 80, self.DISPLAY_H - 60
         
-        self.name_player1x, self.name_player1y = self.mid_w - 550, self.mid_h - 460
+        self.name_player1x, self.name_player1y = self.mid_w - 520, self.mid_h - 460
         self.name_player2x, self.name_player2y = self.mid_w + 520, self.mid_h - 460
         
         self.surnom_player1x, self.surnom_player1y = self.mid_w - 590, self.mid_h - 400
@@ -46,11 +46,11 @@ class Game():
         self.button_exclamation_pl1x, self.button_exlamation_pl1y = self.mid_w - 520, self.mid_h + 300
         self.button_exclamation_pl2x, self.button_exlamation_pl2y = self.mid_w + 520, self.mid_h + 300
 
-        self.button_victoire1_pl1x, self.button_victoire1_pl1y = self.mid_w - 400, self.mid_h - 400 
-        self.button_victoire2_pl1x, self.button_victoire2_pl1y = self.mid_w - 465, self.mid_h - 400 
+        self.button_victoire1_pl1x, self.button_victoire1_pl1y = self.mid_w - 399, self.mid_h - 405
+        self.button_victoire2_pl1x, self.button_victoire2_pl1y = self.mid_w - 464, self.mid_h - 405
         
-        self.button_victoire1_pl2x, self.button_victoire1_pl2y = self.mid_w + 400, self.mid_h - 400 
-        self.button_victoire2_pl2x, self.button_victoire2_pl2y = self.mid_w + 465, self.mid_h - 400 
+        self.button_victoire1_pl2x, self.button_victoire1_pl2y = self.mid_w + 399, self.mid_h - 405
+        self.button_victoire2_pl2x, self.button_victoire2_pl2y = self.mid_w + 464, self.mid_h - 405
 
         #Bouton du jeux
         self.button_carte_pl1 = pygame.image.load("assets/game/bouton_menu_carte.png")
@@ -165,11 +165,22 @@ class Game():
                         print(self.player1.carte1.img, self.player1.carte1.name)
                         self.curr_menu = self.p1_maine_carte
                         self.curr_menu.display_menu()
-                
-                if self.curr_menu == Game:
+
                     if self.button_carte_pl2_rect.collidepoint(pygame.mouse.get_pos()):
                         self.curr_menu = self.p2_maine_carte
                         self.curr_menu.display_menu()
+
+                #bouton menu cartes
+                if self.curr_menu == self.p1_maine_carte:
+                    if self.p1_maine_carte.close_button_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu.run_display = False
+                        self.curr_menu = Game
+                if self.curr_menu == self.p2_maine_carte:
+                    if self.p2_maine_carte.close_button_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu.run_display = False
+                        self.curr_menu = Game
+
+
                 # Button main menu
                 if self.main_menu.opion_button_rect.collidepoint(pygame.mouse.get_pos()):
                     self.curr_menu = self.options
