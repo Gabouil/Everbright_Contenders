@@ -1,6 +1,6 @@
 from caractere import *
 from random import randint
-
+import pygame
 
 class Player1():
     def __init__(self,game):
