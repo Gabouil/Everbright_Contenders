@@ -47,6 +47,7 @@ class SelectPlayer():
 
     def display_menu(self):
         self.run_display = True
+        self.game.select_player_confirme = True
         while self.run_display:
             self.game.display.fill((0,0,0))
             self.game.display.blit(self.background, (0, 0))

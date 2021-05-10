@@ -66,6 +66,7 @@ class OptionsMenu(Menu):
         self.songPx, self.songPy = self.mid_w + 265, self.mid_h - 105
         self.songMx, self.songMy = self.mid_w, self.mid_h - 98
         self.rulesx, self.rulesy = self.mid_w, self.mid_h + 150
+        self.option = False
 
 
         #check box
@@ -104,6 +105,7 @@ class OptionsMenu(Menu):
             self.song_check_rect.center = (self.volx, self.voly)
 
     def display_menu(self):
+        self.option = True
         self.run_display = True
         while self.run_display:
             self.game.display.blit(self.option_back, (0, 0))
@@ -117,18 +119,37 @@ class OptionsMenu(Menu):
             self.game.display.blit(self.close_option, self.close_option_rect)
             self.update_screen()
 
-class CreditsMenu(Menu):
+class Rule_menu(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
+        self.page = 1
+
+        self.rightx, self.righty = self.mid_w + 585, self.mid_h
+        self.leftx, self.lefty = self.mid_w - 585, self.mid_h
+        self.closex, self.closey = self.mid_w + 500, self.mid_h - 350
+
+        self.rule = pygame.image.load("assets/regles assets/Regles"+ str(self.page) +".png")
+        self.right_button = pygame.image.load("assets/regles assets/cheverondroit.png")
+        self.right_button_rect = self.right_button.get_rect()
+        self.right_button_rect.center = (self.rightx, self.righty)
+
+        self.left_button = pygame.image.load("assets/regles assets/chevrongauche.png")
+        self.left_button_rect = self.left_button.get_rect()
+        self.left_button_rect.center = (self.leftx, self.lefty)
+
+        self.close_option = pygame.image.load("assets/regles assets/cross.png")
+        self.close_option_rect = self.close_option.get_rect()
+        self.close_option_rect.center = (self.closex, self.closey)
 
     def display_menu(self):
         self.run_display = True
         while self.run_display:
+            self.rule = pygame.image.load("assets/regles assets/Regles"+ str(self.page) +".png")
             self.game.check_events()
-            if self.game.START_KEY or self.game.BACK_KEY:
-                self.game.curr_menu = self.game.main_menu
-                self.run_display = False
-            self.game.display.fill((0,0,0))
-            self.game.draw_text('Credits', 20, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 - 20)
-            self.game.draw_text('Made by me', 15, self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2 + 10)
+            self.game.display.blit(self.rule, (0, 0))
+            if self.page != 1:
+                self.game.display.blit(self.left_button, self.left_button_rect)
+            if self.page != 5:
+                self.game.display.blit(self.right_button, self.right_button_rect)
+            self.game.display.blit(self.close_option, self.close_option_rect)
             self.update_screen()

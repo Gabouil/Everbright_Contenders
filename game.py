@@ -20,7 +20,7 @@ class Game():
         #import de game dans les class menu
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
-        self.credits = CreditsMenu(self)
+        self.regles = Rule_menu(self)
         self.player1 = Player1(self)
         self.p1_maine_carte = Main_carte_p1(self)
         self.p2_maine_carte = Main_carte_p2(self)
@@ -109,6 +109,7 @@ class Game():
 
     def game_loop(self):
         self.playing = True
+        self.select_player_confirme = False
         self.init_game()
         while self.playing:
             self.check_events()
@@ -200,25 +201,17 @@ class Game():
                     if self.main_menu.play_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.curr_menu = self.select_player
                         self.curr_menu.display_menu()
+                    if self.main_menu.rules_button_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu = self.regles
+                        self.curr_menu.display_menu()
                     if self.main_menu.exit_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.running, self.playing = False, False
                         self.curr_menu.run_display = False
                         pygame.quit()
-                if self.curr_menu == self.options:
-                    if self.options.close_option_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.select_player_confirme:
-                            self.curr_menu.run_display = False
-                            self.curr_menu = self.select_player
-                        elif self.playing:
-                            self.curr_menu.run_display = False
-                            self.curr_menu = Game
-                        else:
-                            self.curr_menu.run_display = False
-                            self.curr_menu = self.main_menu
 
 
 
-                # button option#
+                # button option
 
                 if self.curr_menu == self.options:
                     if self.options.songM_rect.collidepoint(pygame.mouse.get_pos()):
@@ -238,6 +231,22 @@ class Game():
                             self.options.song_check_checked = False
                         else:
                             self.options.song_check_checked = True
+                    if self.options.rules_button_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu = self.regles
+                        self.curr_menu.display_menu()
+                    if self.options.close_option_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.options.option = False
+                        if self.select_player_confirme:
+                            self.curr_menu.run_display = False
+                            self.curr_menu = self.select_player
+                        elif self.playing:
+                            self.curr_menu.run_display = False
+                            self.curr_menu = Game
+                        else:
+                            self.curr_menu.run_display = False
+                            self.curr_menu = self.main_menu
+
+
 
                     # Button selection player
                 if self.curr_menu == self.select_player:
@@ -291,6 +300,33 @@ class Game():
                             else:
                                 self.player2.caractere = Crystal("Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
                                 self.select_player.player2 = "Crystal"
+
+
+                    #menu règles
+                if self.curr_menu == self.regles:
+                    if self.regles.page != 1:
+                        if self.regles.left_button_rect.collidepoint(pygame.mouse.get_pos()):
+                            print("click gauche")
+                            self.regles.page -= 1
+                    if self.regles.page != 5:
+                        if self.regles.right_button_rect.collidepoint(pygame.mouse.get_pos()):
+                            print("click droite")
+                            self.regles.page += 1
+                    if self.regles.close_option_rect.collidepoint(pygame.mouse.get_pos()):
+                        if self.select_player_confirme:
+                            self.curr_menu.run_display = False
+                            self.curr_menu = self.select_player
+                            self.curr_menu.display_menu()
+                        elif self.playing:
+                            self.curr_menu.run_display = False
+                            self.curr_menu = Game
+                            self.curr_menu.game_loop(self)
+                        else:
+                            self.curr_menu.run_display = False
+                            self.curr_menu = self.main_menu
+                            self.curr_menu.display_menu()
+
+
 
 
     def draw_text(self, text, size, color, x, y):
