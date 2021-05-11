@@ -192,13 +192,15 @@ class Game():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # Button du jeux
                 if self.curr_menu == Game:
-                    if self.button_carte_pl1_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.curr_menu = self.p1_maine_carte
-                        self.curr_menu.display_menu()
+                    if self.player_turn == self.player1:
+                        if self.button_carte_pl1_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.curr_menu = self.p1_maine_carte
+                            self.curr_menu.display_menu()
 
-                    if self.button_carte_pl2_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.curr_menu = self.p2_maine_carte
-                        self.curr_menu.display_menu()
+                    if self.player_turn == self.player2:
+                        if self.button_carte_pl2_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.curr_menu = self.p2_maine_carte
+                            self.curr_menu.display_menu()
 
                 #bouton menu cartes
                 if self.curr_menu == self.p1_maine_carte:
