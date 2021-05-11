@@ -18,6 +18,8 @@ class Player2():
         self.number_carte3 = 0
         self.win1 = None
         self.win2 = None
+        self.carte_gratuit = False
+        self.carte_double = False
 
         self.spritx, self.sprity = self.game.mid_w + 550, self.game.mid_h - 100
 
