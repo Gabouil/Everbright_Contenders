@@ -31,7 +31,7 @@ class Liam(Caractere):
     def __init__(self,game, firstname, name, classe_sociale, age, sexe, surnom):
         Caractere.__init__(self,game, firstname, name, classe_sociale, age, sexe, surnom)
         self.img = pygame.image.load("assets/cartes/carte_liam.png")
-        self.cartes = self.game.Liste_carte()
+        self.cartes = self.game.Liste_carte(game)
         self.list_cartes = [
             #Unique
             self.cartes.True_story,
@@ -58,7 +58,7 @@ class Ambre(Caractere):
     def __init__(self,game, firstname, name, classe_sociale, age, sexe, surnom):
         Caractere.__init__(self,game, firstname, name, classe_sociale, age, sexe, surnom)
         self.img = pygame.image.load("assets/cartes/carte_ambre.png")
-        self.cartes = self.game.Liste_carte()
+        self.cartes = self.game.Liste_carte(game)
         self.list_cartes = [
             #Unique
             self.cartes.Secret_familial,
@@ -84,7 +84,7 @@ class Ambre(Caractere):
 class Alfred(Caractere):
     def __init__(self,game, firstname, name, classe_sociale, age, sexe, surnom):
         Caractere.__init__(self,game, firstname, name, classe_sociale, age, sexe, surnom)
-        self.cartes = self.game.Liste_carte()
+        self.cartes = self.game.Liste_carte(game)
         self.img = pygame.image.load("assets/cartes/carte_alfred.png")
         self.list_cartes = [
             #Unique
@@ -110,7 +110,7 @@ class Alfred(Caractere):
 class Crystal(Caractere):
     def __init__(self,game, firstname, name, classe_sociale, age, sexe, surnom):
         Caractere.__init__(self,game, firstname, name, classe_sociale, age, sexe, surnom)
-        self.cartes = self.game.Liste_carte()
+        self.cartes = self.game.Liste_carte(game)
         self.img = pygame.image.load("assets/cartes/carte_crystal.png")
         self.list_cartes = [
             #Unique

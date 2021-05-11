@@ -31,19 +31,18 @@ class Player1():
 
     def main_cartes(self):
         self.number_carte1 = randint(0, 2)
-        self.carte1 = self.caractere.list_cartes[self.number_carte1]
+        # self.carte1 = self.caractere.list_cartes[self.number_carte1]
+        self.carte1 = self.caractere.list_cartes[9]
         self.number_carte2 = randint(3, 14)
         while self.number_carte2 == self.number_carte1:
             self.number_carte2 = randint(3, 14)
-        self.carte2 = self.caractere.list_cartes[self.number_carte2]
+        # self.carte2 = self.caractere.list_cartes[self.number_carte2]
+        self.carte2 = self.caractere.list_cartes[8]
         self.number_carte3 = randint(3, 14)
         while self.number_carte3 == self.number_carte2:
             self.number_carte3 = randint(3, 14)
-        self.carte3 = self.caractere.list_cartes[self.number_carte3]
-
-
-    def cc(self):
-        pass
+        # self.carte3 = self.caractere.list_cartes[self.number_carte3]
+        self.carte3 = self.caractere.list_cartes[7]
 
 class Main_carte_p1(Player1):
     def __init__(self, game):
@@ -53,6 +52,7 @@ class Main_carte_p1(Player1):
         self.close_button = pygame.image.load("assets/game/close_menu_carte.png")
         self.close_button_rect = self.close_button.get_rect()
         self.close_button_rect.center = (self.closex, self.closey)
+        self.carte_none = pygame.image.load("assets/cartes/dos_carte_fer.png")
         self.no_option = False
 
 

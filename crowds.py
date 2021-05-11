@@ -65,6 +65,7 @@ class Nobles_et_guerriers(Crowds):
 class Liste_crowd():
     def __init__(self, game):
         self.game = game
+        self.change_crowd = True
         self.Erudits_et_guerriers = Erudits_et_guerriers("Erudits_et_guerriers","à voir")
         self.Horslaloi_et_erudits = Horslaloi_et_erudits("Horslaloi_et_erudits","à voir")
         self.Horslaloi_et_guerriers = Horslaloi_et_guerriers("Horslaloi_et_guerriers","à voir")

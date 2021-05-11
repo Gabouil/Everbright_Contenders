@@ -41,7 +41,9 @@ class True_story(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.list_crowd.crowd = self.game.list_crowd.liste_crowd[0]
+        self.game.list_crowd.button_crowd = self.game.list_crowd.crowd.img
+        self.game.list_crowd.change_crowd = False
 
 class Peche_davarice(Cartes):
     def __init__(self, game,  name, type):
@@ -151,7 +153,7 @@ class Gout_du_risque(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.list_crowd.charge_crowd()
 
 class Sante_de_fer(Cartes):
     def __init__(self, game,  name, type):
@@ -160,7 +162,7 @@ class Sante_de_fer(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.jauge_de_confiance += 15
 
 class Adaptation(Cartes):
     def __init__(self, game,  name, type):
@@ -169,7 +171,43 @@ class Adaptation(Cartes):
 
 
     def effect_carte(self):
-        pass
+        if self.game.player_turn.jauge_de_confiance >= 15:
+            choix_de_carte = random.randint(1, 3)
+            self.game.player_turn.jauge_de_confiance -= 15
+            if self.game.player_turn.carte1 == self.game.player_turn.caractere.cartes.Adaptation:
+                if choix_de_carte == 1:
+                    self.game.player_turn.carte1 = self.game.player_not_turn.carte1
+                if choix_de_carte == 2:
+                    self.game.player_turn.carte1 = self.game.player_not_turn.carte2
+                if choix_de_carte == 3:
+                    self.game.player_turn.carte1 = self.game.player_not_turn.carte3
+            elif self.game.player_turn.carte2 == self.game.player_turn.caractere.cartes.Adaptation:
+                if choix_de_carte == 1:
+                    self.game.player_turn.carte2 = self.game.player_not_turn.carte1
+                if choix_de_carte == 2:
+                    self.game.player_turn.carte2 = self.game.player_not_turn.carte2
+                if choix_de_carte == 3:
+                    self.game.player_turn.carte2 = self.game.player_not_turn.carte3
+            elif self.game.player_turn.carte3 == self.game.player_turn.caractere.cartes.Adaptation:
+                if choix_de_carte == 1:
+                    if self.game.player_not_turn.carte1 != None:
+                        self.game.player_turn.carte3 = self.game.player_not_turn.carte1
+                    else:
+                        choix_de_carte = 2
+                if choix_de_carte == 2:
+                    if self.game.player_not_turn.carte2 != None:
+                        self.game.player_turn.carte3 = self.game.player_not_turn.carte2
+                    else:
+                        choix_de_carte = 3
+                if choix_de_carte == 3:
+                    if self.game.player_not_turn.carte3 != None:
+                        self.game.player_turn.carte3 = self.game.player_not_turn.carte3
+                    else:
+                        choix_de_carte = 4
+                if choix_de_carte == 4:
+                    self.game.player_turn.jauge_de_confiance += 15
+
+
 
 class Esprit_vif(Cartes):
     def __init__(self, game,  name, type):

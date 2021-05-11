@@ -44,8 +44,6 @@ class Player2():
         while self.number_carte3 == self.number_carte2:
             self.number_carte3 = randint(3, 14)
         self.carte3 = self.caractere.list_cartes[self.number_carte3]
-    def cc(self):
-        pass
 
 
 class Main_carte_p2(Player2):
@@ -56,6 +54,7 @@ class Main_carte_p2(Player2):
         self.close_button = pygame.image.load("assets/game/close_menu_carte.png")
         self.close_button_rect = self.close_button.get_rect()
         self.close_button_rect.center = (self.closex, self.closey)
+        self.carte_none = pygame.image.load("assets/cartes/dos_carte_fer.png")
         self.no_option = False
     def display_menu(self):
         self.run_display = True
