@@ -259,10 +259,10 @@ class Game():
                             self.select_player.carte_liam = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.liam_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Liam("Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
+                                self.player1.caractere = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
                                 self.select_player.player1 = "Liam"
                             else:
-                                self.player2.caractere = Liam("Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
+                                self.player2.caractere = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
                                 self.select_player.player2 = "Liam"
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_ambre_rect.collidepoint(pygame.mouse.get_pos()):
@@ -270,11 +270,11 @@ class Game():
                             self.select_player.carte_ambre = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.ambre_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Ambre("Ambre", "de Croy", "noble", "jeune", "F", "La demoiselle")
+                                self.player1.caractere = Ambre(self, "Ambre", "de Croy", "noble", "jeune", "F", "La demoiselle")
                                 self.select_player.player1 = "Ambre"
                                 
                             else:
-                                self.player2.caractere = Ambre("Ambre", "deCroy", "noble", "jeune", "F", "La demoiselle" )
+                                self.player2.caractere = Ambre(self, "Ambre", "deCroy", "noble", "jeune", "F", "La demoiselle" )
                                 self.select_player.player2 = "Ambre"
                             print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_alfred_rect.collidepoint(pygame.mouse.get_pos()):
@@ -282,10 +282,10 @@ class Game():
                             self.select_player.carte_alfred = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.alfred_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Alfred("Alfred", "Heimsworth", "noble", "vieux", "M", "Le majordome")
+                                self.player1.caractere = Alfred(self, "Alfred", "Heimsworth", "noble", "vieux", "M", "Le majordome")
                                 self.select_player.player1 = "Alfred"
                             else:
-                                self.player2.caractere = Alfred("Alfred", "Heimsworth", "noble", "vieux", "M", "Le majordome")
+                                self.player2.caractere = Alfred(self, "Alfred", "Heimsworth", "noble", "vieux", "M", "Le majordome")
                                 self.select_player.player2 = "Alfred"
                         
                             print(self.select_player.player1, self.select_player.player2)
@@ -294,11 +294,11 @@ class Game():
                             self.select_player.carte_crystal = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.crystal_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Crystal("Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
+                                self.player1.caractere = Crystal(self, "Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
                                 self.select_player.player1 = "Crystal"
 
                             else:
-                                self.player2.caractere = Crystal("Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
+                                self.player2.caractere = Crystal(self, "Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
                                 self.select_player.player2 = "Crystal"
 
 
@@ -335,3 +335,53 @@ class Game():
         text_rect = text_surface.get_rect()
         text_rect.center = (x,y)
         self.display.blit(text_surface,text_rect)
+
+    class Liste_carte():
+        def __init__(self):
+            # Liam
+            self.True_story = True_story(self, "True story", "Unique")
+            self.Peche_davarice = Peche_davarice(self, "Peche davarice", "Unique")
+            self.Gamin_des_rues = Gamin_des_rues(self, "Gamin des rues", "Unique")
+            # Ambre
+            self.Secret_familial = Secret_familial(self, "Secret familial", "Unique")
+            self.Regard_enjoleur = Regard_enjoleur(self, "Regard enjoleur", "Unique")
+            self.Conseils_avisees = Conseils_avisees(self, "Conseils avisees", "Unique")
+            # Alfred
+            self.Cest_pas_au_vieux_singe = Cest_pas_au_vieux_singe(self, "Cest pas au vieux singe", "Unique")
+            self.Seconde_vie = Seconde_vie(self, "Seconde vie", "Unique")
+            self.Service_sur_mesure = Service_sur_mesure(self, "Service sur mesure", "Unique")
+            # Crystal
+            self.Rhetorique_de_limperatrice = Rhetorique_de_limperatrice(self, "Rhetorique de limperatrice", "Unique")
+            self.Sombre_formule = Sombre_formule(self, "Sombre formule", "Unique")
+            self.Influence_mystique = Influence_mystique(self, "Influence mystique", "Unique")
+            # Cartes Comune
+            # Jeune
+            self.Gout_du_risque = Gout_du_risque(self, "Gout du risque", "Jeune")
+            self.Sante_de_fer = Sante_de_fer(self, "Sante de fer", "Jeune")
+            self.Adaptation = Adaptation(self, "Adaptation ", "Jeune")
+            self.Esprit_vif = Esprit_vif(self, "Esprit vif ", "Jeune")
+            # âgé
+            self.Experience_de_lage = Experience_de_lage(self, "Experience de lage ", "âgé")
+            self.Veteran = Veteran(self, " Veteran ", "âgé")
+            self.Sante_fragile = Sante_fragile(self, " Sante fragile ", "âgé")
+            self.Oeil_sage = Oeil_sage(self, " Oeil sage", "âgé")
+            # Homme
+            self.Avantage_masculin = Avantage_masculin(self, "Avantage masculin", "Homme")
+            self.Tonalite_virile = Tonalite_virile(self, "Tonalite virile", "Homme")
+            self.Sens_du_sacrifice = Sens_du_sacrifice(self, "Sens du sacrifice", "Homme")
+            self.Monotache = Monotache(self, "Monotache", "Homme")
+            # Femme
+            self.Avantage_feminin = Avantage_feminin(self, "Avantage feminin", "Femme")
+            self.Mauvaise_foi = Mauvaise_foi(self, "Mauvaise foi", "Femme")
+            self.Seduction = Seduction(self, "Seduction", "Femme")
+            self.Multitache = Multitache(self, "Multitache", "Femme")
+            # Noble
+            self.Opulence = Opulence(self, "Opulence", "Noble")
+            self.Hautes_relations = Hautes_relations(self, "Hautes relations", "Noble")
+            self.Mepris_du_fortune = Mepris_du_fortune(self, "Mepris du fortune", "Noble")
+            self.Pot_de_vin = Pot_de_vin(self, "Pot de vin", "Noble")
+            # Populaire
+            self.Solidarite = Solidarite(self, "Solidarite", "Populaire")
+            self.Priere_misericordieuse = Priere_misericordieuse(self, "Priere misericordieuse", "Populaire")
+            self.Coup_de_chance = Coup_de_chance(self, "Coup de chance", "Populaire")
+            self.Avantage_du_nombre = Avantage_du_nombre(self, "Avantage du nombre", "Populaire")
