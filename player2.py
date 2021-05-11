@@ -45,6 +45,16 @@ class Player2():
             self.number_carte3 = randint(3, 14)
         self.carte3 = self.caractere.list_cartes[self.number_carte3]
 
+    def main_cartes_round(self):
+        if self.carte1 == None:
+            self.number_carte1 = randint(0, 14)
+            self.carte1 = self.caractere.list_cartes[self.number_carte1]
+        if self.carte2 == None:
+            self.number_carte2 = randint(0, 14)
+            self.carte2 = self.caractere.list_cartes[self.number_carte2]
+        if self.carte3 == None:
+            self.number_carte3 = randint(0, 14)
+            self.carte3 = self.caractere.list_cartes[self.number_carte3]
 
 class Main_carte_p2(Player2):
     def __init__(self, game):

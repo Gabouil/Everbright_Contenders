@@ -15,8 +15,10 @@ class Game():
         self.window = pygame.display.set_mode(((self.DISPLAY_W,self.DISPLAY_H)))
         self.font_name = 'BLKCHCRY.ttf'
         self.background = pygame.image.load("assets/game/bg.png")
+
         self.carte_use = None
-        
+        self.turn = 1
+        self.round = 1
 
         #import de game dans les class
         self.main_menu = MainMenu(self)
