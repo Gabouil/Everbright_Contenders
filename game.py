@@ -15,6 +15,7 @@ class Game():
         self.window = pygame.display.set_mode(((self.DISPLAY_W,self.DISPLAY_H)))
         self.font_name = 'BLKCHCRY.ttf'
         self.background = pygame.image.load("assets/game/bg.png")
+        self.carte_use = None
         
 
         #import de game dans les class
@@ -207,23 +208,20 @@ class Game():
                         self.curr_menu = Game
                     #click sur les carte
                     if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.carte_use = "carte1"
                         self.player1.carte1.effect_carte()
-                        if self.player1.carte1 != self.player_turn.caractere.cartes.Adaptation:
-                            self.player1.carte1 = None
                         self.curr_menu.run_display = False
                         self.p2_maine_carte.no_option = False
                         self.curr_menu = Game
                     if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.carte_use = "carte2"
                         self.player1.carte2.effect_carte()
-                        if self.player1.carte2 != self.player_turn.caractere.cartes.Adaptation:
-                            self.player1.carte2 = None
                         self.curr_menu.run_display = False
                         self.p2_maine_carte.no_option = False
                         self.curr_menu = Game
                     if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.carte_use = "carte3"
                         self.player1.carte3.effect_carte()
-                        if self.player1.carte3 != self.player_turn.caractere.cartes.Adaptation:
-                            self.player1.carte3 = None
                         self.curr_menu.run_display = False
                         self.p2_maine_carte.no_option = False
                         self.curr_menu = Game
@@ -235,23 +233,20 @@ class Game():
                         self.curr_menu = Game
                     #click sur les carte
                     if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.carte_use = "carte1"
                         self.player2.carte1.effect_carte()
-                        if self.player2.carte1 != self.player_turn.caractere.cartes.Adaptation:
-                            self.player2.carte1 = None
                         self.curr_menu.run_display = False
                         self.p2_maine_carte.no_option = False
                         self.curr_menu = Game
                     if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.carte_use = "carte2"
                         self.player2.carte2.effect_carte()
-                        if self.player2.carte2 != self.player_turn.caractere.cartes.Adaptation:
-                            self.player2.carte2 = None
                         self.curr_menu.run_display = False
                         self.p2_maine_carte.no_option = False
                         self.curr_menu = Game
                     if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.carte_use = "carte3"
                         self.player2.carte3.effect_carte()
-                        if self.player2.carte3 != self.player_turn.caractere.cartes.Adaptation:
-                            self.player2.carte3 = None
                         self.curr_menu.run_display = False
                         self.p2_maine_carte.no_option = False
                         self.curr_menu = Game

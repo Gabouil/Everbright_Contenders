@@ -11,6 +11,13 @@ class Cartes :
         self.mid_w, self.mid_h = self.DISPLAY_W / 2, self.DISPLAY_H / 2
         self.cartex, self.cartey = self.mid_w, self.mid_h
 
+    def carte_use(self):
+        if self.game.carte_use == "carte1":
+            self.game.player_turn.carte1 = None
+        elif self.game.carte_use == "carte2":
+            self.game.player_turn.carte2 = None
+        elif self.game.carte_use == "carte3":
+            self.game.player_turn.carte3 = None
 
 
 class EXODIO(Cartes):
@@ -154,15 +161,17 @@ class Gout_du_risque(Cartes):
 
     def effect_carte(self):
         self.game.list_crowd.charge_crowd()
+        self.carte_use()
+
 
 class Sante_de_fer(Cartes):
     def __init__(self, game,  name, type):
         Cartes.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/cartes/sante_de_fer.png")
 
-
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 15
+        self.carte_use()
 
 class Adaptation(Cartes):
     def __init__(self, game,  name, type):
