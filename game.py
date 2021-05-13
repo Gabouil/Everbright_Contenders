@@ -127,7 +127,6 @@ class Game():
         print(self.player_not_turn.jauge_de_confiance)
         while self.playing:
             # print(self.player_turn.jauge_de_confiance)
-            self.check_events()
             self.display.blit(self.background, (0, 0))
             self.draw_text(self.player1.caractere.firstname + " " + self.player1.caractere.name, 40, (0,0,0), self.name_player1x, self.name_player1y)
             self.draw_text(self.player2.caractere.firstname + " " + self.player2.caractere.name, 40, (0,0,0), self.name_player2x, self.name_player2y)
@@ -138,14 +137,15 @@ class Game():
             self.display.blit(self.player1.sprit_player1, self.player1.sprit_player1_rect)
             self.display.blit(self.player2.sprit_player2, self.player2.sprit_player2_rect)
             self.display.blit(self.list_crowd.button_crowd, self.list_crowd.button_crowd_rect)
-            self.display.blit(self.opion_button, self.opion_button_rect)
             self.display.blit(self.button_exlamation_pl1, self.button_exlamation_pl1_rect)
             self.display.blit(self.button_exlamation_pl2, self.button_exlamation_pl2_rect)
             self.display.blit(self.button_victoire1_pl1, self.button_victoire1_pl1_rect)
             self.display.blit(self.button_victoire2_pl1, self.button_victoire2_pl1_rect)
             self.display.blit(self.button_victoire1_pl2, self.button_victoire1_pl2_rect)
             self.display.blit(self.button_victoire2_pl2, self.button_victoire2_pl2_rect)
-            
+            self.check_events()
+            self.display.blit(self.opion_button, self.opion_button_rect)
+
             self.update_screen()
 
     def charge_carte_p1(self):
