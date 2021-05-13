@@ -3,6 +3,7 @@ from selectPlayer import *
 from player1 import *
 from player2 import *
 from crowds import *
+from  intro import *
 
 
 class Game():
@@ -22,6 +23,7 @@ class Game():
         self.round = 1
 
         #import de game dans les class
+        self.intro = Intro(self)
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
         self.regles = Rule_menu(self)
