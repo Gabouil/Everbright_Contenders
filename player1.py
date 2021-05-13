@@ -1,6 +1,8 @@
 from caractere import *
 from random import randint
 import pygame
+from cartes import *
+
 
 
 class Player1():

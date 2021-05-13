@@ -5,7 +5,7 @@ from selectPlayer import *
 from player1 import *
 from player2 import *
 from crowds import *
-from  intro import *
+from intro import *
 
 
 class Game():

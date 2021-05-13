@@ -6,6 +6,7 @@ class Intro():
         self.number = 1
         self.timer = 0
         self.bg1 = pygame.image.load("assets/frames_intro/frame (1).jpg")
+        self.bg_rect = self.bg1.get_rect()
         self.bg2 = pygame.image.load("assets/frames_intro/frame (2).jpg")
         self.bg3 = pygame.image.load("assets/frames_intro/frame (3).jpg")
         self.bg4 = pygame.image.load("assets/frames_intro/frame (4).jpg")
@@ -1765,11 +1766,20 @@ class Intro():
         pygame.mixer.music.play(0)
         self.run_intro = True
         while self.run_intro:
-            self.game.display.blit(self.frame[self.number], (0,0))
+            self.game.display.blit(self.frame[self.number], self.bg_rect)
             self.number += 1
             if self.number == 159:
                 self.FPS = 15
             if self.number == 583:
+                self.run_intro = False
                 self.game.curr_menu.display_menu()
+            self.check_event()
             self.game.main_menu.update_screen()
             self.frame_per_second.tick(self.FPS)
+
+    def check_event(self):
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.run_intro = False
+                self.game.curr_menu.display_menu()
+

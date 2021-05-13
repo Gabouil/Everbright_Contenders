@@ -1,5 +1,3 @@
-
-from cartes import Cartes
 from cartes import *
 from game import *
 
