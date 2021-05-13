@@ -481,7 +481,7 @@ class Game():
             self.Coup_de_chance = Coup_de_chance(self.game, "Coup de chance", "Acier")
             self.Avantage_du_nombre = Avantage_du_nombre(self.game, "Avantage du nombre", "Acier")
     
-    class Liste_mots():
+    class Liste_mot():
         def __init__(self,game):
             self.game = game
             #Groupe nominaux
@@ -498,6 +498,7 @@ class Game():
             self.ton_manque_dexperience = ton_manque_dexperience(self.game, "ton_manque_dexperience", "Groupe nominaux")
             self.perroquet_frippe = perroquet_frippe(self.game, "perroquet_frippe", "Groupe nominaux")
             self.la_tension = la_tension(self.game, "la_tension", "Groupe nominaux")
+            self.oh_petite_precieuse = oh_petite_precieuse(self.game, "oh_petite_precieuse", "Groupe nominaux")  
             #Groupes Nominaux / complements
             self.petit_servant = petit_servant(self.game, "petit_servant", "Groupes Nominaux / complements")
             self.faquin = faquin(self.game, "faquin", "Groupes Nominaux / complements")
