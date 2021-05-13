@@ -48,11 +48,11 @@ class MainMenu(Menu):
         self.run_display = True
         while self.run_display:
             self.game.display.blit(self.background, (0, 0))
-            self.game.check_events()
             self.game.display.blit(self.play_button, self.play_button_rect)
             self.game.display.blit(self.rules_button, self.rules_button_rect)
             self.game.display.blit(self.about_button, self.about_button_rect)
             self.game.display.blit(self.exit_button, self.exit_button_rect)
+            self.game.check_events()
             self.game.display.blit(self.opion_button, self.opion_button_rect)
             self.update_screen()
 

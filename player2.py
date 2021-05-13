@@ -20,6 +20,11 @@ class Player2():
         self.win2 = None
         self.carte_gratuit = False
         self.carte_double = False
+        self.carte_chance = False
+        self.carte_oblige = False
+        self.second_vie = False
+        self.antie_vol = False
+        self.exodio = EXODIO(self.game, "Exodio", "Divin")
 
         self.spritx, self.sprity = self.game.mid_w + 550, self.game.mid_h - 100
 

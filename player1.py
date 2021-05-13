@@ -20,6 +20,10 @@ class Player1():
         self.win2 = None
         self.carte_gratuit = False
         self.carte_double = False
+        self.carte_chance = False
+        self.carte_oblige = False
+        self.second_vie = False
+        self.exodio = EXODIO(self.game, "Exodio", "Divin")
 
         self.spritx, self.sprity = self.game.mid_w - 550, self.game.mid_h - 100
 
@@ -42,17 +46,17 @@ class Player1():
     def main_cartes(self):
         self.number_carte1 = randint(0, 2)
         # self.carte1 = self.caractere.list_cartes[self.number_carte1]
-        self.carte1 = self.caractere.list_cartes[9]
+        self.carte1 = self.caractere.list_cartes[6]
         self.number_carte2 = randint(3, 14)
         while self.number_carte2 == self.number_carte1:
             self.number_carte2 = randint(3, 14)
         # self.carte2 = self.caractere.list_cartes[self.number_carte2]
-        self.carte2 = self.caractere.list_cartes[8]
+        self.carte2 = self.caractere.list_cartes[11]
         self.number_carte3 = randint(3, 14)
         while self.number_carte3 == self.number_carte2:
             self.number_carte3 = randint(3, 14)
         # self.carte3 = self.caractere.list_cartes[self.number_carte3]
-        self.carte3 = self.caractere.list_cartes[7]
+        self.carte3 = self.caractere.list_cartes[2]
 
     def main_cartes_round(self):
         if self.carte1 == None:
