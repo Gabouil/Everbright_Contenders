@@ -18,7 +18,9 @@ class Game():
 
         self.carte_use = None
         self.turn = 1
+        self.turn2 = "Tourn 2"
         self.round = 1
+        self.round2 = "Round 2 "
 
         #import de game dans les class
         self.main_menu = MainMenu(self)
@@ -46,6 +48,9 @@ class Game():
         
         self.surnom_player1x, self.surnom_player1y = self.mid_w - 590, self.mid_h - 400
         self.surnom_player2x, self.surnom_player2y = self.mid_w + 590, self.mid_h - 400
+
+        self.round2x, self.round2y = self.mid_w + 10, self.mid_h - 450 
+        self.turn2x, self.turn2y = self.mid_w + 10, self.mid_h - 400
         
         self.button_carte_pl1x, self.button_carte_pl1y = self.mid_w - 360, self.mid_h + 250
         self.button_carte_pl2x, self.button_carte_pl2y = self.mid_w + 360, self.mid_h + 250
@@ -125,6 +130,8 @@ class Game():
             self.draw_text(self.player2.caractere.firstname + " " + self.player2.caractere.name, 40, (0,0,0), self.name_player2x, self.name_player2y)
             self.draw_text(' " '+self.player1.caractere.surnom+' " ', 25, (0,0,0), self.surnom_player1x, self.surnom_player1y)
             self.draw_text(' " '+self.player2.caractere.surnom+' " ', 25, (0,0,0), self.surnom_player2x, self.surnom_player2y)
+            self.draw_text(self.round2, 50, (0,0,0), self.round2x, self.round2y)
+            self.draw_text(self.turn2, 30, (0,128,0), self.turn2x, self.turn2y)
             self.display.blit(self.button_carte_pl1, self.button_carte_pl1_rect)
             self.display.blit(self.button_carte_pl2, self.button_carte_pl2_rect)
             self.display.blit(self.player1.sprit_player1, self.player1.sprit_player1_rect)

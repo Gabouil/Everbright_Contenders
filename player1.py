@@ -2,11 +2,13 @@ from caractere import *
 from random import randint
 import pygame
 
+
 class Player1():
     def __init__(self,game):
         self.game = game
         self.list_boutdephrase = [1, 2, 3]
         self.jauge_de_confiance = 0
+        self.bonus_publique = 5
         self.caractere = None
         self.carte1 = 0
         self.number_carte1 = 0
@@ -30,6 +32,12 @@ class Player1():
         self.sprit_player1 = self.caractere.img
         self.sprit_player1_rect = self.sprit_player1.get_rect()
         self.sprit_player1_rect.center = (self.spritx, self.sprity)
+    
+    #def influence_publique(self):
+        
+        
+
+        
 
     def main_cartes(self):
         self.number_carte1 = randint(0, 2)
