@@ -238,21 +238,21 @@ class Game():
                         if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
                             self.carte_use = "carte1"
                             self.curr_menu.run_display = False
-                            self.p2_maine_carte.no_option = False
+                            self.p1_maine_carte.no_option = False
                             self.player1.carte1.effect_carte()
                             self.curr_menu = Game
                     if self.player1.carte2 != None:
                         if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
                             self.carte_use = "carte2"
                             self.curr_menu.run_display = False
-                            self.p2_maine_carte.no_option = False
+                            self.p1_maine_carte.no_option = False
                             self.player1.carte2.effect_carte()
                             self.curr_menu = Game
                     if self.player1.carte3 != None:
                         if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
                             self.carte_use = "carte3"
                             self.curr_menu.run_display = False
-                            self.p2_maine_carte.no_option = False
+                            self.p1_maine_carte.no_option = False
                             self.player1.carte3.effect_carte()
                             self.curr_menu = Game
 

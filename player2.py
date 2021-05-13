@@ -72,6 +72,7 @@ class Main_carte_p2(Player2):
         self.close_button_rect = self.close_button.get_rect()
         self.close_button_rect.center = (self.closex, self.closey)
         self.carte_none = pygame.image.load("assets/cartes/dos_carte_fer.png")
+        self.no_option = False
     def display_menu(self):
         self.run_display = True
         self.game.charge_carte_p2()
