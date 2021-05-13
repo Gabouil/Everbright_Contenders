@@ -1762,9 +1762,9 @@ class Intro():
 
 
     def play_intro(self):
+        self.run_intro = True
         pygame.mixer.music.load("song/main_menu_theme.ogg")
         pygame.mixer.music.play(0)
-        self.run_intro = True
         while self.run_intro:
             self.game.display.blit(self.frame[self.number], self.bg_rect)
             self.number += 1
