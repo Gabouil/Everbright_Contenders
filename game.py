@@ -6,6 +6,7 @@ from player1 import *
 from player2 import *
 from crowds import *
 from intro import *
+from sound import *
 
 
 class Game():
@@ -219,6 +220,7 @@ class Game():
                 self.curr_menu.run_display = False
                 pygame.quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
+                click_sound.play()
                 # Button du jeux
                 if self.curr_menu == Game:
                     if self.player_turn == self.player1:

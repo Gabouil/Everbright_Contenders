@@ -2,6 +2,7 @@ import random
 import pygame
 from game import *
 from caractere import *
+from sound import *
 
 class Cartes :
     def __init__(self, game,  name, type):
@@ -234,6 +235,7 @@ class Influence_mystique(Cartes):
     def check_events_mystique_carte(self):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
+                click_sound.play()
                 if self.mystique_carte1_rect.collidepoint(pygame.mouse.get_pos()):
                     if self.game.carte_use == "carte1":
                         self.game.player_turn.carte1 = self.carte1_mystique
@@ -516,6 +518,7 @@ class Opulence(Cartes):
     def check_events_opulence_carte(self):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
+                click_sound.play()
                 if self.opulence_carte1_rect.collidepoint(pygame.mouse.get_pos()):
                     self.game.carte_use = "carte1"
                     if self.game.player_turn.carte1.type == "Argent":
