@@ -46,7 +46,7 @@ class EXODIO(Cartes):
             pass
         elif chance_effect == 2:
             caractere = random.randint(1, 4)
-            if caractere == 1:
+            if caractere == 4:
                 self.game.player_turn.carte1 = self.game.liam.list_cartes[0]
                 self.game.player_turn.carte2 = self.game.liam.list_cartes[1]
                 self.game.player_turn.carte3 = self.game.liam.list_cartes[2]
@@ -58,7 +58,7 @@ class EXODIO(Cartes):
                 self.game.player_turn.carte1 = self.game.alfred.list_cartes[0]
                 self.game.player_turn.carte2 = self.game.alfred.list_cartes[1]
                 self.game.player_turn.carte3 = self.game.alfred.list_cartes[2]
-            if caractere == 4:
+            if caractere == 1:
                 self.game.player_turn.carte1 = self.game.crystal.list_cartes[0]
                 self.game.player_turn.carte2 = self.game.crystal.list_cartes[1]
                 self.game.player_turn.carte3 = self.game.crystal.list_cartes[2]
