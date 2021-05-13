@@ -1,6 +1,7 @@
 import random
 import pygame
 from game import *
+from caractere import *
 
 class Cartes :
     def __init__(self, game,  name, type):
@@ -19,24 +20,48 @@ class Cartes :
         elif self.game.carte_use == "carte3":
             self.game.player_turn.carte3 = None
 
-
 class EXODIO(Cartes):
     def __init__(self, game,  name, type):
         Cartes.__init__(self, game,  name, type)
-        self. EXODIO = pygame.image.load("assets/cartes/")
-        self. EXODIO_rect = self. EXODIO.get_rect()
-        self. EXODIO_rect.center = (self.cartex, self.cartey)
+        self.img = pygame.image.load("assets/cartes/exodio.png")
 
-        self.chance_play = 1.2
-        self.chance_effect = random.randint(1,4)
+        self.chance_play = 38
+
+    def retour_du_dieu(self):
+        chance = random.randint(1,100)
+        chance = 38
+        if chance == self.chance_play:
+            player = random.randint(1,1)
+            if player == 1:
+                self.game.player1.carte1 = self.game.player1.exodio
+            elif player == 2:
+                self.game.player2.carte1 = self.game.player2.exodio
 
     def effect_carte(self):
-        if self.chance_effect == 3 or self.chance_effect == 4:
+        chance_effect = random.randint(1,4)
+        chance_effect = 2
+        if chance_effect == 3 or chance_effect == 4:
             pass
-        elif self.chance_effect == 1:
+        elif chance_effect == 1:
             pass
-        elif self.chance_effect == 2:
-            pass
+        elif chance_effect == 2:
+            caractere = random.randint(1, 4)
+            if caractere == 1:
+                self.game.player_turn.carte1 = self.game.liam.list_cartes[0]
+                self.game.player_turn.carte2 = self.game.liam.list_cartes[1]
+                self.game.player_turn.carte3 = self.game.liam.list_cartes[2]
+            if caractere == 2:
+                self.game.player_turn.carte1 = self.game.ambre.list_cartes[0]
+                self.game.player_turn.carte2 = self.game.ambre.list_cartes[1]
+                self.game.player_turn.carte3 = self.game.ambre.list_cartes[2]
+            if caractere == 3:
+                self.game.player_turn.carte1 = self.game.alfred.list_cartes[0]
+                self.game.player_turn.carte2 = self.game.alfred.list_cartes[1]
+                self.game.player_turn.carte3 = self.game.alfred.list_cartes[2]
+            if caractere == 4:
+                self.game.player_turn.carte1 = self.game.crystal.list_cartes[0]
+                self.game.player_turn.carte2 = self.game.crystal.list_cartes[1]
+                self.game.player_turn.carte3 = self.game.crystal.list_cartes[2]
 
 
 # carte unique
@@ -51,6 +76,7 @@ class True_story(Cartes):
         self.game.list_crowd.crowd = self.game.list_crowd.liste_crowd[0]
         self.game.list_crowd.button_crowd = self.game.list_crowd.crowd.img
         self.game.list_crowd.change_crowd = False
+        self.carte_use()
 
 class Peche_davarice(Cartes):
     def __init__(self, game,  name, type):
@@ -58,7 +84,8 @@ class Peche_davarice(Cartes):
         self.img = pygame.image.load("assets/cartes/peche_davarice.png")
 
     def effect_carte(self):
-        pass
+        self.game.liam_avarice = True
+        self.carte_use()
 
 class Gamin_des_rues(Cartes):
     def __init__(self, game,  name, type):
@@ -66,7 +93,11 @@ class Gamin_des_rues(Cartes):
         self.img = pygame.image.load("assets/cartes/gamin_des_rues.png")
 
     def effect_carte(self):
-        pass
+        number = random.randint(15, 25)
+        if self.game.player_not_turn.antie_vol == False:
+            self.game.player_not_turn.jauge_de_confiance -= number
+            self.game.player_turn.jauge_de_confiance += number
+        self.carte_use()
 
 #Ambre
 class Secret_familial(Cartes):
@@ -85,7 +116,8 @@ class Regard_enjoleur(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_not_turn.carte_oblige = True
+        self.carte_use()
 
 class Conseils_avisees(Cartes):
     def __init__(self, game,  name, type):
@@ -94,7 +126,15 @@ class Conseils_avisees(Cartes):
 
 
     def effect_carte(self):
-        pass
+        choix = random.randint(1, 3)
+        if choix == 1:
+            self.game.player_not_turn.carte1 = None
+        elif choix == 2:
+            self.game.player_not_turn.carte2 = None
+        elif choix == 3:
+            self.game.player_not_turn.carte3 = None
+        self.carte_use()
+
 
 #Alfred
 class Cest_pas_au_vieux_singe(Cartes):
@@ -113,7 +153,8 @@ class Seconde_vie(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.second_vie = True
+        self.carte_use()
 
 class Service_sur_mesure(Cartes):
     def __init__(self, game,  name, type):
@@ -122,7 +163,8 @@ class Service_sur_mesure(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.antie_vol = True
+        self.carte_use()
 
 #Crystal
 class Rhetorique_de_limperatrice(Cartes):
@@ -147,9 +189,72 @@ class Influence_mystique(Cartes):
         Cartes.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/cartes/influence_mystique.png")
 
+    def main_cartes(self):
+        self.number_carte1 = random.randint(0, 14)
+        self.carte1_mystique = self.game.player_not_turn.caractere.list_cartes[self.number_carte1]
+        self.number_carte2 = random.randint(0, 14)
+        while self.number_carte2 == self.number_carte1:
+            self.number_carte2 = random.randint(0, 14)
+        self.carte2_mystique = self.game.player_not_turn.caractere.list_cartes[self.number_carte2]
+        self.number_carte3 = random.randint(0, 14)
+        while self.number_carte3 == self.number_carte2:
+            self.number_carte3 = random.randint(0, 14)
+        self.carte3_mystique = self.game.player_not_turn.caractere.list_cartes[self.number_carte3]
+
+    def mystique_cartes(self):
+        self.mystique_carte1 = self.carte1_mystique.img
+        self.mystique_carte1_rect = self.mystique_carte1.get_rect()
+        self.mystique_carte1_rect.center = (self.game.player_turn.pcarte1x, self.game.player_turn.pcarte1y)
+        self.mystique_carte2 = self.carte2_mystique.img
+        self.mystique_carte2_rect = self.mystique_carte2.get_rect()
+        self.mystique_carte2_rect.center = (self.game.player_turn.pcarte2x, self.game.player_turn.pcarte2y)
+        self.mystique_carte3 = self.carte3_mystique.img
+        self.mystique_carte3_rect = self.mystique_carte3.get_rect()
+        self.mystique_carte3_rect.center = (self.game.player_turn.pcarte3x, self.game.player_turn.pcarte3y)
+
+    def display_mystique_cartes(self):
+        self.run_display = True
+        self.no_option = True
+        self.mystique_cartes()
+        while self.run_display:
+            self.game.display.blit(self.game.p1_maine_carte.background, (0,0))
+            self.check_events_mystique_carte()
+            self.game.display.blit(self.mystique_carte1, self.mystique_carte1_rect)
+            self.game.display.blit(self.mystique_carte2, self.mystique_carte2_rect)
+            self.game.display.blit(self.mystique_carte3, self.mystique_carte3_rect)
+            self.game.update_screen()
+
+    def check_events_mystique_carte(self):
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.mystique_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                    if self.game.carte_use == "carte1":
+                        self.game.player_turn.carte1 = self.carte1_mystique
+                    elif self.game.carte_use == "carte2":
+                        self.game.player_turn.carte2 = self.carte1_mystique
+                    elif self.game.carte_use == "carte3":
+                        self.game.player_turn.carte3 = self.carte1_mystique
+                    self.run_display = False
+                if self.mystique_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                    if self.game.carte_use == "carte1":
+                        self.game.player_turn.carte1 = self.carte2_mystique
+                    elif self.game.carte_use == "carte2":
+                        self.game.player_turn.carte2 = self.carte2_mystique
+                    elif self.game.carte_use == "carte3":
+                        self.game.player_turn.carte3 = self.carte2_mystique
+                    self.run_display = False
+                if self.mystique_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                    if self.game.carte_use == "carte1":
+                        self.game.player_turn.carte1 = self.carte3_mystique
+                    elif self.game.carte_use == "carte2":
+                        self.game.player_turn.carte2 = self.carte3_mystique
+                    elif self.game.carte_use == "carte3":
+                        self.game.player_turn.carte3 = self.carte3_mystique
+                    self.run_display = False
 
     def effect_carte(self):
-        pass
+        self.main_cartes()
+        self.display_mystique_cartes()
 
 #Cartes Comune
 #Jeune
@@ -159,7 +264,8 @@ class Gout_du_risque(Cartes):
         self.img = pygame.image.load("assets/cartes/gout_du_risque.png")
 
     def effect_carte(self):
-        self.game.list_crowd.charge_crowd()
+        if self.game.list_crowd.change_crowd:
+            self.game.list_crowd.charge_crowd()
         self.carte_use()
 
 
@@ -264,12 +370,13 @@ class Avantage_masculin(Cartes):
 
 
     def effect_carte(self):
-        if self.game.player_not_turn.sexe == "F":
-            self.game.player_not_turn.jauge_de_confiance -= 10
-            self.game.player_turn.jauge_de_confiance += 10
-        elif self.game.player_not_turn.sexe == "M":
-            self.game.player_not_turn.jauge_de_confiance -= 5
-            self.game.player_turn.jauge_de_confiance += 5
+        if self.game.player_not_turn.antie_vol == False:
+            if self.game.player_not_turn.caractere.sexe == "F":
+                self.game.player_not_turn.jauge_de_confiance -= 10
+                self.game.player_turn.jauge_de_confiance += 10
+            elif self.game.player_not_turn.caractere.sexe == "M":
+                self.game.player_not_turn.jauge_de_confiance -= 5
+                self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
 
 
@@ -310,12 +417,13 @@ class Avantage_feminin(Cartes):
 
 
     def effect_carte(self):
-        if self.game.player_not_turn.sexe == "M":
-            self.game.player_not_turn.jauge_de_confiance -= 10
-            self.game.player_turn.jauge_de_confiance += 10
-        elif self.game.player_not_turn.sexe == "F":
-            self.game.player_not_turn.jauge_de_confiance -= 5
-            self.game.player_turn.jauge_de_confiance += 5
+        if self.game.player_not_turn.antie_vol == False:
+            if self.game.player_not_turn.caractere.sexe == "M":
+                self.game.player_not_turn.jauge_de_confiance -= 10
+                self.game.player_turn.jauge_de_confiance += 10
+            elif self.game.player_not_turn.caractere.sexe == "F":
+                self.game.player_not_turn.jauge_de_confiance -= 5
+                self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
 
 class Mauvaise_foi(Cartes):
@@ -328,14 +436,17 @@ class Mauvaise_foi(Cartes):
         if self.game.player_turn.carte_gratuit:
             self.game.player_turn.carte_gratuit = False
             self.game.player_not_turn.carte_double = True
-        if self.game.player_turn.carte_double :
+            self.carte_use()
+        elif self.game.player_turn.carte_double :
             if self.game.player_turn.jauge_de_confiance >= 10:
                 self.game.player_not_turn.carte_double = True
                 self.game.player_turn.carte_double = False
                 self.game.player_turn.jauge_de_confiance -= 10
+                self.carte_use()
         elif self.game.player_turn.jauge_de_confiance >= 5 or self.game.player_turn.carte_gratuit :
             self.game.player_not_turn.carte_double = True
             self.game.player_turn.jauge_de_confiance -= 5
+            self.carte_use()
         
 
 class Seduction(Cartes):
@@ -345,7 +456,8 @@ class Seduction(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.jauge_de_confiance += 10
+        self.carte_use()
 
 class Multitache(Cartes):
     def __init__(self, game,  name, type):
@@ -362,9 +474,73 @@ class Opulence(Cartes):
         Cartes.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/cartes/opulence.png")
 
+    def opulence_cartes(self):
+        if self.game.player_turn.carte1 == None:
+            self.opulence_carte1 = self.game.p1_maine_carte.carte_none
+        else:
+            self.opulence_carte1 = self.game.player_turn.carte1.img
+        self.opulence_carte1_rect = self.opulence_carte1.get_rect()
+        self.opulence_carte1_rect.center = (self.game.player_turn.pcarte1x, self.game.player_turn.pcarte1y)
+        if self.game.player_turn.carte2 == None:
+            self.opulence_carte2 = self.game.p1_maine_carte.carte_none
+        else:
+            self.opulence_carte2 = self.game.player_turn.carte2.img
+        self.opulence_carte2_rect = self.opulence_carte2.get_rect()
+        self.opulence_carte2_rect.center = (self.game.player_turn.pcarte2x, self.game.player_turn.pcarte2y)
+        if self.game.player_turn.carte3 == None:
+            self.opulence_carte3 = self.game.p1_maine_carte.carte_none
+        else:
+            self.opulence_carte3 = self.game.player_turn.carte3.img
+        self.opulence_carte3_rect = self.opulence_carte3.get_rect()
+        self.opulence_carte3_rect.center = (self.game.player_turn.pcarte3x, self.game.player_turn.pcarte3y)
+
+    def display_opulence_cartes(self):
+        self.run_display = True
+        self.no_option = True
+        self.opulence_cartes()
+        while self.run_display:
+            self.game.display.blit(self.game.p1_maine_carte.background, (0,0))
+            self.check_events_opulence_carte()
+            self.game.display.blit(self.opulence_carte1, self.opulence_carte1_rect)
+            self.game.display.blit(self.opulence_carte2, self.opulence_carte2_rect)
+            self.game.display.blit(self.opulence_carte3, self.opulence_carte3_rect)
+            self.game.update_screen()
+
+    def check_events_opulence_carte(self):
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if self.opulence_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                    self.game.carte_use = "carte1"
+                    if self.game.player_turn.carte1.type == "Argent":
+                        self.game.player_turn.jauge_de_confiance += 30
+                    elif self.game.player_turn.carte1.type == "Bronze":
+                        self.game.player_turn.jauge_de_confiance += 20
+                    elif self.game.player_turn.carte1.type == "Acier":
+                        self.game.player_turn.jauge_de_confiance += 10
+                    self.run_display = False
+                if self.opulence_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                    self.game.carte_use = "carte2"
+                    if self.game.player_turn.carte2.type == "Argent":
+                        self.game.player_turn.jauge_de_confiance += 30
+                    elif self.game.player_turn.carte2.type == "Bronze":
+                        self.game.player_turn.jauge_de_confiance += 20
+                    elif self.game.player_turn.carte2.type == "Acier":
+                        self.game.player_turn.jauge_de_confiance += 10
+                    self.run_display = False
+                if self.opulence_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                    self.game.carte_use = "carte3"
+                    if self.game.player_turn.carte3.type == "Argent":
+                        self.game.player_turn.jauge_de_confiance += 30
+                    elif self.game.player_turn.carte3.type == "Bronze":
+                        self.game.player_turn.jauge_de_confiance += 20
+                    elif self.game.player_turn.carte3.type == "Acier":
+                        self.game.player_turn.jauge_de_confiance += 10
+                    self.run_display = False
 
     def effect_carte(self):
-        pass
+        self.carte_use()
+        self.display_opulence_cartes()
+        self.carte_use()
 
 class Hautes_relations(Cartes):
     def __init__(self, game,  name, type):
@@ -373,7 +549,9 @@ class Hautes_relations(Cartes):
 
 
     def effect_carte(self):
-        pass
+        if self.game.list_crowd.change_crowd:
+            self.game.list_crowd.charge_crowd()
+        self.carte_use()
 
 class Mepris_du_fortune(Cartes):
     def __init__(self, game,  name, type):
@@ -381,7 +559,8 @@ class Mepris_du_fortune(Cartes):
         self.img = pygame.image.load("assets/cartes/mepris_du_fortune.png")
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.jauge_de_confiance += 15
+        self.carte_use()
 
 class Pot_de_vin(Cartes):
     def __init__(self, game,  name, type):
@@ -390,7 +569,14 @@ class Pot_de_vin(Cartes):
 
 
     def effect_carte(self):
-        pass
+        if self.game.player_not_turn.antie_vol == False:
+            if self.game.player_not_turn.caractere.classe_sociale == "populaire":
+                self.game.player_not_turn.jauge_de_confiance -= 10
+                self.game.player_turn.jauge_de_confiance += 10
+            elif self.game.player_not_turn.caractere.classe_sociale == "noble":
+                self.game.player_not_turn.jauge_de_confiance -= 5
+                self.game.player_turn.jauge_de_confiance += 5
+            self.carte_use()
 
 #Populaire
 class Solidarite(Cartes):
@@ -400,7 +586,8 @@ class Solidarite(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.jauge_de_confiance += 15
+        self.carte_use()
 
 class Priere_misericordieuse(Cartes):
     def __init__(self, game,  name, type):
@@ -409,7 +596,15 @@ class Priere_misericordieuse(Cartes):
 
 
     def effect_carte(self):
-        pass
+        chance = random.randint(1, 2)
+        if self.game.player_turn.carte_chance:
+            self.game.player_turn.jauge_de_confiance += 20
+        elif chance == 1:
+            self.game.player_turn.jauge_de_confiance += 20
+            self.carte_use()
+        elif chance == 2:
+            self.game.player_turn.jauge_de_confiance -= 5
+            self.carte_use()
 
 class Coup_de_chance(Cartes):
     def __init__(self, game,  name, type):
@@ -418,7 +613,8 @@ class Coup_de_chance(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.carte_chance = True
+        self.carte_use()
 
 class Avantage_du_nombre(Cartes):
     def __init__(self, game,  name, type):
@@ -427,4 +623,11 @@ class Avantage_du_nombre(Cartes):
 
 
     def effect_carte(self):
-        pass
+        if self.game.player_not_turn.antie_vol == False:
+            if self.game.player_not_turn.caractere.classe_sociale == "noble":
+                self.game.player_not_turn.jauge_de_confiance -= 10
+                self.game.player_turn.jauge_de_confiance += 10
+            elif self.game.player_not_turn.caractere.classe_sociale == "populaire":
+                self.game.player_not_turn.jauge_de_confiance -= 5
+                self.game.player_turn.jauge_de_confiance += 5
+        self.carte_use()

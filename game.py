@@ -17,6 +17,7 @@ class Game():
         self.background = pygame.image.load("assets/game/bg.png")
 
         self.carte_use = None
+        self.liam_avarice = False
         self.turn = 1
         self.round = 1
 
@@ -31,6 +32,11 @@ class Game():
         self.list_crowd = Liste_crowd(self)
         self.player_turn = self.player1
         self.player_not_turn = self.player2
+
+        self.liam = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
+        self.ambre = Ambre(self, "Ambre", "de Croy", "noble", "jeune", "F", "La demoiselle")
+        self.alfred = Alfred(self, "Alfred", "Heimsworth", "noble", "vieux", "M", "Le majordome")
+        self.crystal = Crystal(self, "Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
 
         #import de game dans la class selctplayer
         self.select_player = SelectPlayer(self)
@@ -106,6 +112,7 @@ class Game():
         self.player2.main_cartes()
         self.player1.charge_sprit()
         self.player2.charge_sprit()
+        self.player1.exodio.retour_du_dieu()
         self.list_crowd.charge_crowd()
 
 
@@ -119,6 +126,7 @@ class Game():
         print(self.player_turn.jauge_de_confiance)
         print(self.player_not_turn.jauge_de_confiance)
         while self.playing:
+            # print(self.player_turn.jauge_de_confiance)
             self.check_events()
             self.display.blit(self.background, (0, 0))
             self.draw_text(self.player1.caractere.firstname + " " + self.player1.caractere.name, 40, (0,0,0), self.name_player1x, self.name_player1y)
@@ -211,24 +219,27 @@ class Game():
                         self.p1_maine_carte.no_option = False
                         self.curr_menu = Game
                     #click sur les carte
-                    if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.carte_use = "carte1"
-                        self.player1.carte1.effect_carte()
-                        self.curr_menu.run_display = False
-                        self.p2_maine_carte.no_option = False
-                        self.curr_menu = Game
-                    if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.carte_use = "carte2"
-                        self.player1.carte2.effect_carte()
-                        self.curr_menu.run_display = False
-                        self.p2_maine_carte.no_option = False
-                        self.curr_menu = Game
-                    if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.carte_use = "carte3"
-                        self.player1.carte3.effect_carte()
-                        self.curr_menu.run_display = False
-                        self.p2_maine_carte.no_option = False
-                        self.curr_menu = Game
+                    if self.player1.carte1 != None:
+                        if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.carte_use = "carte1"
+                            self.curr_menu.run_display = False
+                            self.p2_maine_carte.no_option = False
+                            self.player1.carte1.effect_carte()
+                            self.curr_menu = Game
+                    if self.player1.carte2 != None:
+                        if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.carte_use = "carte2"
+                            self.curr_menu.run_display = False
+                            self.p2_maine_carte.no_option = False
+                            self.player1.carte2.effect_carte()
+                            self.curr_menu = Game
+                    if self.player1.carte3 != None:
+                        if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.carte_use = "carte3"
+                            self.curr_menu.run_display = False
+                            self.p2_maine_carte.no_option = False
+                            self.player1.carte3.effect_carte()
+                            self.curr_menu = Game
 
                 if self.curr_menu == self.p2_maine_carte:
                     if self.p2_maine_carte.close_button_rect.collidepoint(pygame.mouse.get_pos()):
@@ -236,24 +247,27 @@ class Game():
                         self.p2_maine_carte.no_option = False
                         self.curr_menu = Game
                     #click sur les carte
-                    if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.carte_use = "carte1"
-                        self.player2.carte1.effect_carte()
-                        self.curr_menu.run_display = False
-                        self.p2_maine_carte.no_option = False
-                        self.curr_menu = Game
-                    if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.carte_use = "carte2"
-                        self.player2.carte2.effect_carte()
-                        self.curr_menu.run_display = False
-                        self.p2_maine_carte.no_option = False
-                        self.curr_menu = Game
-                    if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
-                        self.carte_use = "carte3"
-                        self.player2.carte3.effect_carte()
-                        self.curr_menu.run_display = False
-                        self.p2_maine_carte.no_option = False
-                        self.curr_menu = Game
+                    if self.player2.carte1 != None:
+                        if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.carte_use = "carte1"
+                            self.curr_menu.run_display = False
+                            self.p2_maine_carte.no_option = False
+                            self.player2.carte1.effect_carte()
+                            self.curr_menu = Game
+                    if self.player2.carte2 != None:
+                        if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.carte_use = "carte2"
+                            self.curr_menu.run_display = False
+                            self.p2_maine_carte.no_option = False
+                            self.player2.carte2.effect_carte()
+                            self.curr_menu = Game
+                    if self.player2.carte3 != None:
+                        if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.carte_use = "carte3"
+                            self.curr_menu.run_display = False
+                            self.p2_maine_carte.no_option = False
+                            self.player2.carte3.effect_carte()
+                            self.curr_menu = Game
 
 
 
@@ -325,46 +339,43 @@ class Game():
                             self.select_player.carte_liam = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.liam_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
+                                self.player1.caractere = self.liam
                                 self.select_player.player1 = "Liam"
                             else:
-                                self.player2.caractere = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
+                                self.player2.caractere = self.liam
                                 self.select_player.player2 = "Liam"
-                            print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_ambre_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.ambre_select == False and self.select_player.player2 == False:
                             self.select_player.carte_ambre = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.ambre_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Ambre(self, "Ambre", "de Croy", "noble", "jeune", "F", "La demoiselle")
+                                self.player1.caractere = self.ambre
                                 self.select_player.player1 = "Ambre"
                                 
                             else:
-                                self.player2.caractere = Ambre(self, "Ambre", "deCroy", "noble", "jeune", "F", "La demoiselle" )
+                                self.player2.caractere = self.ambre
                                 self.select_player.player2 = "Ambre"
-                            print(self.select_player.player1, self.select_player.player2)
                     if self.select_player.carte_alfred_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.alfred_select == False and self.select_player.player2 == False:
                             self.select_player.carte_alfred = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.alfred_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Alfred(self, "Alfred", "Heimsworth", "noble", "vieux", "M", "Le majordome")
+                                self.player1.caractere = self.alfred
                                 self.select_player.player1 = "Alfred"
                             else:
-                                self.player2.caractere = Alfred(self, "Alfred", "Heimsworth", "noble", "vieux", "M", "Le majordome")
+                                self.player2.caractere = self.alfred
                                 self.select_player.player2 = "Alfred"
-                        
-                            print(self.select_player.player1, self.select_player.player2)
+
                     if self.select_player.carte_crystal_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player.crystal_select == False and self.select_player.player2 == False:
                             self.select_player.carte_crystal = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.crystal_select = True
                             if self.select_player.player1 == False:
-                                self.player1.caractere = Crystal(self, "Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
+                                self.player1.caractere = self.crystal
                                 self.select_player.player1 = "Crystal"
 
                             else:
-                                self.player2.caractere = Crystal(self, "Crystal", "Devereux", "populaire", "vieux", "F", "Le requin")
+                                self.player2.caractere = self.crystal
                                 self.select_player.player2 = "Crystal"
 
 
@@ -372,11 +383,9 @@ class Game():
                 if self.curr_menu == self.regles:
                     if self.regles.page != 1:
                         if self.regles.left_button_rect.collidepoint(pygame.mouse.get_pos()):
-                            print("click gauche")
                             self.regles.page -= 1
                     if self.regles.page != 5:
                         if self.regles.right_button_rect.collidepoint(pygame.mouse.get_pos()):
-                            print("click droite")
                             self.regles.page += 1
                     if self.regles.close_option_rect.collidepoint(pygame.mouse.get_pos()):
                         if self.select_player_confirme:
@@ -406,49 +415,49 @@ class Game():
         def __init__(self,game):
             self.game = game
             # Liam
-            self.True_story = True_story(self.game, "True story", "Unique")
-            self.Peche_davarice = Peche_davarice(self.game, "Peche davarice", "Unique")
-            self.Gamin_des_rues = Gamin_des_rues(self.game, "Gamin des rues", "Unique")
+            self.True_story = True_story(self.game, "True story", "Argent")
+            self.Peche_davarice = Peche_davarice(self.game, "Peche davarice", "Bronze")
+            self.Gamin_des_rues = Gamin_des_rues(self.game, "Gamin des rues", "Bronze")
             # Ambre
-            self.Secret_familial = Secret_familial(self.game, "Secret familial", "Unique")
-            self.Regard_enjoleur = Regard_enjoleur(self.game, "Regard enjoleur", "Unique")
-            self.Conseils_avisees = Conseils_avisees(self.game, "Conseils avisees", "Unique")
+            self.Secret_familial = Secret_familial(self.game, "Secret familial", "Argent")
+            self.Regard_enjoleur = Regard_enjoleur(self.game, "Regard enjoleur", "Bronze")
+            self.Conseils_avisees = Conseils_avisees(self.game, "Conseils avisees", "Bronze")
             # Alfred
-            self.Cest_pas_au_vieux_singe = Cest_pas_au_vieux_singe(self.game, "Cest pas au vieux singe", "Unique")
-            self.Seconde_vie = Seconde_vie(self.game, "Seconde vie", "Unique")
-            self.Service_sur_mesure = Service_sur_mesure(self.game, "Service sur mesure", "Unique")
+            self.Cest_pas_au_vieux_singe = Cest_pas_au_vieux_singe(self.game, "Cest pas au vieux singe", "Argent")
+            self.Seconde_vie = Seconde_vie(self.game, "Seconde vie", "Bronze")
+            self.Service_sur_mesure = Service_sur_mesure(self.game, "Service sur mesure", "Bronze")
             # Crystal
-            self.Rhetorique_de_limperatrice = Rhetorique_de_limperatrice(self.game, "Rhetorique de limperatrice", "Unique")
-            self.Sombre_formule = Sombre_formule(self.game, "Sombre formule", "Unique")
-            self.Influence_mystique = Influence_mystique(self.game, "Influence mystique", "Unique")
+            self.Rhetorique_de_limperatrice = Rhetorique_de_limperatrice(self.game, "Rhetorique de limperatrice", "Argent")
+            self.Sombre_formule = Sombre_formule(self.game, "Sombre formule", "Bronze")
+            self.Influence_mystique = Influence_mystique(self.game, "Influence mystique", "Bronze")
             # Cartes Comune
             # Jeune
-            self.Gout_du_risque = Gout_du_risque(self.game, "Gout du risque", "Jeune")
-            self.Sante_de_fer = Sante_de_fer(self.game, "Sante de fer", "Jeune")
-            self.Adaptation = Adaptation(self.game, "Adaptation ", "Jeune")
-            self.Esprit_vif = Esprit_vif(self.game, "Esprit vif ", "Jeune")
+            self.Gout_du_risque = Gout_du_risque(self.game, "Gout du risque", "Acier")
+            self.Sante_de_fer = Sante_de_fer(self.game, "Sante de fer", "Acier")
+            self.Adaptation = Adaptation(self.game, "Adaptation ", "Acier")
+            self.Esprit_vif = Esprit_vif(self.game, "Esprit vif ", "Acier")
             # âgé
-            self.Experience_de_lage = Experience_de_lage(self.game, "Experience de lage ", "âgé")
-            self.Veteran = Veteran(self.game, " Veteran ", "âgé")
-            self.Sante_fragile = Sante_fragile(self.game, " Sante fragile ", "âgé")
-            self.Oeil_sage = Oeil_sage(self.game, " Oeil sage", "âgé")
+            self.Experience_de_lage = Experience_de_lage(self.game, "Experience de lage ", "Acier")
+            self.Veteran = Veteran(self.game, " Veteran ", "Acier")
+            self.Sante_fragile = Sante_fragile(self.game, " Sante fragile ", "Acier")
+            self.Oeil_sage = Oeil_sage(self.game, " Oeil sage", "Acier")
             # Homme
-            self.Avantage_masculin = Avantage_masculin(self.game, "Avantage masculin", "Homme")
-            self.Tonalite_virile = Tonalite_virile(self.game, "Tonalite virile", "Homme")
-            self.Sens_du_sacrifice = Sens_du_sacrifice(self.game, "Sens du sacrifice", "Homme")
-            self.Monotache = Monotache(self.game, "Monotache", "Homme")
+            self.Avantage_masculin = Avantage_masculin(self.game, "Avantage masculin", "Acier")
+            self.Tonalite_virile = Tonalite_virile(self.game, "Tonalite virile", "Acier")
+            self.Sens_du_sacrifice = Sens_du_sacrifice(self.game, "Sens du sacrifice", "Acier")
+            self.Monotache = Monotache(self.game, "Monotache", "Acier")
             # Femme
-            self.Avantage_feminin = Avantage_feminin(self.game, "Avantage feminin", "Femme")
-            self.Mauvaise_foi = Mauvaise_foi(self.game, "Mauvaise foi", "Femme")
-            self.Seduction = Seduction(self.game, "Seduction", "Femme")
-            self.Multitache = Multitache(self.game, "Multitache", "Femme")
+            self.Avantage_feminin = Avantage_feminin(self.game, "Avantage feminin", "Acier")
+            self.Mauvaise_foi = Mauvaise_foi(self.game, "Mauvaise foi", "Acier")
+            self.Seduction = Seduction(self.game, "Seduction", "Acier")
+            self.Multitache = Multitache(self.game, "Multitache", "Acier")
             # Noble
             self.Opulence = Opulence(self.game, "Opulence", "Noble")
-            self.Hautes_relations = Hautes_relations(self.game, "Hautes relations", "Noble")
-            self.Mepris_du_fortune = Mepris_du_fortune(self.game, "Mepris du fortune", "Noble")
-            self.Pot_de_vin = Pot_de_vin(self.game, "Pot de vin", "Noble")
+            self.Hautes_relations = Hautes_relations(self.game, "Hautes relations", "Acier")
+            self.Mepris_du_fortune = Mepris_du_fortune(self.game, "Mepris du fortune", "Acier")
+            self.Pot_de_vin = Pot_de_vin(self.game, "Pot de vin", "Acier")
             # Populaire
-            self.Solidarite = Solidarite(self.game, "Solidarite", "Populaire")
-            self.Priere_misericordieuse = Priere_misericordieuse(self.game, "Priere misericordieuse", "Populaire")
-            self.Coup_de_chance = Coup_de_chance(self.game, "Coup de chance", "Populaire")
-            self.Avantage_du_nombre = Avantage_du_nombre(self.game, "Avantage du nombre", "Populaire")
+            self.Solidarite = Solidarite(self.game, "Solidarite", "Acier")
+            self.Priere_misericordieuse = Priere_misericordieuse(self.game, "Priere misericordieuse", "Acier")
+            self.Coup_de_chance = Coup_de_chance(self.game, "Coup de chance", "Acier")
+            self.Avantage_du_nombre = Avantage_du_nombre(self.game, "Avantage du nombre", "Acier")
