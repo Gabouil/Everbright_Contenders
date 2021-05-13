@@ -43,8 +43,6 @@ class MainMenu(Menu):
         self.exit_button_rect.center = (self.exitx, self.exity)
 
     def display_menu(self):
-        pygame.mixer.music.load("song/main_menu_theme.mp3")
-        pygame.mixer.music.play(0)
         self.run_display = True
         while self.run_display:
             self.game.display.blit(self.background, (0, 0))
