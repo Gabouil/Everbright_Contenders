@@ -11,17 +11,17 @@ class Mots :
 
 #-------------Groupe nominaux---------------------------------------
 
-class Votre_apparence:
+class votre_apparence:
     def __init__(self, game,  name, type):
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/votre_apparence.png")
 
-class Votre_prose:
+class votre_prose:
     def __init__(self, game,  name, type):
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/votre_prose.png")
 
-class Riwn_que_vous_ecouter_jouter:
+class rien_que_vous_ecouter_jouter:
     def __init__(self, game,  name, type):
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/rien_que_de_vous_ecouter_jouter.png")
@@ -29,14 +29,7 @@ class Riwn_que_vous_ecouter_jouter:
 class voyou_a_la_petite_semaine:
     def __init__(self, game,  name, type):
         Mots.__init__(self, game,  name, type)
-        self.img = pygame.image.load("assets/mots/voyou_a_la_petite_semaine.png")
-        
-class voyou_a_la_petite_semaine:
-    def __init__(self, game,  name, type):
-        Mots.__init__(self, game,  name, type)
-        self.img = pygame.image.load("assets/mots/voyou_a_la_petite_semaine.png")
-        
-        
+        self.img = pygame.image.load("assets/mots/voyou_a_la_petite_semaine.png")      
 class votre_talent:
     def __init__(self, game,  name, type):
         Mots.__init__(self, game,  name, type)
@@ -73,20 +66,10 @@ class ton_manque_dexperience:
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/ton_manque_dexperience.png")
 
-class ton_manque_dexperience:
-    def __init__(self, game,  name, type):
-        Mots.__init__(self, game,  name, type)
-        self.img = pygame.image.load("assets/mots/ton_manque_dexperience.png")
-
 class perroquet_frippe:
     def __init__(self, game,  name, type):
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/perroquet_frippe.png")
-
-class la_tension:
-    def __init__(self, game,  name, type):
-        Mots.__init__(self, game,  name, type)
-        self.img = pygame.image.load("assets/mots/la_tension.png")
 
 class la_tension:
     def __init__(self, game,  name, type):
@@ -298,11 +281,6 @@ class sale_vaurien:
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/sale_vaurien.png")
 
-class sale_vaurien:
-    def __init__(self, game,  name, type):
-        Mots.__init__(self, game,  name, type)
-        self.img = pygame.image.load("assets/mots/sale_vaurien.png")
-
 #---------------Groupes verbaux---------------------------------------------
 
 class est_si_famelique:
@@ -396,7 +374,7 @@ class donc:
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/donc.png")
 
-class or:
+class or_:
     def __init__(self, game,  name, type):
         Mots.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/mots/or.png")

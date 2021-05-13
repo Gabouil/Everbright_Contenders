@@ -1,3 +1,5 @@
+from mots import *
+from cartes import *
 from menu import *
 from selectPlayer import *
 from player1 import *
@@ -478,3 +480,89 @@ class Game():
             self.Priere_misericordieuse = Priere_misericordieuse(self.game, "Priere misericordieuse", "Acier")
             self.Coup_de_chance = Coup_de_chance(self.game, "Coup de chance", "Acier")
             self.Avantage_du_nombre = Avantage_du_nombre(self.game, "Avantage du nombre", "Acier")
+    
+    class Liste_mots():
+        def __init__(self,game):
+            self.game = game
+            #Groupe nominaux
+            self.votre_apparence = votre_apparence(self.game,"votre_apparence", "Groupe nominaux")
+            self.votre_prose = votre_prose(self.game, "votre_prose", "Groupe nominaux") 
+            self.rien_que_vous_ecouter_jouter = rien_que_vous_ecouter_jouter(self.game, "rien_que_vous_ecouter_jouter","Groupe nominaux")
+            self.voyou_a_la_petite_semaine = voyou_a_la_petite_semaine(self.game, "voyou_a_la_petite_semaine", "Groupe nominaux") 
+            self.votre_talent = votre_talent(self.game, "votre_talent", "Groupe nominaux") 
+            self.certains = certains(self.game, "certains", "Groupe nominaux") 
+            self.une_lice = une_lice(self.game, "une_lice", "Groupe nominaux") 
+            self.affronter_une_gamine = affronter_une_gamine(self.game, "affronter_une_gamine", "Groupe nominaux")
+            self.ton_style = ton_style(self.game, "ton_style", "Groupe nominaux")
+            self.pour_toi = pour_toi(self.game, "pour_toi", "Groupe nominaux")
+            self.ton_manque_dexperience = ton_manque_dexperience(self.game, "ton_manque_dexperience", "Groupe nominaux")
+            self.perroquet_frippe = perroquet_frippe(self.game, "perroquet_frippe", "Groupe nominaux")
+            self.la_tension = la_tension(self.game, "la_tension", "Groupe nominaux")
+            #Groupes Nominaux / complements
+            self.petit_servant = petit_servant(self.game, "petit_servant", "Groupes Nominaux / complements")
+            self.faquin = faquin(self.game, "faquin", "Groupes Nominaux / complements")
+            self.hypocrite = hypocrite(self.game, "hypocrite", "Groupes Nominaux / complements")
+            self.fripouille = fripouille(self.game, "fripouille", "Groupes Nominaux / complements")
+            self.paltoquet = paltoquet(self.game, "paltoquet", "Groupes Nominaux / complements")
+            self.prostitue_en_mailles = prostitue_en_mailles(self.game, "prostitue_en_mailles", "Groupes Nominaux / complements")
+            self.diable = diable(self.game, "diable", "Groupes Nominaux / complements")
+            self.chez_tes_parents = chez_tes_parents(self.game, "chez_tes_parents", "Groupes Nominaux / complements")
+            self.votre_odeur = votre_odeur(self.game, "votre_odeur", "Groupes Nominaux / complements")
+            self.petit_minable = petit_minable(self.game, "petit_minable", "Groupes Nominaux / complements")
+            self.quel_rate = quel_rate(self.game, "quel_rate", "Groupes Nominaux / complements")
+            self.les_bottes_de_ton_maitre = les_bottes_de_ton_maitre(self.game, "les_bottes_de_ton_maitre", "Groupes Nominaux / complements")
+            self.ta_place = ta_place(self.game, "ta_place", "Groupes Nominaux / complements")
+            self.ton_visage = ton_visage(self.game, "ton_visage", "Groupes Nominaux / complements")
+            self.pimbeche = pimbeche(self.game, "pimbeche", "Groupes Nominaux / complements")
+            self.cuistre = cuistre(self.game, "cuistre", "Groupes Nominaux / complements")
+            self.maraud = maraud(self.game, "maraud", "Groupes Nominaux / complements")
+            self.gourgandine = (self.game, "", "Groupes Nominaux / complements")
+            self.eunuque = eunuque(self.game, "eunuque", "Groupes Nominaux / complements")
+            self.pourceau = pourceau(self.game, "pourceau", "Groupes Nominaux / complements")
+            self.jeune_ignorant = jeune_ignorant(self.game, "jeune_ignorant", "Groupes Nominaux / complements")
+            self.vieille_peau = vieille_peau(self.game, "vieille_peau", "Groupes Nominaux / complements")
+            #Compléments
+            self.retournez_dans_votre_bouge = retournez_dans_votre_bouge(self.game, "retournez_dans_votre_bouge", "complements")
+            self.laisse_moi_rire = laisse_moi_rire(self.game, "laisse_moi_rire", "complements")
+            self.allons_donc = allons_donc(self.game, "allons_donc", "complements")
+            self.de_vos_magouilles = de_vos_magouilles(self.game, "de_vos_magouilles", "complements")
+            self.vu_de_pres = vu_de_pres(self.game, "vu_de_pres", "complements")
+            self.apparemment = apparemment(self.game, "apparemment", "complements")
+            self.ce_matin = ce_matin(self.game, "ce_matin", "complements")
+            self.cest_ca_le_theme = cest_ca_le_theme(self.game, "cest_ca_le_theme", "complements")
+            self.cest_ca_que_taimes = cest_ca_que_taimes(self.game, "cest_ca_que_taimes", "complements")
+            self.ben_voyons = ben_voyons(self.game, "ben_voyons", "complements")
+            self.si_on_ta_promis_la_gloire = si_on_ta_promis_la_gloire(self.game, "si_on_ta_promis_la_gloire", "complements")
+            self.pour_sur = pour_sur(self.game, "pour_sur", "complements")
+            #Groupes verbaux / compléments
+            self.est_dans_un_musee = est_dans_un_musee(self.game, "est_dans_un_musee", "Groupes verbaux / compléments")
+            self.on_ta_menti = on_ta_menti(self.game, "on_ta_menti", "Groupes verbaux / compléments")
+            self.nest_pas_tres_joli_a_voir = nest_pas_tres_joli_a_voir(self.game, "nest_pas_tres_joli_a_voir", "Groupes verbaux / compléments")
+            self.ce_que_tu_cherches = ce_que_tu_cherches(self.game, "ce_que_tu_cherches", "Groupes verbaux / compléments")
+            self.sale_vaurien = sale_vaurien(self.game, "sale_vaurien", "Groupes verbaux / compléments")
+            #Groupes verbaux
+            self.est_si_famelique = est_si_famelique(self.game, "est_si_famelique", "Groupes verbaux")
+            self.est_minable = est_minable(self.game, "est_minable", "Groupes verbaux")
+            self.vous_etes_vous_relu = vous_etes_vous_relu(self.game, "vous_etes_vous_relu", "Groupes verbaux")
+            self.parlez_nous = parlez_nous(self.game, "parlez_nous", "Groupes verbaux")
+            self.rentre = rentre(self.game, "rentre", "Groupes verbaux")
+            self.as_lair_si_bete = as_lair_si_bete(self.game, "as_lair_si_bete", "Groupes verbaux")
+            self.na_rien_a_envier = na_rien_a_envier(self.game, "na_rien_a_envier", "Groupes verbaux")
+            self.est_tombe_dans_le_crottin = est_tombe_dans_le_crottin(self.game, "est_tombe_dans_le_crottin", "Groupes verbaux")
+            self.est_palpable = est_palpable(self.game, "est_palpable", "Groupes verbaux")
+            self.tes_courgeux = tes_courgeux(self.game, "tes_courgeux", "Groupes verbaux")
+            self.a_plus_de_rides_que_toi = a_plus_de_rides_que_toi(self.game, "a_plus_de_rides_que_toi", "Groupes verbaux")
+            self.va_ten_lecher = va_ten_lecher(self.game, "va_ten_lecher", "Groupes verbaux")
+            self.on_se_demande_bien = on_se_demande_bien(self.game, "on_se_demande_bien", "Groupes verbaux")
+            self.tu_sors_de_ton_ecrin = tu_sors_de_ton_ecrin(self.game, "tu_sors_de_ton_ecrin", "Groupes verbaux")
+            #Conjoction de coordination
+            self.mais = mais(self.game, "mais", "Conjoction de coordination")
+            self.ou = ou(self.game, "ou", "Conjoction de coordination")
+            self.et = et(self.game, "et", "Conjoction de coordination")
+            self.donc = donc(self.game, "donc", "Conjoction de coordination")
+            self.or_ = or_(self.game, "or", "Conjoction de coordination")
+            self.ni = ni(self.game, "ni", "Conjoction de coordination")
+            self.car = car(self.game, "car", "Conjoction de coordination")
+
+
+            

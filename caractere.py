@@ -13,6 +13,7 @@ class Caractere:
         self.sexe = sexe
         self.surnom = surnom
         self.list_cartes = []
+        
         #
 
     def print_cartes(self):
