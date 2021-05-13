@@ -73,7 +73,14 @@ class True_story(Cartes):
 
 
     def effect_carte(self):
-        self.game.list_crowd.crowd = self.game.list_crowd.liste_crowd[0]
+        if self.game.player_turn.caractere == self.game.liam:
+            self.game.list_crowd.crowd = self.game.list_crowd.liste_crowd[0]
+        if self.game.player_turn.caractere == self.game.alfred:
+            self.game.list_crowd.crowd = self.game.list_crowd.liste_crowd[5]
+        if self.game.player_turn.caractere == self.game.ambre:
+            self.game.list_crowd.crowd = self.game.list_crowd.liste_crowd[1]
+        if self.game.player_turn.caractere == self.game.crystal:
+            self.game.list_crowd.crowd = self.game.list_crowd.liste_crowd[3]
         self.game.list_crowd.button_crowd = self.game.list_crowd.crowd.img
         self.game.list_crowd.change_crowd = False
         self.carte_use()
