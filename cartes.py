@@ -30,9 +30,8 @@ class EXODIO(Cartes):
 
     def retour_du_dieu(self):
         chance = random.randint(1,100)
-        chance = 38
         if chance == self.chance_play:
-            player = random.randint(1,1)
+            player = random.randint(1,2)
             if player == 1:
                 self.game.player1.carte1 = self.game.player1.exodio
             elif player == 2:
@@ -40,10 +39,10 @@ class EXODIO(Cartes):
 
     def effect_carte(self):
         chance_effect = random.randint(1,4)
-        chance_effect = 2
         if chance_effect == 3 or chance_effect == 4:
             self.game.game_mots.select_mots()
             self.game.game_mots.charge_mots()
+            self.game.update_screen()
             self.carte_use()
         elif chance_effect == 1:
             if self.game.player_turn.win1 == True:
@@ -368,25 +367,25 @@ class Esprit_vif(Cartes):
 
     def effect_carte(self):
         for mot in self.game.player_not_turn.caractere.list_mot_inneficace:
-            if mot == self.game.game_mots.mot1:
+            if mot.name == self.game.game_mots.mot1.name:
                 self.game.game_mots.pas_efficace1 = True
-            if mot == self.game.game_mots.mot2:
+            if mot.name == self.game.game_mots.mot2.name:
                 self.game.game_mots.pas_efficace2 = True
-            if mot == self.game.game_mots.mot3:
+            if mot.name == self.game.game_mots.mot3.name:
                 self.game.game_mots.pas_efficace3 = True
-            if mot == self.game.game_mots.mot4:
+            if mot.name == self.game.game_mots.mot4.name:
                 self.game.game_mots.pas_efficace4 = True
-            if mot == self.game.game_mots.mot5:
+            if mot.name == self.game.game_mots.mot5.name:
                 self.game.game_mots.pas_efficace5 = True
-            if mot == self.game.game_mots.mot6:
+            if mot.name == self.game.game_mots.mot6.name:
                 self.game.game_mots.pas_efficace6 = True
-            if mot == self.game.game_mots.mot7:
+            if mot.name == self.game.game_mots.mot7.name:
                 self.game.game_mots.pas_efficace7 = True
-            if mot == self.game.game_mots.mot8:
+            if mot.name == self.game.game_mots.mot8.name:
                 self.game.game_mots.pas_efficace8 = True
-            if mot == self.game.game_mots.mot9:
+            if mot.name == self.game.game_mots.mot9.name:
                 self.game.game_mots.pas_efficace9 = True
-            if mot == self.game.game_mots.mot10:
+            if mot.name == self.game.game_mots.mot10.name:
                 self.game.game_mots.pas_efficace10 = True
         self.carte_use()
         if self.game.player_turn.play_two == False:
@@ -445,26 +444,27 @@ class Oeil_sage(Cartes):
 
     def effect_carte(self):
         for mot in self.game.player_not_turn.caractere.list_mot_efficace:
-            if mot == self.game.game_mots.mot1:
+            if mot.name == self.game.game_mots.mot1.name:
                 self.game.game_mots.efficace1 = True
-            if mot == self.game.game_mots.mot2:
+            if mot.name == self.game.game_mots.mot2.name:
                 self.game.game_mots.efficace2 = True
-            if mot == self.game.game_mots.mot3:
+            if mot.name == self.game.game_mots.mot3.name:
                 self.game.game_mots.efficace3 = True
-            if mot == self.game.game_mots.mot4:
+            if mot.name == self.game.game_mots.mot4.name:
                 self.game.game_mots.efficace4 = True
-            if mot == self.game.game_mots.mot5:
+            if mot.name == self.game.game_mots.mot5.name:
                 self.game.game_mots.efficace5 = True
-            if mot == self.game.game_mots.mot6:
+            if mot.name == self.game.game_mots.mot6.name:
                 self.game.game_mots.efficace6 = True
-            if mot == self.game.game_mots.mot7:
+            if mot.name == self.game.game_mots.mot7.name:
                 self.game.game_mots.efficace7 = True
-            if mot == self.game.game_mots.mot8:
+            if mot.name == self.game.game_mots.mot8.name:
                 self.game.game_mots.efficace8 = True
-            if mot == self.game.game_mots.mot9:
+            if mot.name == self.game.game_mots.mot9.name:
                 self.game.game_mots.efficace9 = True
-            if mot == self.game.game_mots.mot10:
+            if mot.name == self.game.game_mots.mot10.name:
                 self.game.game_mots.efficace10 = True
+
         self.carte_use()
         if self.game.player_turn.play_two == False:
             self.game.end_turn()
@@ -675,7 +675,8 @@ class Opulence(Cartes):
 
     def effect_carte(self):
         self.carte_use()
-        self.display_opulence_cartes()
+        if self.game.player_turn.carte1 != None and self.game.player_turn.carte2 != None and self.game.player_turn.carte3 != None:
+            self.display_opulence_cartes()
         self.carte_use()
         if self.game.player_turn.play_two == False:
             self.game.end_turn()

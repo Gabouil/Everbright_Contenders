@@ -2,11 +2,18 @@ mots = [
 
 ]
 phrase = ""
-self.player_turn.mots.append(self.game_mots.mot1.name + " ")
+mots.append("je suis")
+mots.append("beau")
+mots.append("beau")
+mots.append("beau")
+mots.append("beau")
+mots.append("beau")
+mots.append("beau")
+mots.append("beau")
+mots.append("beau")
 
-del self.game.player_turn.mots[-1]
+print(mots)
 
-for mot in self.player_turn.mots:
-    phrase += mot
+del mots[-1]
 
-print(phrase)
+print(mots)

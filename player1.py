@@ -57,18 +57,15 @@ class Player1():
 
     def main_cartes(self):
         self.number_carte1 = randint(0, 2)
-        # self.carte1 = self.caractere.list_cartes[self.number_carte1]
-        self.carte1 = self.caractere.list_cartes[6]
+        self.carte1 = self.caractere.list_cartes[self.number_carte1]
         self.number_carte2 = randint(3, 14)
         while self.number_carte2 == self.number_carte1:
             self.number_carte2 = randint(3, 14)
-        # self.carte2 = self.caractere.list_cartes[self.number_carte2]
-        self.carte2 = self.caractere.list_cartes[11]
+        self.carte2 = self.caractere.list_cartes[self.number_carte2]
         self.number_carte3 = randint(3, 14)
         while self.number_carte3 == self.number_carte2:
             self.number_carte3 = randint(3, 14)
-        # self.carte3 = self.caractere.list_cartes[self.number_carte3]
-        self.carte3 = self.caractere.list_cartes[2]
+        self.carte3 = self.caractere.list_cartes[self.number_carte3]
 
     def main_cartes_round(self):
         if self.carte1 == None:

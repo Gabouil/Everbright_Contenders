@@ -329,6 +329,10 @@ class Game():
                             self.curr_menu.display_menu()
                     if self.player_turn.carte_oblige == False:
                         if self.game_mots.button_mot1_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace1:
+                                self.game_mots.efficace1 = False
+                            if self.game_mots.pas_efficace1:
+                                self.game_mots.pas_efficace1 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot1)
                                 self.update_phrase()
@@ -344,6 +348,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot2_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace2:
+                                self.game_mots.efficace2 = False
+                            if self.game_mots.pas_efficace2:
+                                self.game_mots.pas_efficace2 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot2)
                                 self.update_phrase()
@@ -359,6 +367,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot3_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace3:
+                                self.game_mots.efficace3 = False
+                            if self.game_mots.pas_efficace3:
+                                self.game_mots.pas_efficace3 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot3)
                                 self.update_phrase()
@@ -374,6 +386,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot4_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace4:
+                                self.game_mots.efficace4 = False
+                            if self.game_mots.pas_efficace4:
+                                self.game_mots.pas_efficace4 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot4)
                                 self.update_phrase()
@@ -389,6 +405,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot5_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace5:
+                                self.game_mots.efficace5 = False
+                            if self.game_mots.pas_efficace5:
+                                self.game_mots.pas_efficace5 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot5)
                                 self.update_phrase()
@@ -404,6 +424,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot6_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace6:
+                                self.game_mots.efficace6 = False
+                            if self.game_mots.pas_efficace6:
+                                self.game_mots.pas_efficace6 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot6)
                                 self.update_phrase()
@@ -419,6 +443,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot7_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace7:
+                                self.game_mots.efficace7 = False
+                            if self.game_mots.pas_efficace7:
+                                self.game_mots.pas_efficace7 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot7)
                                 self.update_phrase()
@@ -434,6 +462,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot8_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace8:
+                                self.game_mots.efficace8 = False
+                            if self.game_mots.pas_efficace8:
+                                self.game_mots.pas_efficace8 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot8)
                                 self.update_phrase()
@@ -449,6 +481,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot9_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace9:
+                                self.game_mots.efficace9 = False
+                            if self.game_mots.pas_efficace9:
+                                self.game_mots.pas_efficace9 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot9)
                                 self.update_phrase()
@@ -464,6 +500,10 @@ class Game():
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot10_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.game_mots.efficace10:
+                                self.game_mots.efficace10 = False
+                            if self.game_mots.pas_efficace10:
+                                self.game_mots.pas_efficace10 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot10)
                                 self.update_phrase()

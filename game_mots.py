@@ -49,16 +49,16 @@ class Game_mots():
         self.efficace10 = False
         self.efficace_img = pygame.image.load("assets/game/mots_efficace.png")
 
-        self.mot1x, self.mot1y = self.game.mid_w -   20, self.game.mid_h - 328
-        self.mot2x, self.mot2y = self.game.mid_w -   20, self.game.mid_h - 285
-        self.mot3x, self.mot3y = self.game.mid_w -   20, self.game.mid_h - 242
-        self.mot4x, self.mot4y = self.game.mid_w -   20, self.game.mid_h - 199
-        self.mot5x, self.mot5y = self.game.mid_w -   20, self.game.mid_h - 156
-        self.mot6x, self.mot6y = self.game.mid_w -   20, self.game.mid_h - 113
-        self.mot7x, self.mot7y = self.game.mid_w -   20, self.game.mid_h - 70
-        self.mot8x, self.mot8y = self.game.mid_w -   20, self.game.mid_h - 27
-        self.mot9x, self.mot9y = self.game.mid_w -   20, self.game.mid_h + 16
-        self.mot10x, self.mot10y = self.game.mid_w - 20, self.game.mid_h + 59
+        self.mot1x, self.mot1y = self.game.mid_w -   5, self.game.mid_h - 339
+        self.mot2x, self.mot2y = self.game.mid_w -   5, self.game.mid_h - 296
+        self.mot3x, self.mot3y = self.game.mid_w -   5, self.game.mid_h - 253
+        self.mot4x, self.mot4y = self.game.mid_w -   5, self.game.mid_h - 210
+        self.mot5x, self.mot5y = self.game.mid_w -   5, self.game.mid_h - 167
+        self.mot6x, self.mot6y = self.game.mid_w -   5, self.game.mid_h - 124
+        self.mot7x, self.mot7y = self.game.mid_w -   5, self.game.mid_h - 81
+        self.mot8x, self.mot8y = self.game.mid_w -   5, self.game.mid_h - 38
+        self.mot9x, self.mot9y = self.game.mid_w -   5, self.game.mid_h + 5
+        self.mot10x, self.mot10y = self.game.mid_w - 5, self.game.mid_h + 48
 
     def select_mots(self):
         self.choix_mot1 = random.randint(0, 35)
