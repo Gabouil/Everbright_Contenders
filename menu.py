@@ -1,4 +1,5 @@
 import pygame
+from sound import *
 
 class Menu():
     def __init__(self, game):
@@ -57,12 +58,18 @@ class MainMenu(Menu):
 class OptionsMenu(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
-        self.volx, self.voly = self.mid_w, self.mid_h + 10
+        self.volx, self.voly = self.mid_w, self.mid_h + 40
+        self.volsoundx, self.volsoundy = self.mid_w + 215, self.mid_h + 40
         self.closex, self.closey = self.game.DISPLAY_W - 300, self.mid_h - 210
         self.controlsx, self.controlsy = self.mid_w, self.mid_h + 100
+
         self.songx, self.songy = self.mid_w + 135, self.mid_h - 105
         self.songPx, self.songPy = self.mid_w + 265, self.mid_h - 105
         self.songMx, self.songMy = self.mid_w, self.mid_h - 98
+
+        self.soundx, self.soundy = self.mid_w + 135, self.mid_h - 25
+        self.soundPx, self.soundPy = self.mid_w + 265, self.mid_h - 25
+        self.soundMx, self.soundMy = self.mid_w, self.mid_h - 18
         self.rulesx, self.rulesy = self.mid_w, self.mid_h + 150
         self.option = False
 
@@ -72,6 +79,11 @@ class OptionsMenu(Menu):
         self.song_check = pygame.image.load("assets/button_check_false.png")
         self.song_check_rect = self.song_check.get_rect()
         self.song_check_rect.center = (self.volx, self.voly)
+
+        self.sound_check_checked = False
+        self.sound_check = pygame.image.load("assets/button_check_false.png")
+        self.sound_check_rect = self.sound_check.get_rect()
+        self.sound_check_rect.center = (self.volsoundx, self.volsoundy)
 
         self.close_option = pygame.image.load("assets/close.png")
         self.close_option_rect = self.close_option.get_rect()
@@ -88,6 +100,18 @@ class OptionsMenu(Menu):
         self.songM_rect.center = (self.songMx, self.songMy)
         self.song_niv = 0.5
 
+
+        self.sound = pygame.image.load("assets/song_5.png")
+        self.sound_rect = self.sound.get_rect()
+        self.sound_rect.center = (self.soundx, self.soundy)
+        self.soundP = pygame.image.load("assets/song+.png")
+        self.soundP_rect = self.soundP.get_rect()
+        self.soundP_rect.center = (self.soundPx, self.soundPy)
+        self.soundM = pygame.image.load("assets/song-.png")
+        self.soundM_rect = self.soundM.get_rect()
+        self.soundM_rect.center = (self.soundMx, self.soundMy)
+        self.sound_niv = 0.5
+
         self.rules_button = pygame.image.load("assets/menu/button_rules.png")
         self.rules_button_rect = self.rules_button.get_rect()
         self.rules_button_rect.center = (self.rulesx, self.rulesy)
@@ -102,6 +126,15 @@ class OptionsMenu(Menu):
             pygame.mixer.music.set_volume(self.song_niv)
             self.song_check_rect.center = (self.volx, self.voly)
 
+        if self.sound_check_checked:
+            self.sound_check = pygame.image.load("assets/button_check_true.png")
+            click_sound.set_volume(0)
+            self.sound_check_rect.center = (self.volsoundx - 7, self.volsoundy - 14)
+        else:
+            self.sound_check = pygame.image.load("assets/button_check_false.png")
+            click_sound.set_volume(self.sound_niv)
+            self.sound_check_rect.center = (self.volsoundx, self.volsoundy)
+
     def display_menu(self):
         self.option = True
         self.run_display = True
@@ -113,6 +146,10 @@ class OptionsMenu(Menu):
             self.game.display.blit(self.songP, self.songP_rect)
             self.game.display.blit(self.song, self.song_rect)
             self.game.display.blit(self.songM, self.songM_rect)
+            self.game.display.blit(self.sound_check, self.sound_check_rect)
+            self.game.display.blit(self.soundP, self.soundP_rect)
+            self.game.display.blit(self.sound, self.sound_rect)
+            self.game.display.blit(self.soundM, self.soundM_rect)
             self.game.display.blit(self.rules_button, self.rules_button_rect)
             self.game.display.blit(self.close_option, self.close_option_rect)
             self.update_screen()
