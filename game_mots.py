@@ -26,16 +26,16 @@ class Game_mots():
         self.choix_mot9 = None
         self.choix_mot10 = None
 
-        self.mot1x, self.mot1y = self.game.mid_w, self.game.mid_h
-        self.mot2x, self.mot2y = self.game.mid_w, self.game.mid_h
-        self.mot3x, self.mot3y = self.game.mid_w, self.game.mid_h
-        self.mot4x, self.mot4y = self.game.mid_w, self.game.mid_h
-        self.mot5x, self.mot5y = self.game.mid_w, self.game.mid_h
-        self.mot6x, self.mot6y = self.game.mid_w, self.game.mid_h
-        self.mot7x, self.mot7y = self.game.mid_w, self.game.mid_h
-        self.mot8x, self.mot8y = self.game.mid_w, self.game.mid_h
-        self.mot9x, self.mot9y = self.game.mid_w, self.game.mid_h
-        self.mot10x, self.mot10y = self.game.mid_w, self.game.mid_h
+        self.mot1x, self.mot1y = self.game.mid_w -   20, self.game.mid_h - 328
+        self.mot2x, self.mot2y = self.game.mid_w -   20, self.game.mid_h - 285
+        self.mot3x, self.mot3y = self.game.mid_w -   20, self.game.mid_h - 242
+        self.mot4x, self.mot4y = self.game.mid_w -   20, self.game.mid_h - 199
+        self.mot5x, self.mot5y = self.game.mid_w -   20, self.game.mid_h - 156
+        self.mot6x, self.mot6y = self.game.mid_w -   20, self.game.mid_h - 113
+        self.mot7x, self.mot7y = self.game.mid_w -   20, self.game.mid_h - 70
+        self.mot8x, self.mot8y = self.game.mid_w -   20, self.game.mid_h - 27
+        self.mot9x, self.mot9y = self.game.mid_w -   20, self.game.mid_h + 16
+        self.mot10x, self.mot10y = self.game.mid_w - 20, self.game.mid_h + 59
 
     def select_mots(self):
         self.choix_mot1 = random.randint(0, 35)
@@ -76,6 +76,18 @@ class Game_mots():
         self.mot10 = self.liste_mots.liste_mots[self.choix_mot10]
 
     def charge_mots(self):
+        print(
+            self.choix_mot1,
+            self.choix_mot2,
+            self.choix_mot3,
+            self.choix_mot4,
+            self.choix_mot5,
+            self.choix_mot6,
+            self.choix_mot7,
+            self.choix_mot8,
+            self.choix_mot9,
+            self.choix_mot10
+        )
         self.button_mot1 = self.mot1.img
         self.button_mot1_rect = self.button_mot1.get_rect()
         self.button_mot1_rect.center = (self.mot1x, self.mot1y)

@@ -8,7 +8,7 @@ from cartes import *
 class Player2():
     def __init__(self,game):
         self.game = game
-        self.list_boutdephrase = [1, 2, 3]
+        self.player = 2
         self.jauge_de_confiance = 0
         self.caractere = None
         self.carte1 = 0

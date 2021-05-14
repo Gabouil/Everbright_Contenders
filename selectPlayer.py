@@ -62,11 +62,11 @@ class SelectPlayer():
 
     def check_carte(self):
         if self.player1:
-            self.game.draw_text(self.player1, 20, (0, 0, 0), self.player1x, self.player1y)
-            self.game.draw_text("Choix du joueur 2", 20, (0, 0, 0), self.player_tourx, self.player_toury)
+            self.game.draw_text(self.player1, 20, (0, 0, 0), self.player1x, self.player1y, self.game.font_name)
+            self.game.draw_text("Choix du joueur 2", 20, (0, 0, 0), self.player_tourx, self.player_toury, self.game.font_name)
             if self.player2:
-                self.game.draw_text(self.player2, 20, (0, 0, 0), self.player2x, self.player2y)
+                self.game.draw_text(self.player2, 20, (0, 0, 0), self.player2x, self.player2y, self.game.font_name)
                 self.game.display.blit(self.button_start, self.button_start_rect)
 
         else:
-            self.game.draw_text("Choix du joueur 1", 20, (0, 0, 0), self.player_tourx, self.player_toury)
+            self.game.draw_text("Choix du joueur 1", 20, (0, 0, 0), self.player_tourx, self.player_toury, self.game.font_name)

@@ -18,6 +18,7 @@ class Game():
         self.display = pygame.Surface((self.DISPLAY_W,self.DISPLAY_H))
         self.window = pygame.display.set_mode(((self.DISPLAY_W,self.DISPLAY_H)))
         self.font_name = 'BLKCHCRY.ttf'
+        self.font_name_titre = 'Breathe.otf'
         self.background = pygame.image.load("assets/game/bg.png")
 
         self.carte_use = None
@@ -59,8 +60,8 @@ class Game():
         self.surnom_player1x, self.surnom_player1y = self.mid_w - 590, self.mid_h - 400
         self.surnom_player2x, self.surnom_player2y = self.mid_w + 590, self.mid_h - 400
 
-        self.round2x, self.round2y = self.mid_w + 10, self.mid_h - 450 
-        self.turn2x, self.turn2y = self.mid_w + 10, self.mid_h - 400
+        self.round2x, self.round2y = self.mid_w, self.mid_h - 460
+        self.turn2x, self.turn2y = self.mid_w, self.mid_h - 410
         self.confience_p1x, self.confience_p1y = self.mid_w - 570, self.mid_h + 192
         self.confience_p2x, self.confience_p2y = self.mid_w + 565, self.mid_h + 192
 
@@ -141,20 +142,20 @@ class Game():
         while self.playing:
             # print(self.player_turn.jauge_de_confiance)
             self.display.blit(self.background, (0, 0))
-            self.draw_text(self.player1.caractere.firstname + " " + self.player1.caractere.name, 40, (0,0,0), self.name_player1x, self.name_player1y)
-            self.draw_text(self.player2.caractere.firstname + " " + self.player2.caractere.name, 40, (0,0,0), self.name_player2x, self.name_player2y)
-            self.draw_text(' " '+self.player1.caractere.surnom+' " ', 25, (0,0,0), self.surnom_player1x, self.surnom_player1y)
-            self.draw_text(' " '+self.player2.caractere.surnom+' " ', 25, (0,0,0), self.surnom_player2x, self.surnom_player2y)
-            self.draw_text("round " + str(self.round), 50, (0,0,0), self.round2x, self.round2y)
-            self.draw_text('turn ' + str(self.turn), 30, (0,128,0), self.turn2x, self.turn2y)
+            self.draw_text(self.player1.caractere.firstname + " " + self.player1.caractere.name, 40, (0,0,0), self.name_player1x, self.name_player1y, self.font_name)
+            self.draw_text(self.player2.caractere.firstname + " " + self.player2.caractere.name, 40, (0,0,0), self.name_player2x, self.name_player2y, self.font_name)
+            self.draw_text(' " '+self.player1.caractere.surnom+' " ', 25, (0,0,0), self.surnom_player1x, self.surnom_player1y, self.font_name)
+            self.draw_text(' " '+self.player2.caractere.surnom+' " ', 25, (0,0,0), self.surnom_player2x, self.surnom_player2y, self.font_name)
+            self.draw_text("round " + str(self.round), 50, (0,0,0), self.round2x, self.round2y, self.font_name_titre)
+            self.draw_text('Tour du joueur ' + str(self.player_turn.player), 30, (0,128,0), self.turn2x, self.turn2y, self.font_name)
             if self.player1.jauge_de_confiance >= 0:
-                self.draw_text(str(self.player1.jauge_de_confiance), 30, (0,0,250), self.confience_p1x, self.confience_p1y)
+                self.draw_text(str(self.player1.jauge_de_confiance), 30, (0,0,250), self.confience_p1x, self.confience_p1y, self.font_name)
             else:
-                self.draw_text(str(self.player1.jauge_de_confiance), 30, (250,0,0), self.confience_p1x, self.confience_p1y)
+                self.draw_text(str(self.player1.jauge_de_confiance), 30, (250,0,0), self.confience_p1x, self.confience_p1y, self.font_name)
             if self.player2.jauge_de_confiance >= 0:
-                self.draw_text(str(self.player2.jauge_de_confiance), 30, (0,0,250), self.confience_p2x, self.confience_p2y)
+                self.draw_text(str(self.player2.jauge_de_confiance), 30, (0,0,250), self.confience_p2x, self.confience_p2y, self.font_name)
             else:
-                self.draw_text(str(self.player2.jauge_de_confiance), 30, (250,0,0), self.confience_p2x, self.confience_p2y)
+                self.draw_text(str(self.player2.jauge_de_confiance), 30, (250,0,0), self.confience_p2x, self.confience_p2y, self.font_name)
             self.display.blit(self.button_carte_pl1, self.button_carte_pl1_rect)
             self.display.blit(self.button_carte_pl2, self.button_carte_pl2_rect)
             self.display.blit(self.player1.sprit_player1, self.player1.sprit_player1_rect)
@@ -458,8 +459,8 @@ class Game():
 
 
 
-    def draw_text(self, text, size, color, x, y):
-        font = pygame.font.Font(self.font_name,size)
+    def draw_text(self, text, size, color, x, y, font_charge):
+        font = pygame.font.Font(font_charge,size)
         text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect()
         text_rect.center = (x,y)
@@ -556,7 +557,7 @@ class Game():
             self.pimbeche = pimbeche(self.game, "pimbeche", "Groupes Nominaux / complements")
             self.cuistre = cuistre(self.game, "cuistre", "Groupes Nominaux / complements")
             self.maraud = maraud(self.game, "maraud", "Groupes Nominaux / complements")
-            self.gourgandine = (self.game, "", "Groupes Nominaux / complements")
+            self.gourgandine = gourgandine(self.game, "gourgandine", "Groupes Nominaux / complements")
             self.eunuque = eunuque(self.game, "eunuque", "Groupes Nominaux / complements")
             self.pourceau = pourceau(self.game, "pourceau", "Groupes Nominaux / complements")
             self.jeune_ignorant = jeune_ignorant(self.game, "jeune_ignorant", "Groupes Nominaux / complements")
