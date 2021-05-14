@@ -8,6 +8,7 @@ from crowds import *
 from intro import *
 from sound import *
 from game_mots import *
+from calcul_points import *
 
 class Game():
     def __init__(self):
@@ -39,6 +40,7 @@ class Game():
         self.player_turn = self.player1
         self.player_not_turn = self.player2
         self.game_mots = Game_mots(self)
+        self.calcul_points = Calcul_points(self)
 
         self.liam = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
         self.ambre = Ambre(self, "Ambre", "de Croy", "noble", "jeune", "F", "La demoiselle")
@@ -71,11 +73,11 @@ class Game():
         self.button_exclamation_pl1x, self.button_exlamation_pl1y = self.mid_w - 480, self.mid_h + 280
         self.button_exclamation_pl2x, self.button_exlamation_pl2y = self.mid_w + 475, self.mid_h + 280
 
-        self.button_victoire1_pl1x, self.button_victoire1_pl1y = self.mid_w - 399, self.mid_h - 405
-        self.button_victoire2_pl1x, self.button_victoire2_pl1y = self.mid_w - 464, self.mid_h - 405
+        self.button_victoire1_pl1x, self.button_victoire1_pl1y = self.mid_w - 464, self.mid_h - 405
+        self.button_victoire2_pl1x, self.button_victoire2_pl1y = self.mid_w - 399, self.mid_h - 405
         
-        self.button_victoire1_pl2x, self.button_victoire1_pl2y = self.mid_w + 399, self.mid_h - 405
-        self.button_victoire2_pl2x, self.button_victoire2_pl2y = self.mid_w + 464, self.mid_h - 405
+        self.button_victoire1_pl2x, self.button_victoire1_pl2y = self.mid_w + 464, self.mid_h - 405
+        self.button_victoire2_pl2x, self.button_victoire2_pl2y = self.mid_w + 399, self.mid_h - 405
 
 
         self.phrase_p1x, self.phrase_p1y = self.mid_w, self.mid_h + 336
@@ -132,7 +134,7 @@ class Game():
         if self.player_turn.carte_oblige:
             if self.player_turn.carte_oblige_conteur == 0:
                 self.player_turn.carte_oblige_conteur += 1
-            elif    self.player_turn.carte_oblige_conteur == 1:
+            elif self.player_turn.carte_oblige_conteur == 1:
                 self.player_turn.carte_oblige_conteur = 0
                 self.player_turn.carte_oblige = False
         if self.player_turn.antie_vol:
@@ -168,7 +170,43 @@ class Game():
 
 
     def init_manche(self):
-        pass
+        if self.player1.carte1 == None:
+            self.player1.number_carte1 = randint(0, 2)
+            self.player1.carte1 = self.player1.caractere.list_cartes[self.player1.number_carte1]
+        if self.player1.carte2 == None:
+            self.player1.number_carte2 = randint(0, 2)
+            self.player1.carte2 = self.player1.caractere.list_cartes[self.player1.number_carte2]
+        if self.player1.carte3 == None:
+            self.player1.number_carte3 = randint(0, 2)
+            self.player1.carte3 = self.player1.caractere.list_cartes[self.player1.number_carte3]
+        if self.player2.carte1 == None:
+            self.player2.number_carte1 = randint(0, 2)
+            self.player2.carte1 = self.player2.caractere.list_cartes[self.player2.number_carte1]
+        if self.player2.carte2 == None:
+            self.player2.number_carte2 = randint(0, 2)
+            self.player2.carte2 = self.player2.caractere.list_cartes[self.player2.number_carte2]
+        if self.player2.carte3 == None:
+            self.player2.number_carte3 = randint(0, 2)
+            self.player2.carte3 = self.player2.caractere.list_cartes[self.player2.number_carte3]
+        self.player1.phrase = ""
+        self.player1.mots = []
+        self.player2.phrase = ""
+        self.player2.mots = []
+
+        self.player1.antie_critique = False
+        self.player2.antie_critique = False
+        self.list_crowd.change_crowd = True
+        self.round += 1
+
+
+
+    def max_mot(self):
+        if len(self.player1.mots) == 8:
+            self.calcul_points.calcul_points()
+            self.calcul_points.who_win()
+        if len(self.player2.mots) == 8:
+            self.calcul_points.calcul_points()
+            self.calcul_points.who_win()
 
     def game_loop(self):
         self.playing = True
@@ -200,10 +238,10 @@ class Game():
             self.display.blit(self.list_crowd.button_crowd, self.list_crowd.button_crowd_rect)
             self.display.blit(self.button_exlamation_pl1, self.button_exlamation_pl1_rect)
             self.display.blit(self.button_exlamation_pl2, self.button_exlamation_pl2_rect)
-            self.display.blit(self.button_victoire1_pl1, self.button_victoire1_pl1_rect)
-            self.display.blit(self.button_victoire2_pl1, self.button_victoire2_pl1_rect)
-            self.display.blit(self.button_victoire1_pl2, self.button_victoire1_pl2_rect)
-            self.display.blit(self.button_victoire2_pl2, self.button_victoire2_pl2_rect)
+            if self.player1.win1:
+                self.display.blit(self.button_victoire1_pl1, self.button_victoire1_pl1_rect)
+            if self.player2.win1:
+                self.display.blit(self.button_victoire1_pl2, self.button_victoire1_pl2_rect)
             #print mots
             self.display.blit(self.game_mots.button_mot1, self.game_mots.button_mot1_rect)
             if self.game_mots.efficace1:
@@ -258,7 +296,7 @@ class Game():
 
             self.draw_text(self.player1.phrase, 20, (0, 0, 0), self.phrase_p1x, self.phrase_p1y,self.font_name)
             self.draw_text(self.player2.phrase, 20, (0, 0, 0), self.phrase_p2x, self.phrase_p2y,self.font_name)
-
+            self.max_mot()
             self.check_events()
             self.display.blit(self.opion_button, self.opion_button_rect)
 
@@ -323,10 +361,19 @@ class Game():
                         if self.button_carte_pl1_rect.collidepoint(pygame.mouse.get_pos()):
                             self.curr_menu = self.p1_maine_carte
                             self.curr_menu.display_menu()
+                        if self.button_exlamation_pl1_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.calcul_points.calcul_points()
+                            self.calcul_points.who_win()
+                            self.update_screen()
                     if self.player_turn == self.player2:
                         if self.button_carte_pl2_rect.collidepoint(pygame.mouse.get_pos()):
                             self.curr_menu = self.p2_maine_carte
                             self.curr_menu.display_menu()
+                        if self.button_exlamation_pl2_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.calcul_points.calcul_points()
+                            self.calcul_points.who_win()
+                            self.update_screen()
+
                     if self.player_turn.carte_oblige == False:
                         if self.game_mots.button_mot1_rect.collidepoint(pygame.mouse.get_pos()):
                             if self.game_mots.efficace1:
@@ -725,6 +772,18 @@ class Game():
                             self.curr_menu.run_display = False
                             self.curr_menu = self.main_menu
                             self.curr_menu.display_menu()
+
+                #menu de fin
+                if self.calcul_points.win != None:
+                    if self.calcul_points.button_menu_rect.collidepoint(pygame.mouse.get_pos()):
+                        # self.curr_menu.run_display = False
+                        # self.curr_menu = self.main_menu
+                        # self.player1 = Player1(self)
+                        # self.player2 = Player2(self)
+                        # self.curr_menu.display_menu()
+                        self.running, self.playing = False, False
+                        self.curr_menu.run_display = False
+                        pygame.quit()
 
 
 

@@ -47,6 +47,11 @@ class EXODIO(Cartes):
         elif chance_effect == 1:
             if self.game.player_turn.win1 == True:
                 self.game.player_turn.win2 = True
+                self.game.display.blit(self.game.button_victoire2_pl1, self.game.button_victoire2_pl1_rect)
+                self.game.update_screen()
+                self.win = "p1"
+                self.game.calcul_points.display_end()
+                self.game.init_manche()
             else:
                 self.game.player_turn.win1 = True
             self.carte_use()
@@ -399,7 +404,7 @@ class Experience_de_lage(Cartes):
 
 
     def effect_carte(self):
-        self.game.player_turn.bonus_publique = 0
+        self.game.player_turn.bonus_publique = 1
         self.carte_use()
         if self.game.player_turn.play_two == False:
             self.game.end_turn()
@@ -598,10 +603,8 @@ class Multitache(Cartes):
 
 
     def effect_carte(self):
-        self.game.player_turn.mot_free = True
+        self.game.player_turn.play_two = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
-            self.game.end_turn()
 
 #Noble
 class Opulence(Cartes):
@@ -675,7 +678,9 @@ class Opulence(Cartes):
 
     def effect_carte(self):
         self.carte_use()
-        if self.game.player_turn.carte1 != None and self.game.player_turn.carte2 != None and self.game.player_turn.carte3 != None:
+        if self.game.player_turn.carte1 == None and self.game.player_turn.carte2 == None and self.game.player_turn.carte3 == None:
+            pass
+        else:
             self.display_opulence_cartes()
         self.carte_use()
         if self.game.player_turn.play_two == False:

@@ -9,7 +9,7 @@ class Player2():
     def __init__(self,game):
         self.game = game
         self.player = 2
-        self.bonus_publique = 0
+        self.bonus_publique = 1
         self.phrase = ""
         self.mots = []
         self.jauge_de_confiance = 0
