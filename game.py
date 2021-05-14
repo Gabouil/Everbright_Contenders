@@ -206,15 +206,55 @@ class Game():
             self.display.blit(self.button_victoire2_pl2, self.button_victoire2_pl2_rect)
             #print mots
             self.display.blit(self.game_mots.button_mot1, self.game_mots.button_mot1_rect)
+            if self.game_mots.efficace1:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot1_rect)
+            if self.game_mots.pas_efficace1:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot1_rect)
             self.display.blit(self.game_mots.button_mot2, self.game_mots.button_mot2_rect)
+            if self.game_mots.efficace2:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot2_rect)
+            if self.game_mots.pas_efficace2:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot2_rect)
             self.display.blit(self.game_mots.button_mot3, self.game_mots.button_mot3_rect)
+            if self.game_mots.efficace3:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot3_rect)
+            if self.game_mots.pas_efficace3:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot3_rect)
             self.display.blit(self.game_mots.button_mot4, self.game_mots.button_mot4_rect)
+            if self.game_mots.efficace4:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot4_rect)
+            if self.game_mots.pas_efficace4:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot4_rect)
             self.display.blit(self.game_mots.button_mot5, self.game_mots.button_mot5_rect)
+            if self.game_mots.efficace5:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot5_rect)
+            if self.game_mots.pas_efficace5:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot5_rect)
             self.display.blit(self.game_mots.button_mot6, self.game_mots.button_mot6_rect)
+            if self.game_mots.efficace6:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot6_rect)
+            if self.game_mots.pas_efficace6:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot6_rect)
             self.display.blit(self.game_mots.button_mot7, self.game_mots.button_mot7_rect)
+            if self.game_mots.efficace7:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot7_rect)
+            if self.game_mots.pas_efficace7:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot7_rect)
             self.display.blit(self.game_mots.button_mot8, self.game_mots.button_mot8_rect)
+            if self.game_mots.efficace8:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot8_rect)
+            if self.game_mots.pas_efficace8:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot8_rect)
             self.display.blit(self.game_mots.button_mot9, self.game_mots.button_mot9_rect)
+            if self.game_mots.efficace9:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot9_rect)
+            if self.game_mots.pas_efficace9:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot9_rect)
             self.display.blit(self.game_mots.button_mot10, self.game_mots.button_mot10_rect)
+            if self.game_mots.efficace10:
+                self.display.blit(self.game_mots.efficace_img, self.game_mots.button_mot10_rect)
+            if self.game_mots.pas_efficace10:
+                self.display.blit(self.game_mots.pas_efficace_img, self.game_mots.button_mot10_rect)
 
             self.draw_text(self.player1.phrase, 20, (0, 0, 0), self.phrase_p1x, self.phrase_p1y,self.font_name)
             self.draw_text(self.player2.phrase, 20, (0, 0, 0), self.phrase_p2x, self.phrase_p2y,self.font_name)

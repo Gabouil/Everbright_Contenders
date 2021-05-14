@@ -26,6 +26,29 @@ class Game_mots():
         self.choix_mot9 = None
         self.choix_mot10 = None
 
+        self.pas_efficace1 = False
+        self.pas_efficace2 = False
+        self.pas_efficace3 = False
+        self.pas_efficace4 = False
+        self.pas_efficace5 = False
+        self.pas_efficace6 = False
+        self.pas_efficace7 = False
+        self.pas_efficace8 = False
+        self.pas_efficace9 = False
+        self.pas_efficace10 = False
+        self.pas_efficace_img = pygame.image.load("assets/game/mots_pas_efficace.png")
+        self.efficace1 = False
+        self.efficace2 = False
+        self.efficace3 = False
+        self.efficace4 = False
+        self.efficace5 = False
+        self.efficace6 = False
+        self.efficace7 = False
+        self.efficace8 = False
+        self.efficace9 = False
+        self.efficace10 = False
+        self.efficace_img = pygame.image.load("assets/game/mots_efficace.png")
+
         self.mot1x, self.mot1y = self.game.mid_w -   20, self.game.mid_h - 328
         self.mot2x, self.mot2y = self.game.mid_w -   20, self.game.mid_h - 285
         self.mot3x, self.mot3y = self.game.mid_w -   20, self.game.mid_h - 242
