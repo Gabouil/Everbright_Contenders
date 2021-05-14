@@ -7,7 +7,7 @@ from player2 import *
 from crowds import *
 from intro import *
 from sound import *
-
+from game_mots import *
 
 class Game():
     def __init__(self):
@@ -37,6 +37,7 @@ class Game():
         self.list_crowd = Liste_crowd(self)
         self.player_turn = self.player1
         self.player_not_turn = self.player2
+        self.game_mots = Game_mots(self)
 
         self.liam = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
         self.ambre = Ambre(self, "Ambre", "de Croy", "noble", "jeune", "F", "La demoiselle")
@@ -124,6 +125,8 @@ class Game():
         self.player2.charge_sprit()
         self.player1.exodio.retour_du_dieu()
         self.list_crowd.charge_crowd()
+        self.game_mots.select_mots()
+        self.game_mots.charge_mots()
 
 
     def init_manche(self):
@@ -163,6 +166,18 @@ class Game():
             self.display.blit(self.button_victoire2_pl1, self.button_victoire2_pl1_rect)
             self.display.blit(self.button_victoire1_pl2, self.button_victoire1_pl2_rect)
             self.display.blit(self.button_victoire2_pl2, self.button_victoire2_pl2_rect)
+            #print mots
+            self.display.blit(self.game_mots.button_mot1, self.game_mots.button_mot1_rect)
+            self.display.blit(self.game_mots.button_mot2, self.game_mots.button_mot2_rect)
+            self.display.blit(self.game_mots.button_mot3, self.game_mots.button_mot3_rect)
+            self.display.blit(self.game_mots.button_mot4, self.game_mots.button_mot4_rect)
+            self.display.blit(self.game_mots.button_mot5, self.game_mots.button_mot5_rect)
+            self.display.blit(self.game_mots.button_mot6, self.game_mots.button_mot6_rect)
+            self.display.blit(self.game_mots.button_mot7, self.game_mots.button_mot7_rect)
+            self.display.blit(self.game_mots.button_mot8, self.game_mots.button_mot8_rect)
+            self.display.blit(self.game_mots.button_mot9, self.game_mots.button_mot9_rect)
+            self.display.blit(self.game_mots.button_mot10, self.game_mots.button_mot10_rect)
+
             self.check_events()
             self.display.blit(self.opion_button, self.opion_button_rect)
 
@@ -450,6 +465,10 @@ class Game():
         text_rect.center = (x,y)
         self.display.blit(text_surface,text_rect)
 
+
+
+
+
     class Liste_carte():
         def __init__(self,game):
             self.game = game
@@ -585,5 +604,88 @@ class Game():
             self.ni = ni(self.game, "ni", "Conjoction de coordination")
             self.car = car(self.game, "car", "Conjoction de coordination")
 
+            self.liste_mots = [
+                #Groupe nominaux
+                self.votre_apparence,
+                self.votre_prose,
+                self.rien_que_vous_ecouter_jouter,
+                self.voyou_a_la_petite_semaine,
+                self.votre_talent,
+                self.certains,
+                self.une_lice,
+                self.affronter_une_gamine,
+                self.ton_style,
+                self.pour_toi,
+                self.ton_manque_dexperience,
+                self.perroquet_frippe,
+                self.la_tension,
+                self.oh_petite_precieuse, #13
+                #Groupes Nominaux / complements
+                self.petit_servant,
+                self.faquin,
+                self.hypocrite,
+                self.fripouille,
+                self.paltoquet,
+                self.prostitue_en_mailles,
+                self.diable,
+                self.chez_tes_parents,
+                self.votre_odeur,
+                self.petit_minable,
+                self.quel_rate,
+                self.les_bottes_de_ton_maitre,
+                self.ta_place,
+                self.ton_visage,
+                self.pimbeche,
+                self.cuistre,
+                self.maraud,
+                self.gourgandine,
+                self.eunuque,
+                self.pourceau,
+                self.jeune_ignorant,
+                self.vieille_peau, #35
+                #Compléments
+                self.retournez_dans_votre_bouge,
+                self.laisse_moi_rire,
+                self.allons_donc,
+                self.de_vos_magouilles,
+                self.vu_de_pres,
+                self.apparemment,
+                self.ce_matin,
+                self.cest_ca_le_theme,
+                self.cest_ca_que_taimes,
+                self.ben_voyons,
+                self.si_on_ta_promis_la_gloire,
+                self.pour_sur, #47
+                #Groupes verbaux / compléments
+                self.est_dans_un_musee,
+                self.on_ta_menti,
+                self.nest_pas_tres_joli_a_voir,
+                self.ce_que_tu_cherches,
+                self.sale_vaurien, #52
+                #Groupes verbaux
+                self.est_si_famelique,
+                self.est_minable,
+                self.vous_etes_vous_relu,
+                self.parlez_nous,
+                self.rentre,
+                self.as_lair_si_bete,
+                self.na_rien_a_envier,
+                self.est_tombe_dans_le_crottin,
+                self.est_palpable,
+                self.tes_courgeux,
+                self.a_plus_de_rides_que_toi,
+                self.va_ten_lecher,
+                self.on_se_demande_bien,
+                self.tu_sors_de_ton_ecrin, #66
+                #Conjoction de coordination
+                self.mais,
+                self.ou,
+                self.et,
+                self.donc,
+                self.or_,
+                self.ni,
+                self.car #73
+            ]
 
-            
+
+
