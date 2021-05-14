@@ -723,8 +723,8 @@ class Game():
             self.pour_sur = pour_sur(self.game, "pour sur", "complements")
             #Groupes verbaux / compléments
             self.est_dans_un_musee = est_dans_un_musee(self.game, "est dans un musée", "Groupes verbaux / compléments")
-            self.on_ta_menti = on_ta_menti(self.game, "on t'a menti", "Groupes verbaux / compléments")
-            self.nest_pas_tres_joli_a_voir = nest_pas_tres_joli_a_voir(self.game, "n'est pas très joli à voir", "Groupes verbaux / compléments")
+            self.on_ta_menti = on_ta_menti(self.game, "on t\'a menti", "Groupes verbaux / compléments")
+            self.nest_pas_tres_joli_a_voir = nest_pas_tres_joli_a_voir(self.game, "n\'est pas très joli à voir", "Groupes verbaux / compléments")
             self.ce_que_tu_cherches = ce_que_tu_cherches(self.game, "ce que tu cherches", "Groupes verbaux / compléments")
             self.sale_vaurien = sale_vaurien(self.game, "sale vaurien", "Groupes verbaux / compléments")
             #Groupes verbaux
