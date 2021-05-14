@@ -85,6 +85,8 @@ class True_story(Cartes):
         self.game.list_crowd.button_crowd = self.game.list_crowd.crowd.img
         self.game.list_crowd.change_crowd = False
         self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
 
 class Peche_davarice(Cartes):
     def __init__(self, game,  name, type):
@@ -93,7 +95,10 @@ class Peche_davarice(Cartes):
 
     def effect_carte(self):
         self.game.liam_avarice = True
+        self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
 
 class Gamin_des_rues(Cartes):
     def __init__(self, game,  name, type):
@@ -106,6 +111,8 @@ class Gamin_des_rues(Cartes):
             self.game.player_not_turn.jauge_de_confiance -= number
             self.game.player_turn.jauge_de_confiance += number
         self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
 
 #Ambre
 class Secret_familial(Cartes):
@@ -115,7 +122,12 @@ class Secret_familial(Cartes):
 
 
     def effect_carte(self):
-        pass
+        mot = random.randint(0,2)
+        self.game.player_turn.mots.append(self.game.player_not_turn.caractere.list_mot_tres_efficace[mot])
+        self.game.update_phrase()
+        self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
 
 class Regard_enjoleur(Cartes):
     def __init__(self, game,  name, type):
@@ -126,6 +138,8 @@ class Regard_enjoleur(Cartes):
     def effect_carte(self):
         self.game.player_not_turn.carte_oblige = True
         self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
 
 class Conseils_avisees(Cartes):
     def __init__(self, game,  name, type):
@@ -142,6 +156,8 @@ class Conseils_avisees(Cartes):
         elif choix == 3:
             self.game.player_not_turn.carte3 = None
         self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
 
 
 #Alfred
@@ -152,7 +168,11 @@ class Cest_pas_au_vieux_singe(Cartes):
 
 
     def effect_carte(self):
-        pass
+        self.game.player_turn.antie_critique = True
+        self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
+
 
 class Seconde_vie(Cartes):
     def __init__(self, game,  name, type):
@@ -163,6 +183,8 @@ class Seconde_vie(Cartes):
     def effect_carte(self):
         self.game.player_turn.second_vie = True
         self.carte_use()
+        if self.game.player_turn.play_two == False:
+            self.game.end_turn()
 
 class Service_sur_mesure(Cartes):
     def __init__(self, game,  name, type):
@@ -393,7 +415,7 @@ class Tonalite_virile(Cartes):
     def __init__(self, game,  name, type):
         Cartes.__init__(self, game,  name, type)
         self.img = pygame.image.load("assets/cartes/tonalite_virile.png")
-        
+
 
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 15
@@ -456,7 +478,7 @@ class Mauvaise_foi(Cartes):
             self.game.player_not_turn.carte_double = True
             self.game.player_turn.jauge_de_confiance -= 5
             self.carte_use()
-        
+
 
 class Seduction(Cartes):
     def __init__(self, game,  name, type):

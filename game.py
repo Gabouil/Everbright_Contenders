@@ -118,14 +118,38 @@ class Game():
         self.opion_button = pygame.image.load("assets/option_button.png")
         self.opion_button_rect = self.opion_button.get_rect()
         self.opion_button_rect.center = (self.optionx, self.optiony)
-
+    
+    def update_phrase(self):
+        self.player_turn.phrase = ""
+        for mot in self.player_turn.mots:
+            self.player_turn.phrase += mot.name + " "
+        self.player_not_turn.phrase = ""
+        for mot in self.player_not_turn.mots:
+            self.player_not_turn.phrase += mot.name + " "
+        
     def end_turn(self):
         self.turn += 1
+        if self.player_turn.carte_oblige:
+            if self.player_turn.carte_oblige_conteur == 0:
+                self.player_turn.carte_oblige_conteur += 1
+            elif    self.player_turn.carte_oblige_conteur == 1:
+                self.player_turn.carte_oblige_conteur = 0
+                self.player_turn.carte_oblige = False
+        if self.player_turn.antie_vol:
+            self.player_turn.antie_vol_conteur += 1
+            if self.player_turn.antie_vol_conteur >= 3:
+                self.player_turn.antie_vol_conteur = 0
+                self.player_turn.antie_vol = False
+        if self.player_turn.liam_avarice:
+            self.player_turn.liam_avarice_conteur += 1
+            self.player_turn.jauge_de_confiance += 5
+            if self.player_turn.liam_avarice_conteur >= 5:
+                self.player_turn.liam_avarice = False
+                self.player_turn.liam_avarice_conteur = 0
         player_turn = self.player_turn
         player_not_turn = self.player_not_turn
         self.player_turn = player_not_turn
         self.player_not_turn = player_turn
-        print(self.player_turn, self.player_not_turn)
         self.update_screen()
 
     def update_screen(self):
@@ -221,7 +245,7 @@ class Game():
             self.button_carte3 = self.player1.carte3.img
         self.button_carte3_rect = self.button_carte3.get_rect()
         self.button_carte3_rect.center = (self.player1.pcarte3x, self.player1.pcarte3y)
-    
+
     def charge_carte_p2(self):
         if self.player2.carte1 == None:
             self.button_carte1 = self.p2_maine_carte.carte_none
@@ -263,137 +287,157 @@ class Game():
                         if self.button_carte_pl2_rect.collidepoint(pygame.mouse.get_pos()):
                             self.curr_menu = self.p2_maine_carte
                             self.curr_menu.display_menu()
-
-                    if self.game_mots.button_mot1_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot2_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot3_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot4_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot5_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot6_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot7_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot8_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot9_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
-                    if self.game_mots.button_mot10_rect.collidepoint(pygame.mouse.get_pos()):
-                        if self.player_turn.mot_free:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.player_turn.mot_free = False
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                        else:
-                            self.player_turn.phrase += self.game_mots.mot1.name + " "
-                            self.game_mots.choix_mot1 = random.randint(0, 73)
-                            self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
-                            self.game_mots.charge_mots()
-                            self.end_turn()
+                    if self.player_turn.carte_oblige == False:
+                        if self.game_mots.button_mot1_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot1)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot1 = random.randint(0, 73)
+                                self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot1)
+                                self.update_phrase()
+                                self.game_mots.choix_mot1 = random.randint(0, 73)
+                                self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot2_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot2)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot2 = random.randint(0, 73)
+                                self.game_mots.mot2 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot2]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot2)
+                                self.update_phrase()
+                                self.game_mots.choix_mot2 = random.randint(0, 73)
+                                self.game_mots.mot2 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot2]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot3_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot3)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot3 = random.randint(0, 73)
+                                self.game_mots.mot3 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot3]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot3)
+                                self.update_phrase()
+                                self.game_mots.choix_mot3 = random.randint(0, 73)
+                                self.game_mots.mot3 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot3]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot4_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot4)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot4 = random.randint(0, 73)
+                                self.game_mots.mot4 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot4]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot4)
+                                self.update_phrase()
+                                self.game_mots.choix_mot4 = random.randint(0, 73)
+                                self.game_mots.mot4 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot4]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot5_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot5)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot5 = random.randint(0, 73)
+                                self.game_mots.mot5 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot5]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot5)
+                                self.update_phrase()
+                                self.game_mots.choix_mot5 = random.randint(0, 73)
+                                self.game_mots.mot5 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot5]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot6_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot6)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot6 = random.randint(0, 73)
+                                self.game_mots.mot6 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot6]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot6)
+                                self.update_phrase()
+                                self.game_mots.choix_mot6 = random.randint(0, 73)
+                                self.game_mots.mot6 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot6]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot7_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot7)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot7 = random.randint(0, 73)
+                                self.game_mots.mot7 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot7]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot7)
+                                self.update_phrase()
+                                self.game_mots.choix_mot7 = random.randint(0, 73)
+                                self.game_mots.mot7 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot7]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot8_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot8)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot8 = random.randint(0, 73)
+                                self.game_mots.mot8 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot8]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot8)
+                                self.update_phrase()
+                                self.game_mots.choix_mot8 = random.randint(0, 73)
+                                self.game_mots.mot8 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot8]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot9_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot9)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot9 = random.randint(0, 73)
+                                self.game_mots.mot9 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot9]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot9)
+                                self.update_phrase()
+                                self.game_mots.choix_mot9 = random.randint(0, 73)
+                                self.game_mots.mot9 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot9]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
+                        if self.game_mots.button_mot10_rect.collidepoint(pygame.mouse.get_pos()):
+                            if self.player_turn.mot_free:
+                                self.player_turn.mots.append(self.game_mots.mot10)
+                                self.update_phrase()
+                                self.player_turn.mot_free = False
+                                self.game_mots.choix_mot10 = random.randint(0, 73)
+                                self.game_mots.mot10 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot10]
+                                self.game_mots.charge_mots()
+                            else:
+                                self.player_turn.mots.append(self.game_mots.mot10)
+                                self.update_phrase()
+                                self.game_mots.choix_mot10 = random.randint(0, 73)
+                                self.game_mots.mot10 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot10]
+                                self.game_mots.charge_mots()
+                                self.end_turn()
 
                 #bouton menu cartes
                 if self.curr_menu == self.p1_maine_carte:
