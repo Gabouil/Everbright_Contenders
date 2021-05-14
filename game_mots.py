@@ -76,18 +76,6 @@ class Game_mots():
         self.mot10 = self.liste_mots.liste_mots[self.choix_mot10]
 
     def charge_mots(self):
-        print(
-            self.choix_mot1,
-            self.choix_mot2,
-            self.choix_mot3,
-            self.choix_mot4,
-            self.choix_mot5,
-            self.choix_mot6,
-            self.choix_mot7,
-            self.choix_mot8,
-            self.choix_mot9,
-            self.choix_mot10
-        )
         self.button_mot1 = self.mot1.img
         self.button_mot1_rect = self.button_mot1.get_rect()
         self.button_mot1_rect.center = (self.mot1x, self.mot1y)

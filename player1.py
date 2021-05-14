@@ -9,6 +9,7 @@ class Player1():
     def __init__(self,game):
         self.game = game
         self.player = 1
+        self.phrase = ""
         self.jauge_de_confiance = 0
         self.bonus_publique = 5
         self.caractere = None
@@ -25,6 +26,8 @@ class Player1():
         self.carte_chance = False
         self.carte_oblige = False
         self.second_vie = False
+        self.play_two = False
+        self.mot_free = False
         self.exodio = EXODIO(self.game, "Exodio", "Divin")
 
         self.spritx, self.sprity = self.game.mid_w - 550, self.game.mid_h - 100
