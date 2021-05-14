@@ -5,4 +5,5 @@ pygame.init()
 g = Game()
 
 while g.running:
-    g.intro.play_intro()
+    # g.intro.play_intro()
+    g.curr_menu.display_menu()
