@@ -332,6 +332,24 @@ class Game():
                             self.options.song_check_checked = False
                         else:
                             self.options.song_check_checked = True
+                    if self.options.soundM_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.options.sound_niv -= 0.1
+                        if self.options.sound_niv <= 0.1:
+                            self.options.sound_niv = 0.1
+                        pygame.mixer.music.set_volume(self.options.sound_niv)
+                        self.options.sound = pygame.image.load("assets/song_" + str(int(self.options.sound_niv * 10)) + ".png")
+                    if self.options.soundP_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.options.sound_niv += 0.1
+                        if self.options.sound_niv >= 1:
+                            self.options.sound_niv = 1
+                        pygame.mixer.music.set_volume(self.options.sound_niv)
+                        self.options.sound = pygame.image.load("assets/song_" + str(int(self.options.sound_niv * 10)) + ".png")
+                    if self.options.sound_check_rect.collidepoint(pygame.mouse.get_pos()):
+                        if self.options.sound_check_checked:
+                            self.options.sound_check_checked = False
+                        else:
+                            self.options.sound_check_checked = True
+
                     if self.options.rules_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.curr_menu = self.regles
                         self.curr_menu.display_menu()
@@ -482,25 +500,25 @@ class Game():
             self.Priere_misericordieuse = Priere_misericordieuse(self.game, "Priere misericordieuse", "Acier")
             self.Coup_de_chance = Coup_de_chance(self.game, "Coup de chance", "Acier")
             self.Avantage_du_nombre = Avantage_du_nombre(self.game, "Avantage du nombre", "Acier")
-    
+
     class Liste_mot():
         def __init__(self,game):
             self.game = game
             #Groupe nominaux
             self.votre_apparence = votre_apparence(self.game,"votre_apparence", "Groupe nominaux")
-            self.votre_prose = votre_prose(self.game, "votre_prose", "Groupe nominaux") 
+            self.votre_prose = votre_prose(self.game, "votre_prose", "Groupe nominaux")
             self.rien_que_vous_ecouter_jouter = rien_que_vous_ecouter_jouter(self.game, "rien_que_vous_ecouter_jouter","Groupe nominaux")
-            self.voyou_a_la_petite_semaine = voyou_a_la_petite_semaine(self.game, "voyou_a_la_petite_semaine", "Groupe nominaux") 
-            self.votre_talent = votre_talent(self.game, "votre_talent", "Groupe nominaux") 
-            self.certains = certains(self.game, "certains", "Groupe nominaux") 
-            self.une_lice = une_lice(self.game, "une_lice", "Groupe nominaux") 
+            self.voyou_a_la_petite_semaine = voyou_a_la_petite_semaine(self.game, "voyou_a_la_petite_semaine", "Groupe nominaux")
+            self.votre_talent = votre_talent(self.game, "votre_talent", "Groupe nominaux")
+            self.certains = certains(self.game, "certains", "Groupe nominaux")
+            self.une_lice = une_lice(self.game, "une_lice", "Groupe nominaux")
             self.affronter_une_gamine = affronter_une_gamine(self.game, "affronter_une_gamine", "Groupe nominaux")
             self.ton_style = ton_style(self.game, "ton_style", "Groupe nominaux")
             self.pour_toi = pour_toi(self.game, "pour_toi", "Groupe nominaux")
             self.ton_manque_dexperience = ton_manque_dexperience(self.game, "ton_manque_dexperience", "Groupe nominaux")
             self.perroquet_frippe = perroquet_frippe(self.game, "perroquet_frippe", "Groupe nominaux")
             self.la_tension = la_tension(self.game, "la_tension", "Groupe nominaux")
-            self.oh_petite_precieuse = oh_petite_precieuse(self.game, "oh_petite_precieuse", "Groupe nominaux")  
+            self.oh_petite_precieuse = oh_petite_precieuse(self.game, "oh_petite_precieuse", "Groupe nominaux")
             #Groupes Nominaux / complements
             self.petit_servant = petit_servant(self.game, "petit_servant", "Groupes Nominaux / complements")
             self.faquin = faquin(self.game, "faquin", "Groupes Nominaux / complements")
