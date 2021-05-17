@@ -400,16 +400,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot1 = random.randint(0, 35)
-                                while self.game_mots.choix_mot1 == self.game_mots.choix_mot2 or self.game_mots.choix_mot1 == self.game_mots.choix_mot3 or self.game_mots.choix_mot1 == self.game_mots.choix_mot4 or self.game_mots.choix_mot1 == self.game_mots.choix_mot5 or self.game_mots.choix_mot1 == self.game_mots.choix_mot6 or self.game_mots.choix_mot1 == self.game_mots.choix_mot7 or self.game_mots.choix_mot1 == self.game_mots.choix_mot8 or self.game_mots.choix_mot1 == self.game_mots.choix_mot9 or self.game_mots.choix_mot1 == self.game_mots.choix_mot10:
-                                    self.choix_mot1 = random.randint(0, 35)
                                 self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot1)
                                 self.update_phrase()
                                 self.game_mots.choix_mot1 = random.randint(0, 35)
-                                while self.game_mots.choix_mot1 == self.game_mots.choix_mot2 or self.game_mots.choix_mot1 == self.game_mots.choix_mot3 or self.game_mots.choix_mot1 == self.game_mots.choix_mot4 or self.game_mots.choix_mot1 == self.game_mots.choix_mot5 or self.game_mots.choix_mot1 == self.game_mots.choix_mot6 or self.game_mots.choix_mot1 == self.game_mots.choix_mot7 or self.game_mots.choix_mot1 == self.game_mots.choix_mot8 or self.game_mots.choix_mot1 == self.game_mots.choix_mot9 or self.game_mots.choix_mot1 == self.game_mots.choix_mot10:
-                                    self.choix_mot1 = random.randint(0, 35)
                                 self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -423,16 +419,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot2 = random.randint(0, 35)
-                                while self.game_mots.choix_mot2 == self.game_mots.choix_mot1 or self.game_mots.choix_mot2 == self.game_mots.choix_mot3 or self.game_mots.choix_mot2 == self.game_mots.choix_mot4 or self.game_mots.choix_mot2 == self.game_mots.choix_mot5 or self.game_mots.choix_mot2 == self.game_mots.choix_mot6 or self.game_mots.choix_mot2 == self.game_mots.choix_mot7 or self.game_mots.choix_mot2 == self.game_mots.choix_mot8 or self.game_mots.choix_mot2 == self.game_mots.choix_mot9 or self.game_mots.choix_mot2 == self.game_mots.choix_mot10:
-                                    self.choix_mot2 = random.randint(0, 35)
                                 self.game_mots.mot2 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot2]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot2)
                                 self.update_phrase()
                                 self.game_mots.choix_mot2 = random.randint(0, 35)
-                                while self.game_mots.choix_mot2 == self.game_mots.choix_mot1 or self.game_mots.choix_mot2 == self.game_mots.choix_mot3 or self.game_mots.choix_mot2 == self.game_mots.choix_mot4 or self.game_mots.choix_mot2 == self.game_mots.choix_mot5 or self.game_mots.choix_mot2 == self.game_mots.choix_mot6 or self.game_mots.choix_mot2 == self.game_mots.choix_mot7 or self.game_mots.choix_mot2 == self.game_mots.choix_mot8 or self.game_mots.choix_mot2 == self.game_mots.choix_mot9 or self.game_mots.choix_mot2 == self.game_mots.choix_mot10:
-                                    self.choix_mot2 = random.randint(0, 35)
                                 self.game_mots.mot2 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot2]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -446,16 +438,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot3 = random.randint(0, 35)
-                                while self.game_mots.choix_mot3 == self.game_mots.choix_mot1 or self.game_mots.choix_mot3 == self.game_mots.choix_mot2 or self.game_mots.choix_mot3 == self.game_mots.choix_mot4 or self.game_mots.choix_mot3 == self.game_mots.choix_mot5 or self.game_mots.choix_mot3 == self.game_mots.choix_mot6 or self.game_mots.choix_mot3 == self.game_mots.choix_mot7 or self.game_mots.choix_mot3 == self.game_mots.choix_mot8 or self.game_mots.choix_mot3 == self.game_mots.choix_mot9 or self.game_mots.choix_mot3 == self.game_mots.choix_mot10:
-                                    self.choix_mot3 = random.randint(0, 35)
                                 self.game_mots.mot3 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot3]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot3)
                                 self.update_phrase()
                                 self.game_mots.choix_mot3 = random.randint(0, 35)
-                                while self.game_mots.choix_mot3 == self.game_mots.choix_mot1 or self.game_mots.choix_mot3 == self.game_mots.choix_mot2 or self.game_mots.choix_mot3 == self.game_mots.choix_mot4 or self.game_mots.choix_mot3 == self.game_mots.choix_mot5 or self.game_mots.choix_mot3 == self.game_mots.choix_mot6 or self.game_mots.choix_mot3 == self.game_mots.choix_mot7 or self.game_mots.choix_mot3 == self.game_mots.choix_mot8 or self.game_mots.choix_mot3 == self.game_mots.choix_mot9 or self.game_mots.choix_mot3 == self.game_mots.choix_mot10:
-                                    self.choix_mot3 = random.randint(0, 35)
                                 self.game_mots.mot3 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot3]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -469,16 +457,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot4 = random.randint(14, 52)
-                                while self.game_mots.choix_mot4 == self.game_mots.choix_mot1 or self.game_mots.choix_mot4 == self.game_mots.choix_mot2 or self.game_mots.choix_mot4 == self.game_mots.choix_mot3 or self.game_mots.choix_mot4 == self.game_mots.choix_mot5 or self.game_mots.choix_mot4 == self.game_mots.choix_mot6 or self.game_mots.choix_mot4 == self.game_mots.choix_mot7 or self.game_mots.choix_mot4 == self.game_mots.choix_mot8 or self.game_mots.choix_mot4 == self.game_mots.choix_mot9 or self.game_mots.choix_mot4 == self.game_mots.choix_mot10:
-                                    self.choix_mot4 = random.randint(14, 52)
                                 self.game_mots.mot4 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot4]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot4)
                                 self.update_phrase()
                                 self.game_mots.choix_mot4 = random.randint(14, 52)
-                                while self.game_mots.choix_mot4 == self.game_mots.choix_mot1 or self.game_mots.choix_mot4 == self.game_mots.choix_mot2 or self.game_mots.choix_mot4 == self.game_mots.choix_mot3 or self.game_mots.choix_mot4 == self.game_mots.choix_mot5 or self.game_mots.choix_mot4 == self.game_mots.choix_mot6 or self.game_mots.choix_mot4 == self.game_mots.choix_mot7 or self.game_mots.choix_mot4 == self.game_mots.choix_mot8 or self.game_mots.choix_mot4 == self.game_mots.choix_mot9 or self.game_mots.choix_mot4 == self.game_mots.choix_mot10:
-                                    self.choix_mot4 = random.randint(14, 52)
                                 self.game_mots.mot4 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot4]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -492,16 +476,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot5 = random.randint(14, 52)
-                                while self.game_mots.choix_mot5 == self.game_mots.choix_mot1 or self.game_mots.choix_mot5 == self.game_mots.choix_mot2 or self.game_mots.choix_mot5 == self.game_mots.choix_mot3 or self.game_mots.choix_mot5 == self.game_mots.choix_mot4 or self.game_mots.choix_mot5 == self.game_mots.choix_mot6 or self.game_mots.choix_mot5 == self.game_mots.choix_mot7 or self.game_mots.choix_mot5 == self.game_mots.choix_mot8 or self.game_mots.choix_mot5 == self.game_mots.choix_mot9 or self.game_mots.choix_mot5 == self.game_mots.choix_mot10:
-                                    self.choix_mot5 = random.randint(14, 52)
                                 self.game_mots.mot5 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot5]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot5)
                                 self.update_phrase()
                                 self.game_mots.choix_mot5 = random.randint(14, 52)
-                                while self.game_mots.choix_mot5 == self.game_mots.choix_mot1 or self.game_mots.choix_mot5 == self.game_mots.choix_mot2 or self.game_mots.choix_mot5 == self.game_mots.choix_mot3 or self.game_mots.choix_mot5 == self.game_mots.choix_mot4 or self.game_mots.choix_mot5 == self.game_mots.choix_mot6 or self.game_mots.choix_mot5 == self.game_mots.choix_mot7 or self.game_mots.choix_mot5 == self.game_mots.choix_mot8 or self.game_mots.choix_mot5 == self.game_mots.choix_mot9 or self.game_mots.choix_mot5 == self.game_mots.choix_mot10:
-                                    self.choix_mot5 = random.randint(14, 52)
                                 self.game_mots.mot5 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot5]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -515,16 +495,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot6 = random.randint(14, 52)
-                                while self.game_mots.choix_mot6 == self.game_mots.choix_mot1 or self.game_mots.choix_mot6 == self.game_mots.choix_mot2 or self.game_mots.choix_mot6 == self.game_mots.choix_mot3 or self.game_mots.choix_mot6 == self.game_mots.choix_mot4 or self.game_mots.choix_mot6 == self.game_mots.choix_mot5 or self.game_mots.choix_mot6 == self.game_mots.choix_mot7 or self.game_mots.choix_mot6 == self.game_mots.choix_mot8 or self.game_mots.choix_mot6 == self.game_mots.choix_mot9 or self.game_mots.choix_mot6 == self.game_mots.choix_mot10:
-                                    self.choix_mot6 = random.randint(14, 52)
                                 self.game_mots.mot6 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot6]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot6)
                                 self.update_phrase()
                                 self.game_mots.choix_mot6 = random.randint(14, 52)
-                                while self.game_mots.choix_mot6 == self.game_mots.choix_mot1 or self.game_mots.choix_mot6 == self.game_mots.choix_mot2 or self.game_mots.choix_mot6 == self.game_mots.choix_mot3 or self.game_mots.choix_mot6 == self.game_mots.choix_mot4 or self.game_mots.choix_mot6 == self.game_mots.choix_mot5 or self.game_mots.choix_mot6 == self.game_mots.choix_mot7 or self.game_mots.choix_mot6 == self.game_mots.choix_mot8 or self.game_mots.choix_mot6 == self.game_mots.choix_mot9 or self.game_mots.choix_mot6 == self.game_mots.choix_mot10:
-                                    self.choix_mot6 = random.randint(14, 52)
                                 self.game_mots.mot6 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot6]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -538,16 +514,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot7 = random.randint(48, 66)
-                                while self.game_mots.choix_mot7 == self.game_mots.choix_mot1 or self.game_mots.choix_mot7 == self.game_mots.choix_mot2 or self.game_mots.choix_mot7 == self.game_mots.choix_mot3 or self.game_mots.choix_mot7 == self.game_mots.choix_mot4 or self.game_mots.choix_mot7 == self.game_mots.choix_mot5 or self.game_mots.choix_mot7 == self.game_mots.choix_mot6 or self.game_mots.choix_mot7 == self.game_mots.choix_mot8 or self.game_mots.choix_mot7 == self.game_mots.choix_mot9 or self.game_mots.choix_mot7 == self.game_mots.choix_mot10:
-                                    self.choix_mot7 = random.randint(48, 66)
                                 self.game_mots.mot7 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot7]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot7)
                                 self.update_phrase()
                                 self.game_mots.choix_mot7 = random.randint(48, 66)
-                                while self.game_mots.choix_mot7 == self.game_mots.choix_mot1 or self.game_mots.choix_mot7 == self.game_mots.choix_mot2 or self.game_mots.choix_mot7 == self.game_mots.choix_mot3 or self.game_mots.choix_mot7 == self.game_mots.choix_mot4 or self.game_mots.choix_mot7 == self.game_mots.choix_mot5 or self.game_mots.choix_mot7 == self.game_mots.choix_mot6 or self.game_mots.choix_mot7 == self.game_mots.choix_mot8 or self.game_mots.choix_mot7 == self.game_mots.choix_mot9 or self.game_mots.choix_mot7 == self.game_mots.choix_mot10:
-                                    self.choix_mot7 = random.randint(48, 66)
                                 self.game_mots.mot7 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot7]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -561,16 +533,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot8 = random.randint(48, 66)
-                                while self.game_mots.choix_mot8 == self.game_mots.choix_mot1 or self.game_mots.choix_mot8 == self.game_mots.choix_mot2 or self.game_mots.choix_mot8 == self.game_mots.choix_mot3 or self.game_mots.choix_mot8 == self.game_mots.choix_mot4 or self.game_mots.choix_mot8 == self.game_mots.choix_mot5 or self.game_mots.choix_mot8 == self.game_mots.choix_mot6 or self.game_mots.choix_mot8 == self.game_mots.choix_mot7 or self.game_mots.choix_mot8 == self.game_mots.choix_mot9 or self.game_mots.choix_mot8 == self.game_mots.choix_mot10:
-                                    self.choix_mot8 = random.randint(48, 66)
                                 self.game_mots.mot8 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot8]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot8)
                                 self.update_phrase()
                                 self.game_mots.choix_mot8 = random.randint(48, 66)
-                                while self.game_mots.choix_mot8 == self.game_mots.choix_mot1 or self.game_mots.choix_mot8 == self.game_mots.choix_mot2 or self.game_mots.choix_mot8 == self.game_mots.choix_mot3 or self.game_mots.choix_mot8 == self.game_mots.choix_mot4 or self.game_mots.choix_mot8 == self.game_mots.choix_mot5 or self.game_mots.choix_mot8 == self.game_mots.choix_mot6 or self.game_mots.choix_mot8 == self.game_mots.choix_mot7 or self.game_mots.choix_mot8 == self.game_mots.choix_mot9 or self.game_mots.choix_mot8 == self.game_mots.choix_mot10:
-                                    self.choix_mot8 = random.randint(48, 66)
                                 self.game_mots.mot8 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot8]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -584,16 +552,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot9 = random.randint(67, 73)
-                                while self.game_mots.choix_mot9 == self.game_mots.choix_mot1 or self.game_mots.choix_mot9 == self.game_mots.choix_mot2 or self.game_mots.choix_mot9 == self.game_mots.choix_mot3 or self.game_mots.choix_mot9 == self.game_mots.choix_mot4 or self.game_mots.choix_mot9 == self.game_mots.choix_mot5 or self.game_mots.choix_mot9 == self.game_mots.choix_mot6 or self.game_mots.choix_mot9 == self.game_mots.choix_mot7 or self.game_mots.choix_mot9 == self.game_mots.choix_mot8 or self.game_mots.choix_mot9 == self.game_mots.choix_mot10:
-                                    self.choix_mot9 = random.randint(67, 73)
                                 self.game_mots.mot9 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot9]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot9)
                                 self.update_phrase()
                                 self.game_mots.choix_mot9 = random.randint(67, 73)
-                                while self.game_mots.choix_mot9 == self.game_mots.choix_mot1 or self.game_mots.choix_mot9 == self.game_mots.choix_mot2 or self.game_mots.choix_mot9 == self.game_mots.choix_mot3 or self.game_mots.choix_mot9 == self.game_mots.choix_mot4 or self.game_mots.choix_mot9 == self.game_mots.choix_mot5 or self.game_mots.choix_mot9 == self.game_mots.choix_mot6 or self.game_mots.choix_mot9 == self.game_mots.choix_mot7 or self.game_mots.choix_mot9 == self.game_mots.choix_mot8 or self.game_mots.choix_mot9 == self.game_mots.choix_mot10:
-                                    self.choix_mot9 = random.randint(67, 73)
                                 self.game_mots.mot9 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot9]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
@@ -607,16 +571,12 @@ class Game():
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot10 = random.randint(67, 73)
-                                while self.game_mots.choix_mot10 == self.game_mots.choix_mot1 or self.game_mots.choix_mot10 == self.game_mots.choix_mot2 or self.game_mots.choix_mot10 == self.game_mots.choix_mot3 or self.game_mots.choix_mot10 == self.game_mots.choix_mot4 or self.game_mots.choix_mot10 == self.game_mots.choix_mot5 or self.game_mots.choix_mot10 == self.game_mots.choix_mot6 or self.game_mots.choix_mot10 == self.game_mots.choix_mot7 or self.game_mots.choix_mot10 == self.game_mots.choix_mot8 or self.game_mots.choix_mot10 == self.game_mots.choix_mot9:
-                                    self.choix_mot10 = random.randint(67, 73)
                                 self.game_mots.mot10 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot10]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot10)
                                 self.update_phrase()
                                 self.game_mots.choix_mot10 = random.randint(67, 73)
-                                while self.game_mots.choix_mot10 == self.game_mots.choix_mot1 or self.game_mots.choix_mot10 == self.game_mots.choix_mot2 or self.game_mots.choix_mot10 == self.game_mots.choix_mot3 or self.game_mots.choix_mot10 == self.game_mots.choix_mot4 or self.game_mots.choix_mot10 == self.game_mots.choix_mot5 or self.game_mots.choix_mot10 == self.game_mots.choix_mot6 or self.game_mots.choix_mot10 == self.game_mots.choix_mot7 or self.game_mots.choix_mot10 == self.game_mots.choix_mot8 or self.game_mots.choix_mot10 == self.game_mots.choix_mot9:
-                                    self.choix_mot10 = random.randint(67, 73)
                                 self.game_mots.mot10 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot10]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
