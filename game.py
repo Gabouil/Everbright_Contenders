@@ -170,6 +170,7 @@ class Game():
 
 
     def init_manche(self):
+        self.game_mots.select_mots()
         if self.player1.carte1 == None:
             self.player1.number_carte1 = randint(0, 2)
             self.player1.carte1 = self.player1.caractere.list_cartes[self.player1.number_carte1]
