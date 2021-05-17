@@ -67,6 +67,8 @@ class Game():
         self.turn2x, self.turn2y = self.mid_w, self.mid_h - 410
         self.confience_p1x, self.confience_p1y = self.mid_w - 570, self.mid_h + 192
         self.confience_p2x, self.confience_p2y = self.mid_w + 565, self.mid_h + 192
+        self.confience_barre_p1x, self.confience_barre_p1y = self.mid_w - 693, self.mid_h + 179
+        self.confience_barre_p2x, self.confience_barre_p2y = self.mid_w + 584, self.mid_h + 179
 
         self.button_carte_pl1x, self.button_carte_pl1y = self.mid_w - 360, self.mid_h + 230
         self.button_carte_pl2x, self.button_carte_pl2y = self.mid_w + 360, self.mid_h + 230
@@ -351,6 +353,8 @@ class Game():
             self.draw_text(' " '+self.player2.caractere.surnom+' " ', 25, (0,0,0), self.surnom_player2x, self.surnom_player2y, self.font_name)
             self.draw_text("round " + str(self.round), 50, (0,0,0), self.round2x, self.round2y, self.font_name_titre)
             self.draw_text('Tour du joueur ' + str(self.player_turn.player), 30, (0,128,0), self.turn2x, self.turn2y, self.font_name)
+            pygame.draw.rect(self.display, (0,250,0), pygame.Rect(self.confience_barre_p1x, self.confience_barre_p1y, 100 + self.player1.jauge_de_confiance, 29))
+            pygame.draw.rect(self.display, (0,250,0), pygame.Rect(self.confience_barre_p2x - self.player2.jauge_de_confiance, self.confience_barre_p2y, 100 + self.player2.jauge_de_confiance, 29))
             if self.player1.jauge_de_confiance >= 0:
                 self.draw_text(str(self.player1.jauge_de_confiance), 30, (0,0,250), self.confience_p1x, self.confience_p1y, self.font_name)
             else:
