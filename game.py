@@ -41,6 +41,7 @@ class Game():
         self.player_not_turn = self.player2
         self.game_mots = Game_mots(self)
         self.calcul_points = Calcul_points(self)
+        self.minimum_mot = 4
 
         self.liam = Liam(self, "Liam", "mcWarren", "populaire", "jeune", "M", "Le mercenaire")
         self.ambre = Ambre(self, "Ambre", "de Croy", "noble", "jeune", "F", "La demoiselle")
@@ -171,22 +172,34 @@ class Game():
 
     def init_manche(self):
         if self.player1.carte1 == None:
-            self.player1.number_carte1 = randint(0, 2)
+            self.player1.number_carte1 = randint(0, 14)
+            while self.player1.number_carte1 == self.player1.number_carte2 or self.player1.number_carte1 == self.player1.number_carte3:
+                self.player1.number_carte1 = randint(0, 14)
             self.player1.carte1 = self.player1.caractere.list_cartes[self.player1.number_carte1]
         if self.player1.carte2 == None:
-            self.player1.number_carte2 = randint(0, 2)
+            self.player1.number_carte2 = randint(0, 14)
+            while self.player1.number_carte2 == self.player1.number_carte1 or self.player1.number_carte2 == self.player1.number_carte3:
+                self.player1.number_carte2 = randint(0, 14)
             self.player1.carte2 = self.player1.caractere.list_cartes[self.player1.number_carte2]
         if self.player1.carte3 == None:
-            self.player1.number_carte3 = randint(0, 2)
+            self.player1.number_carte3 = randint(0, 14)
+            while self.player1.number_carte3 == self.player1.number_carte1 or self.player1.number_carte3 == self.player1.number_carte2:
+                self.player1.number_carte3 = randint(0, 14)
             self.player1.carte3 = self.player1.caractere.list_cartes[self.player1.number_carte3]
         if self.player2.carte1 == None:
-            self.player2.number_carte1 = randint(0, 2)
+            self.player2.number_carte1 = randint(0, 14)
+            while self.player2.number_carte1 == self.player1.number_carte2 or self.player2.number_carte1 == self.player1.number_carte3:
+                self.player2.number_carte1 = randint(0, 14)
             self.player2.carte1 = self.player2.caractere.list_cartes[self.player2.number_carte1]
         if self.player2.carte2 == None:
-            self.player2.number_carte2 = randint(0, 2)
+            self.player2.number_carte2 = randint(0, 14)
+            while self.player2.number_carte2 == self.player1.number_carte1 or self.player2.number_carte2 == self.player1.number_carte3:
+                self.player2.number_carte2 = randint(0, 14)
             self.player2.carte2 = self.player2.caractere.list_cartes[self.player2.number_carte2]
         if self.player2.carte3 == None:
-            self.player2.number_carte3 = randint(0, 2)
+            self.player2.number_carte3 = randint(0, 14)
+            while self.player2.number_carte3 == self.player1.number_carte2 or self.player2.number_carte3 == self.player1.number_carte1:
+                self.player2.number_carte3 = randint(0, 14)
             self.player2.carte3 = self.player2.caractere.list_cartes[self.player2.number_carte3]
         self.player1.phrase = ""
         self.player1.mots = []
@@ -212,8 +225,9 @@ class Game():
         self.playing = True
         self.select_player_confirme = False
         self.init_game()
-        print(self.player_turn.jauge_de_confiance)
-        print(self.player_not_turn.jauge_de_confiance)
+        quel_battel = random.randint(1,2)
+        pygame.mixer.music.load("song/battel"+ str(quel_battel) +".mp3")
+        pygame.mixer.music.play(0)
         while self.playing:
             # print(self.player_turn.jauge_de_confiance)
             self.display.blit(self.background, (0, 0))
@@ -616,6 +630,7 @@ class Game():
                     #click sur les carte
                     if self.player1.carte1 != None:
                         if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                            click_carte.play()
                             self.carte_use = "carte1"
                             self.curr_menu.run_display = False
                             self.p1_maine_carte.no_option = False
@@ -623,6 +638,7 @@ class Game():
                             self.curr_menu = Game
                     if self.player1.carte2 != None:
                         if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                            click_carte.play()
                             self.carte_use = "carte2"
                             self.curr_menu.run_display = False
                             self.p1_maine_carte.no_option = False
@@ -630,6 +646,7 @@ class Game():
                             self.curr_menu = Game
                     if self.player1.carte3 != None:
                         if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                            click_carte.play()
                             self.carte_use = "carte3"
                             self.curr_menu.run_display = False
                             self.p1_maine_carte.no_option = False
@@ -644,6 +661,7 @@ class Game():
                     #click sur les carte
                     if self.player2.carte1 != None:
                         if self.button_carte1_rect.collidepoint(pygame.mouse.get_pos()):
+                            click_carte.play()
                             self.carte_use = "carte1"
                             self.curr_menu.run_display = False
                             self.p2_maine_carte.no_option = False
@@ -651,6 +669,7 @@ class Game():
                             self.curr_menu = Game
                     if self.player2.carte2 != None:
                         if self.button_carte2_rect.collidepoint(pygame.mouse.get_pos()):
+                            click_carte.play()
                             self.carte_use = "carte2"
                             self.curr_menu.run_display = False
                             self.p2_maine_carte.no_option = False
@@ -658,6 +677,7 @@ class Game():
                             self.curr_menu = Game
                     if self.player2.carte3 != None:
                         if self.button_carte3_rect.collidepoint(pygame.mouse.get_pos()):
+                            click_carte.play()
                             self.carte_use = "carte3"
                             self.curr_menu.run_display = False
                             self.p2_maine_carte.no_option = False
@@ -748,6 +768,7 @@ class Game():
                         self.select_player.run_display = False
                         self.curr_menu.game_loop(self)
                     if self.select_player.carte_liam_rect.collidepoint(pygame.mouse.get_pos()):
+                        click_carte.play()
                         if self.select_player.liam_select == False and self.select_player.player2 == False:
                             self.select_player.carte_liam = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.liam_select = True
@@ -758,6 +779,7 @@ class Game():
                                 self.player2.caractere = self.liam
                                 self.select_player.player2 = "Liam"
                     if self.select_player.carte_ambre_rect.collidepoint(pygame.mouse.get_pos()):
+                        click_carte.play()
                         if self.select_player.ambre_select == False and self.select_player.player2 == False:
                             self.select_player.carte_ambre = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.ambre_select = True
@@ -769,6 +791,7 @@ class Game():
                                 self.player2.caractere = self.ambre
                                 self.select_player.player2 = "Ambre"
                     if self.select_player.carte_alfred_rect.collidepoint(pygame.mouse.get_pos()):
+                        click_carte.play()
                         if self.select_player.alfred_select == False and self.select_player.player2 == False:
                             self.select_player.carte_alfred = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.alfred_select = True
@@ -780,6 +803,7 @@ class Game():
                                 self.select_player.player2 = "Alfred"
 
                     if self.select_player.carte_crystal_rect.collidepoint(pygame.mouse.get_pos()):
+                        click_carte.play()
                         if self.select_player.crystal_select == False and self.select_player.player2 == False:
                             self.select_player.carte_crystal = pygame.image.load("assets/cartes/dos_carte_or.png")
                             self.select_player.crystal_select = True

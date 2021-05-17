@@ -45,8 +45,8 @@ class MainMenu(Menu):
 
     def display_menu(self):
         self.run_display = True
-        pygame.mixer.music.load("song/main_menu_theme.ogg")
-        pygame.mixer.music.play(0)
+        pygame.mixer_music.load("song/main_menu_theme.mp3")
+        pygame.mixer_music.play(-1, 0.0, 0)
         while self.run_display:
             self.game.display.blit(self.background, (0, 0))
             self.game.display.blit(self.play_button, self.play_button_rect)
