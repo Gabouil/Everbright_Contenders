@@ -511,7 +511,7 @@ class Game():
                                 self.game_mots.pas_efficace7 = False
                             if self.player_turn.mot_free:
                                 self.player_turn.mots.append(self.game_mots.mot7)
-                                self.update_phrase()
+                                self.update_phrase() 
                                 self.player_turn.mot_free = False
                                 self.game_mots.choix_mot7 = random.randint(48, 66)
                                 self.game_mots.mot7 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot7]
