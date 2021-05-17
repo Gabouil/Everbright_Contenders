@@ -32,6 +32,7 @@ class Game():
         self.main_menu = MainMenu(self)
         self.options = OptionsMenu(self)
         self.regles = Rule_menu(self)
+        self.about = About_menu(self)
         self.player1 = Player1(self)
         self.p1_maine_carte = Main_carte_p1(self)
         self.p2_maine_carte = Main_carte_p2(self)
@@ -793,6 +794,9 @@ class Game():
                     if self.main_menu.rules_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.curr_menu = self.regles
                         self.curr_menu.display_menu()
+                    if self.main_menu.about_button_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu = self.about
+                        self.curr_menu.display_menu()
                     if self.main_menu.exit_button_rect.collidepoint(pygame.mouse.get_pos()):
                         self.running, self.playing = False, False
                         self.curr_menu.run_display = False
@@ -931,6 +935,19 @@ class Game():
                             self.curr_menu.run_display = False
                             self.curr_menu = self.main_menu
                             self.curr_menu.display_menu()
+
+                # menu About
+                if self.curr_menu == self.about:
+                    if self.about.page != 1:
+                        if self.about.left_button_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.about.page -= 1
+                    if self.about.page != 5:
+                        if self.about.right_button_rect.collidepoint(pygame.mouse.get_pos()):
+                            self.about.page += 1
+                    if self.about.close_option_rect.collidepoint(pygame.mouse.get_pos()):
+                        self.curr_menu.run_display = False
+                        self.curr_menu = self.main_menu
+                        self.curr_menu.display_menu()
 
                 #menu de fin
                 if self.calcul_points.win != None:

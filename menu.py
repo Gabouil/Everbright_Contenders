@@ -190,3 +190,39 @@ class Rule_menu(Menu):
                 self.game.display.blit(self.right_button, self.right_button_rect)
             self.game.display.blit(self.close_option, self.close_option_rect)
             self.update_screen()
+
+
+class About_menu(Menu):
+    def __init__(self, game):
+        Menu.__init__(self, game)
+        self.page = 1
+
+        self.rightx, self.righty = self.mid_w + 585, self.mid_h
+        self.leftx, self.lefty = self.mid_w - 585, self.mid_h
+        self.closex, self.closey = self.mid_w + 500, self.mid_h - 350
+
+        self.rule = pygame.image.load("assets/About/A propos "+ str(self.page) +".png")
+        self.right_button = pygame.image.load("assets/regles assets/cheverondroit.png")
+        self.right_button_rect = self.right_button.get_rect()
+        self.right_button_rect.center = (self.rightx, self.righty)
+
+        self.left_button = pygame.image.load("assets/regles assets/chevrongauche.png")
+        self.left_button_rect = self.left_button.get_rect()
+        self.left_button_rect.center = (self.leftx, self.lefty)
+
+        self.close_option = pygame.image.load("assets/regles assets/cross.png")
+        self.close_option_rect = self.close_option.get_rect()
+        self.close_option_rect.center = (self.closex, self.closey)
+
+    def display_menu(self):
+        self.run_display = True
+        while self.run_display:
+            self.rule = pygame.image.load("assets/About/A propos "+ str(self.page) +".png")
+            self.game.check_events()
+            self.game.display.blit(self.rule, (0, 0))
+            if self.page != 1:
+                self.game.display.blit(self.left_button, self.left_button_rect)
+            if self.page != 5:
+                self.game.display.blit(self.right_button, self.right_button_rect)
+            self.game.display.blit(self.close_option, self.close_option_rect)
+            self.update_screen()
