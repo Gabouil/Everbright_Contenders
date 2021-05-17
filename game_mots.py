@@ -61,42 +61,58 @@ class Game_mots():
         self.mot10x, self.mot10y = self.game.mid_w - 5, self.game.mid_h + 48
 
     def select_mots(self):
-        self.choix_mot1 = random.randint(0, 35)
-        self.mot1 = self.liste_mots.liste_mots[self.choix_mot1]
-        self.choix_mot2 = random.randint(0, 35)
-        while self.choix_mot2 == self.choix_mot1:
-            self.choix_mot2 = random.randint(0, 35)
-        self.mot2 = self.liste_mots.liste_mots[self.choix_mot2]
-        self.choix_mot3 = random.randint(0, 35)
-        while self.choix_mot3 == self.choix_mot1 or self.choix_mot3 == self.choix_mot2:
-            self.choix_mot3 = random.randint(0, 35)
-        self.mot3 = self.liste_mots.liste_mots[self.choix_mot3]
-        self.choix_mot4 = random.randint(14, 52)
-        while self.choix_mot4 == self.choix_mot1 or self.choix_mot4 == self.choix_mot2 or self.choix_mot4 == self.choix_mot3:
-            self.choix_mot4 = random.randint(14, 52)
-        self.mot4 = self.liste_mots.liste_mots[self.choix_mot4]
-        self.choix_mot5 = random.randint(14, 52)
+        self.choix_mot1 = random.randint(0, len(self.liste_mots.groupe_nominaux)-1)
+        self.mot1 = self.liste_mots.groupe_nominaux[self.choix_mot1]
+        del self.liste_mots.groupe_nominaux[self.choix_mot1]
+        self.choix_mot2 = random.randint(0, len(self.liste_mots.groupe_nominaux)-1)
+        self.mot2 = self.liste_mots.groupe_nominaux[self.choix_mot2]
+        while self.mot2.name == self.mot1.name:
+            self.choix_mot2 = random.randint(0, len(self.liste_mots.groupe_nominaux)-1)
+            self.mot2 = self.liste_mots.groupe_nominaux[self.choix_mot2]
+        del self.liste_mots.groupe_nominaux[self.choix_mot2]
+        self.choix_mot3 = random.randint(0, len(self.liste_mots.groupe_nominaux)-1)
+        self.mot3 = self.liste_mots.groupe_nominaux[self.choix_mot3]
+        while self.mot3.name == self.mot1.name or self.mot3.name == self.mot2.name:
+            self.choix_mot3 = random.randint(0, len(self.liste_mots.groupe_nominaux)-1)
+            self.mot3 = self.liste_mots.groupe_nominaux[self.choix_mot3]
+        del self.liste_mots.groupe_nominaux[self.choix_mot3]
+        self.choix_mot4 = random.randint(0, len(self.liste_mots.complements)-1)
+        self.mot4 = self.liste_mots.complements[self.choix_mot4]
+        while self.mot4.name == self.mot1.name or self.mot4.name == self.mot2.name or self.mot4.name == self.mot3.name:
+            self.choix_mot4 = random.randint(0, len(self.liste_mots.complements)-1)
+            self.mot4 = self.liste_mots.groupe_nominaux[self.choix_mot4]
+        del self.liste_mots.complements[self.choix_mot4]
+        self.choix_mot5 = random.randint(0, len(self.liste_mots.complements)-1)
+        self.mot5 = self.liste_mots.complements[self.choix_mot5]
         while self.choix_mot5 == self.choix_mot1 or self.choix_mot5 == self.choix_mot2 or self.choix_mot5 == self.choix_mot3 or self.choix_mot5 == self.choix_mot4:
-            self.choix_mot5 = random.randint(14, 52)
-        self.mot5 = self.liste_mots.liste_mots[self.choix_mot5]
-        self.choix_mot6 = random.randint(14, 52)
-        while self.choix_mot6 == self.choix_mot1 or self.choix_mot6 == self.choix_mot2 or self.choix_mot6 == self.choix_mot3 or self.choix_mot6 == self.choix_mot4 or self.choix_mot6 == self.choix_mot5:
-            self.choix_mot6 = random.randint(14, 52)
-        self.mot6 = self.liste_mots.liste_mots[self.choix_mot6]
-        self.choix_mot7 = random.randint(48, 66)
-        while self.choix_mot7 == self.choix_mot4 or self.choix_mot7 == self.choix_mot5 or self.choix_mot7 == self.choix_mot6:
-            self.choix_mot7 = random.randint(48, 66)
-        self.mot7 = self.liste_mots.liste_mots[self.choix_mot7]
-        self.choix_mot8 = random.randint(48, 66)
-        while self.choix_mot8 == self.choix_mot4 or self.choix_mot8 == self.choix_mot5 or self.choix_mot8 == self.choix_mot6 or self.choix_mot8 == self.choix_mot7:
-            self.choix_mot8 = random.randint(48, 66)
-        self.mot8 = self.liste_mots.liste_mots[self.choix_mot8]
-        self.choix_mot9 = random.randint(67, 73)
-        self.mot9 = self.liste_mots.liste_mots[self.choix_mot9]
-        self.choix_mot10 = random.randint(67, 73)
-        while self.choix_mot10 == self.choix_mot9:
-            self.choix_mot10 = random.randint(67, 73)
-        self.mot10 = self.liste_mots.liste_mots[self.choix_mot10]
+            self.choix_mot5 = random.randint(0, len(self.liste_mots.complements)-1)
+            self.mot5 = self.liste_mots.complements[self.choix_mot5]
+        del self.liste_mots.complements[self.choix_mot5]
+        self.choix_mot6 = random.randint(0, len(self.liste_mots.complements)-1)
+        self.mot6 = self.liste_mots.complements[self.choix_mot6]
+        while self.mot6.name == self.mot1.name or self.mot6.name == self.mot2.name or self.mot6.name == self.mot3.name or self.mot6.name == self.mot4.name or self.mot6.name == self.mot5.name:
+            self.choix_mot6 = random.randint(0, len(self.liste_mots.complements)-1)
+            self.mot6 = self.liste_mots.complements[self.choix_mot6]
+        del self.liste_mots.complements[self.choix_mot6]
+        self.choix_mot7 = random.randint(0, len(self.liste_mots.groupe_verbaux)-1)
+        self.mot7 = self.liste_mots.groupe_verbaux[self.choix_mot7]
+        while self.mot7.name == self.mot4.name or self.mot7.name == self.mot5.name or self.mot7.name == self.mot6.name:
+            self.choix_mot7 = random.randint(0, len(self.liste_mots.groupe_verbaux)-1)
+            self.mot7 = self.liste_mots.groupe_verbaux[self.choix_mot7]
+        del self.liste_mots.groupe_verbaux[self.choix_mot7]
+        self.choix_mot8 = random.randint(0, len(self.liste_mots.groupe_verbaux)-1)
+        self.mot8 = self.liste_mots.groupe_verbaux[self.choix_mot8]
+        while self.mot8.name == self.mot4.name or self.mot8.name == self.mot5.name or self.mot8.name == self.mot6.name or self.mot8.name == self.mot7.name:
+            self.choix_mot8 = random.randint(0, len(self.liste_mots.groupe_verbaux)-1)
+            self.mot8 = self.liste_mots.groupe_verbaux[self.choix_mot8]
+        del self.liste_mots.groupe_verbaux[self.choix_mot8]
+        self.choix_mot9 = random.randint(0, len(self.liste_mots.conjonction_de_coordination)-1)
+        self.mot9 = self.liste_mots.conjonction_de_coordination[self.choix_mot9]
+        self.choix_mot10 = random.randint(0, len(self.liste_mots.conjonction_de_coordination)-1)
+        self.mot10 = self.liste_mots.conjonction_de_coordination[self.choix_mot10]
+        while self.mot10.name == self.mot9.name:
+            self.choix_mot10 = random.randint(0, len(self.liste_mots.conjonction_de_coordination)-1)
+            self.mot10 = self.liste_mots.conjonction_de_coordination[self.choix_mot10]
 
     def charge_mots(self):
         self.button_mot1 = self.mot1.img

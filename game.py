@@ -206,6 +206,120 @@ class Game():
         self.player2.phrase = ""
         self.player2.mots = []
 
+        self.game_mots.liste_mots.groupe_nominaux = [
+            self.game_mots.liste_mots.votre_apparence,
+            self.game_mots.liste_mots.votre_prose,
+            self.game_mots.liste_mots.rien_que_vous_ecouter_jouter,
+            self.game_mots.liste_mots.voyou_a_la_petite_semaine,
+            self.game_mots.liste_mots.votre_talent,
+            self.game_mots.liste_mots.certains,
+            self.game_mots.liste_mots.une_lice,
+            self.game_mots.liste_mots.affronter_une_gamine,
+            self.game_mots.liste_mots.ton_style,
+            self.game_mots.liste_mots.pour_toi,
+            self.game_mots.liste_mots.ton_manque_dexperience,
+            self.game_mots.liste_mots.perroquet_frippe,
+            self.game_mots.liste_mots.la_tension,
+            self.game_mots.liste_mots.oh_petite_precieuse,
+            self.game_mots.liste_mots.petit_servant,
+            self.game_mots.liste_mots.faquin,
+            self.game_mots.liste_mots.hypocrite,
+            self.game_mots.liste_mots.fripouille,
+            self.game_mots.liste_mots.paltoquet,
+            self.game_mots.liste_mots.prostitue_en_mailles,
+            self.game_mots.liste_mots.diable,
+            self.game_mots.liste_mots.chez_tes_parents,
+            self.game_mots.liste_mots.votre_odeur,
+            self.game_mots.liste_mots.petit_minable,
+            self.game_mots.liste_mots.quel_rate,
+            self.game_mots.liste_mots.les_bottes_de_ton_maitre,
+            self.game_mots.liste_mots.ta_place,
+            self.game_mots.liste_mots.ton_visage,
+            self.game_mots.liste_mots.pimbeche,
+            self.game_mots.liste_mots.cuistre,
+            self.game_mots.liste_mots.maraud,
+            self.game_mots.liste_mots.gourgandine,
+            self.game_mots.liste_mots.eunuque,
+            self.game_mots.liste_mots.pourceau,
+            self.game_mots.liste_mots.jeune_ignorant,
+            self.game_mots.liste_mots.vieille_peau
+        ]
+
+        self.game_mots.liste_mots.complements = [
+            self.game_mots.liste_mots.petit_servant,
+            self.game_mots.liste_mots.faquin,
+            self.game_mots.liste_mots.hypocrite,
+            self.game_mots.liste_mots.fripouille,
+            self.game_mots.liste_mots.paltoquet,
+            self.game_mots.liste_mots.prostitue_en_mailles,
+            self.game_mots.liste_mots.diable,
+            self.game_mots.liste_mots.chez_tes_parents,
+            self.game_mots.liste_mots.votre_odeur,
+            self.game_mots.liste_mots.petit_minable,
+            self.game_mots.liste_mots.quel_rate,
+            self.game_mots.liste_mots.les_bottes_de_ton_maitre,
+            self.game_mots.liste_mots.ta_place,
+            self.game_mots.liste_mots.ton_visage,
+            self.game_mots.liste_mots.pimbeche,
+            self.game_mots.liste_mots.cuistre,
+            self.game_mots.liste_mots.maraud,
+            self.game_mots.liste_mots.gourgandine,
+            self.game_mots.liste_mots.eunuque,
+            self.game_mots.liste_mots.pourceau,
+            self.game_mots.liste_mots.jeune_ignorant,
+            self.game_mots.liste_mots.vieille_peau,
+            self.game_mots.liste_mots.retournez_dans_votre_bouge,
+            self.game_mots.liste_mots.laisse_moi_rire,
+            self.game_mots.liste_mots.allons_donc,
+            self.game_mots.liste_mots.de_vos_magouilles,
+            self.game_mots.liste_mots.vu_de_pres,
+            self.game_mots.liste_mots.apparemment,
+            self.game_mots.liste_mots.ce_matin,
+            self.game_mots.liste_mots.cest_ca_le_theme,
+            self.game_mots.liste_mots.cest_ca_que_taimes,
+            self.game_mots.liste_mots.ben_voyons,
+            self.game_mots.liste_mots.si_on_ta_promis_la_gloire,
+            self.game_mots.liste_mots.pour_sur,
+            self.game_mots.liste_mots.est_dans_un_musee,
+            self.game_mots.liste_mots.on_ta_menti,
+            self.game_mots.liste_mots.nest_pas_tres_joli_a_voir,
+            self.game_mots.liste_mots.ce_que_tu_cherches,
+            self.game_mots.liste_mots.sale_vaurien
+
+        ]
+
+        self.game_mots.liste_mots.groupe_verbaux = [
+            self.game_mots.liste_mots.est_dans_un_musee,
+            self.game_mots.liste_mots.on_ta_menti,
+            self.game_mots.liste_mots.nest_pas_tres_joli_a_voir,
+            self.game_mots.liste_mots.ce_que_tu_cherches,
+            self.game_mots.liste_mots.sale_vaurien,
+            self.game_mots.liste_mots.est_si_famelique,
+            self.game_mots.liste_mots.est_minable,
+            self.game_mots.liste_mots.vous_etes_vous_relu,
+            self.game_mots.liste_mots.parlez_nous,
+            self.game_mots.liste_mots.rentre,
+            self.game_mots.liste_mots.as_lair_si_bete,
+            self.game_mots.liste_mots.na_rien_a_envier,
+            self.game_mots.liste_mots.est_tombe_dans_le_crottin,
+            self.game_mots.liste_mots.est_palpable,
+            self.game_mots.liste_mots.tes_courgeux,
+            self.game_mots.liste_mots.a_plus_de_rides_que_toi,
+            self.game_mots.liste_mots.va_ten_lecher,
+            self.game_mots.liste_mots.on_se_demande_bien,
+            self.game_mots.liste_mots.tu_sors_de_ton_ecrin
+
+        ]
+        self.game_mots.liste_mots.conjonction_de_coordination = [
+            self.game_mots.liste_mots.mais,
+            self.game_mots.liste_mots.ou,
+            self.game_mots.liste_mots.et,
+            self.game_mots.liste_mots.donc,
+            self.game_mots.liste_mots.or_,
+            self.game_mots.liste_mots.ni,
+            self.game_mots.liste_mots.car
+        ]
+
         self.player1.antie_critique = False
         self.player2.antie_critique = False
         self.list_crowd.change_crowd = True
@@ -399,14 +513,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot1)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot1 = random.randint(0, 35)
-                                self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
+                                self.game_mots.choix_mot1 = random.randint(0, len(self.game_mots.liste_mots.groupe_nominaux)-1)
+                                self.game_mots.mot1 = self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot1]
+                                del self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot1]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot1)
                                 self.update_phrase()
-                                self.game_mots.choix_mot1 = random.randint(0, 35)
-                                self.game_mots.mot1 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot1]
+                                self.game_mots.choix_mot2 = random.randint(0, len(self.game_mots.liste_mots.groupe_nominaux)-1)
+                                self.game_mots.mot1 = self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot1]
+                                del self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot1]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot2_rect.collidepoint(pygame.mouse.get_pos()):
@@ -418,14 +534,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot2)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot2 = random.randint(0, 35)
-                                self.game_mots.mot2 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot2]
+                                self.game_mots.choix_mot2 = random.randint(0, len(self.game_mots.liste_mots.groupe_nominaux)-1)
+                                self.game_mots.mot2 = self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot2]
+                                del self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot2]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot2)
                                 self.update_phrase()
-                                self.game_mots.choix_mot2 = random.randint(0, 35)
-                                self.game_mots.mot2 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot2]
+                                self.game_mots.choix_mot2 = random.randint(0, len(self.game_mots.liste_mots.groupe_nominaux)-1)
+                                self.game_mots.mot2 = self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot2]
+                                del self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot2]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot3_rect.collidepoint(pygame.mouse.get_pos()):
@@ -437,14 +555,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot3)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot3 = random.randint(0, 35)
-                                self.game_mots.mot3 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot3]
+                                self.game_mots.choix_mot3 = random.randint(0, len(self.game_mots.liste_mots.groupe_nominaux)-1)
+                                self.game_mots.mot3 = self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot3]
+                                del self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot3]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot3)
                                 self.update_phrase()
-                                self.game_mots.choix_mot3 = random.randint(0, 35)
-                                self.game_mots.mot3 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot3]
+                                self.game_mots.choix_mot3 = random.randint(0, len(self.game_mots.liste_mots.groupe_nominaux)-1)
+                                self.game_mots.mot3 = self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot3]
+                                del self.game_mots.liste_mots.groupe_nominaux[self.game_mots.choix_mot3]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot4_rect.collidepoint(pygame.mouse.get_pos()):
@@ -456,14 +576,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot4)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot4 = random.randint(14, 52)
-                                self.game_mots.mot4 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot4]
+                                self.game_mots.choix_mot4 = random.randint(0, len(self.game_mots.liste_mots.complements)-1)
+                                self.game_mots.mot4 = self.game_mots.liste_mots.complements[self.game_mots.choix_mot4]
+                                del self.game_mots.liste_mots.complements[self.game_mots.choix_mot4]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot4)
                                 self.update_phrase()
-                                self.game_mots.choix_mot4 = random.randint(14, 52)
-                                self.game_mots.mot4 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot4]
+                                self.game_mots.choix_mot4 = random.randint(0, len(self.game_mots.liste_mots.complements)-1)
+                                self.game_mots.mot4 = self.game_mots.liste_mots.complements[self.game_mots.choix_mot4]
+                                del self.game_mots.liste_mots.complements[self.game_mots.choix_mot4]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot5_rect.collidepoint(pygame.mouse.get_pos()):
@@ -475,14 +597,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot5)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot5 = random.randint(14, 52)
-                                self.game_mots.mot5 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot5]
+                                self.game_mots.choix_mot5 = random.randint(0, len(self.game_mots.liste_mots.complements)-1)
+                                self.game_mots.mot5 = self.game_mots.liste_mots.complements[self.game_mots.choix_mot5]
+                                del self.game_mots.liste_mots.complements[self.game_mots.choix_mot5]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot5)
                                 self.update_phrase()
-                                self.game_mots.choix_mot5 = random.randint(14, 52)
-                                self.game_mots.mot5 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot5]
+                                self.game_mots.choix_mot5 = random.randint(0, len(self.game_mots.liste_mots.complements)-1)
+                                self.game_mots.mot5 = self.game_mots.liste_mots.complements[self.game_mots.choix_mot5]
+                                del self.game_mots.liste_mots.complements[self.game_mots.choix_mot5]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot6_rect.collidepoint(pygame.mouse.get_pos()):
@@ -494,14 +618,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot6)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot6 = random.randint(14, 52)
-                                self.game_mots.mot6 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot6]
+                                self.game_mots.choix_mot6 = random.randint(0, len(self.game_mots.liste_mots.complements)-1)
+                                self.game_mots.mot6 = self.game_mots.liste_mots.complements[self.game_mots.choix_mot6]
+                                del self.game_mots.liste_mots.complements[self.game_mots.choix_mot6]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot6)
                                 self.update_phrase()
-                                self.game_mots.choix_mot6 = random.randint(14, 52)
-                                self.game_mots.mot6 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot6]
+                                self.game_mots.choix_mot6 = random.randint(0, len(self.game_mots.liste_mots.complements)-1)
+                                self.game_mots.mot6 = self.game_mots.liste_mots.complements[self.game_mots.choix_mot6]
+                                del self.game_mots.liste_mots.complements[self.game_mots.choix_mot6]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot7_rect.collidepoint(pygame.mouse.get_pos()):
@@ -513,14 +639,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot7)
                                 self.update_phrase() 
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot7 = random.randint(48, 66)
-                                self.game_mots.mot7 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot7]
+                                self.game_mots.choix_mot7 = random.randint(0, len(self.game_mots.liste_mots.groupe_verbaux)-1)
+                                self.game_mots.mot7 = self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot7]
+                                del self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot7]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot7)
                                 self.update_phrase()
-                                self.game_mots.choix_mot7 = random.randint(48, 66)
-                                self.game_mots.mot7 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot7]
+                                self.game_mots.choix_mot7 = random.randint(0, len(self.game_mots.liste_mots.groupe_verbaux)-1)
+                                self.game_mots.mot7 = self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot7]
+                                del self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot7]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot8_rect.collidepoint(pygame.mouse.get_pos()):
@@ -532,14 +660,16 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot8)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot8 = random.randint(48, 66)
-                                self.game_mots.mot8 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot8]
+                                self.game_mots.choix_mot8 = random.randint(0, len(self.game_mots.liste_mots.groupe_verbaux)-1)
+                                self.game_mots.mot8 = self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot8]
+                                del self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot8]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot8)
                                 self.update_phrase()
-                                self.game_mots.choix_mot8 = random.randint(48, 66)
-                                self.game_mots.mot8 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot8]
+                                self.game_mots.choix_mot8 = random.randint(0, len(self.game_mots.liste_mots.groupe_verbaux)-1)
+                                self.game_mots.mot8 = self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot8]
+                                del self.game_mots.liste_mots.groupe_verbaux[self.game_mots.choix_mot8]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot9_rect.collidepoint(pygame.mouse.get_pos()):
@@ -551,14 +681,14 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot9)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot9 = random.randint(67, 73)
-                                self.game_mots.mot9 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot9]
+                                self.game_mots.choix_mot9 = random.randint(0, len(self.game_mots.liste_mots.conjonction_de_coordination)-1)
+                                self.game_mots.mot9 = self.game_mots.liste_mots.conjonction_de_coordination[self.game_mots.choix_mot9]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot9)
                                 self.update_phrase()
-                                self.game_mots.choix_mot9 = random.randint(67, 73)
-                                self.game_mots.mot9 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot9]
+                                self.game_mots.choix_mot9 = random.randint(0, len(self.game_mots.liste_mots.conjonction_de_coordination)-1)
+                                self.game_mots.mot9 = self.game_mots.liste_mots.conjonction_de_coordination[self.game_mots.choix_mot9]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
                         if self.game_mots.button_mot10_rect.collidepoint(pygame.mouse.get_pos()):
@@ -570,14 +700,14 @@ class Game():
                                 self.player_turn.mots.append(self.game_mots.mot10)
                                 self.update_phrase()
                                 self.player_turn.mot_free = False
-                                self.game_mots.choix_mot10 = random.randint(67, 73)
-                                self.game_mots.mot10 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot10]
+                                self.game_mots.choix_mot10 = random.randint(0, len(self.game_mots.liste_mots.conjonction_de_coordination)-1)
+                                self.game_mots.mot10 = self.game_mots.liste_mots.conjonction_de_coordination[self.game_mots.choix_mot10]
                                 self.game_mots.charge_mots()
                             else:
                                 self.player_turn.mots.append(self.game_mots.mot10)
                                 self.update_phrase()
-                                self.game_mots.choix_mot10 = random.randint(67, 73)
-                                self.game_mots.mot10 = self.game_mots.liste_mots.liste_mots[self.game_mots.choix_mot10]
+                                self.game_mots.choix_mot10 = random.randint(0, len(self.game_mots.liste_mots.conjonction_de_coordination)-1)
+                                self.game_mots.mot10 = self.game_mots.liste_mots.conjonction_de_coordination[self.game_mots.choix_mot10]
                                 self.game_mots.charge_mots()
                                 self.end_turn()
 
@@ -959,8 +1089,8 @@ class Game():
             self.ni = ni(self.game, "ni", "Conjoction de coordination")
             self.car = car(self.game, "car", "Conjoction de coordination")
 
-            self.liste_mots = [
-                #Groupe nominaux
+
+            self.groupe_nominaux = [
                 self.votre_apparence,
                 self.votre_prose,
                 self.rien_que_vous_ecouter_jouter,
@@ -974,8 +1104,7 @@ class Game():
                 self.ton_manque_dexperience,
                 self.perroquet_frippe,
                 self.la_tension,
-                self.oh_petite_precieuse, #13
-                #Groupes Nominaux / complements
+                self.oh_petite_precieuse,
                 self.petit_servant,
                 self.faquin,
                 self.hypocrite,
@@ -997,8 +1126,32 @@ class Game():
                 self.eunuque,
                 self.pourceau,
                 self.jeune_ignorant,
-                self.vieille_peau, #35
-                #Compléments
+                self.vieille_peau
+            ]
+
+            self.complements = [
+                self.petit_servant,
+                self.faquin,
+                self.hypocrite,
+                self.fripouille,
+                self.paltoquet,
+                self.prostitue_en_mailles,
+                self.diable,
+                self.chez_tes_parents,
+                self.votre_odeur,
+                self.petit_minable,
+                self.quel_rate,
+                self.les_bottes_de_ton_maitre,
+                self.ta_place,
+                self.ton_visage,
+                self.pimbeche,
+                self.cuistre,
+                self.maraud,
+                self.gourgandine,
+                self.eunuque,
+                self.pourceau,
+                self.jeune_ignorant,
+                self.vieille_peau,
                 self.retournez_dans_votre_bouge,
                 self.laisse_moi_rire,
                 self.allons_donc,
@@ -1010,14 +1163,21 @@ class Game():
                 self.cest_ca_que_taimes,
                 self.ben_voyons,
                 self.si_on_ta_promis_la_gloire,
-                self.pour_sur, #47
-                #Groupes verbaux / compléments
+                self.pour_sur,
                 self.est_dans_un_musee,
                 self.on_ta_menti,
                 self.nest_pas_tres_joli_a_voir,
                 self.ce_que_tu_cherches,
-                self.sale_vaurien, #52
-                #Groupes verbaux
+                self.sale_vaurien
+
+            ]
+
+            self.groupe_verbaux = [
+                self.est_dans_un_musee,
+                self.on_ta_menti,
+                self.nest_pas_tres_joli_a_voir,
+                self.ce_que_tu_cherches,
+                self.sale_vaurien,
                 self.est_si_famelique,
                 self.est_minable,
                 self.vous_etes_vous_relu,
@@ -1031,15 +1191,17 @@ class Game():
                 self.a_plus_de_rides_que_toi,
                 self.va_ten_lecher,
                 self.on_se_demande_bien,
-                self.tu_sors_de_ton_ecrin, #66
-                #Conjoction de coordination
+                self.tu_sors_de_ton_ecrin
+
+            ]
+            self.conjonction_de_coordination = [
                 self.mais,
                 self.ou,
                 self.et,
                 self.donc,
                 self.or_,
                 self.ni,
-                self.car #73
+                self.car
             ]
 
 
