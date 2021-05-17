@@ -9,5 +9,5 @@ pygame.display.set_icon(icon_32x32)
 g = Game()
 
 while g.running:
-    # g.intro.play_intro()
-    g.curr_menu.display_menu()
+    g.intro.play_intro()
+    # g.curr_menu.display_menu()

@@ -1763,7 +1763,7 @@ class Intro():
 
     def play_intro(self):
         self.run_intro = True
-        pygame.mixer.music.load("song/main_menu_theme.ogg")
+        pygame.mixer.music.load("song/musique_intro_NotPirate.ogg")
         pygame.mixer.music.play(0)
         while self.run_intro:
             self.game.display.blit(self.frame[self.number], self.bg_rect)

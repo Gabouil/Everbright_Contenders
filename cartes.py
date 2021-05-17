@@ -73,7 +73,7 @@ class EXODIO(Cartes):
                 self.game.player_turn.carte1 = self.game.crystal.list_cartes[0]
                 self.game.player_turn.carte2 = self.game.crystal.list_cartes[1]
                 self.game.player_turn.carte3 = self.game.crystal.list_cartes[2]
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 
@@ -97,7 +97,7 @@ class True_story(Cartes):
         self.game.list_crowd.button_crowd = self.game.list_crowd.crowd.img
         self.game.list_crowd.change_crowd = False
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Peche_davarice(Cartes):
@@ -109,7 +109,7 @@ class Peche_davarice(Cartes):
         self.game.liam_avarice = True
         self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Gamin_des_rues(Cartes):
@@ -123,7 +123,7 @@ class Gamin_des_rues(Cartes):
             self.game.player_not_turn.jauge_de_confiance -= number
             self.game.player_turn.jauge_de_confiance += number
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 #Ambre
@@ -138,7 +138,7 @@ class Secret_familial(Cartes):
         self.game.player_turn.mots.append(self.game.player_not_turn.caractere.list_mot_tres_efficace[mot])
         self.game.update_phrase()
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Regard_enjoleur(Cartes):
@@ -150,7 +150,7 @@ class Regard_enjoleur(Cartes):
     def effect_carte(self):
         self.game.player_not_turn.carte_oblige = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Conseils_avisees(Cartes):
@@ -168,7 +168,7 @@ class Conseils_avisees(Cartes):
         elif choix == 3:
             self.game.player_not_turn.carte3 = None
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 
@@ -182,7 +182,7 @@ class Cest_pas_au_vieux_singe(Cartes):
     def effect_carte(self):
         self.game.player_turn.antie_critique = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 
@@ -195,7 +195,7 @@ class Seconde_vie(Cartes):
     def effect_carte(self):
         self.game.player_turn.second_vie = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Service_sur_mesure(Cartes):
@@ -207,7 +207,7 @@ class Service_sur_mesure(Cartes):
     def effect_carte(self):
         self.game.player_turn.antie_vol = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 #Crystal
@@ -229,7 +229,7 @@ class Sombre_formule(Cartes):
     def effect_carte(self):
         del self.game.player_not_turn.mots[-1]
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Influence_mystique(Cartes):
@@ -304,7 +304,7 @@ class Influence_mystique(Cartes):
     def effect_carte(self):
         self.main_cartes()
         self.display_mystique_cartes()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 #Cartes Comune
@@ -318,7 +318,7 @@ class Gout_du_risque(Cartes):
         if self.game.list_crowd.change_crowd:
             self.game.list_crowd.charge_crowd()
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 
@@ -330,7 +330,7 @@ class Sante_de_fer(Cartes):
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 15
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Adaptation(Cartes):
@@ -359,7 +359,7 @@ class Adaptation(Cartes):
         elif self.game.player_turn.jauge_de_confiance >= 15:
             self.carte()
             self.game.player_turn.jauge_de_confiance -= 15
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 
@@ -393,7 +393,7 @@ class Esprit_vif(Cartes):
             if mot.name == self.game.game_mots.mot10.name:
                 self.game.game_mots.pas_efficace10 = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 #âgé
@@ -406,7 +406,7 @@ class Experience_de_lage(Cartes):
     def effect_carte(self):
         self.game.player_turn.bonus_publique = 1
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Veteran(Cartes):
@@ -418,7 +418,7 @@ class Veteran(Cartes):
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 15
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Sante_fragile(Cartes):
@@ -432,12 +432,12 @@ class Sante_fragile(Cartes):
         if chance == 1:
             self.game.player_turn.jauge_de_confiance += 20
             self.carte_use()
-            if self.game.player_turn.play_two == False:
+            if self.game.player_turn.play_two != True:
                 self.game.end_turn()
         if chance == 2:
             self.game.player_turn.jauge_de_confiance -= 5
             self.carte_use()
-            if self.game.player_turn.play_two == False:
+            if self.game.player_turn.play_two != True:
                 self.game.end_turn()
 
 
@@ -471,7 +471,7 @@ class Oeil_sage(Cartes):
                 self.game.game_mots.efficace10 = True
 
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 #Homme
@@ -490,7 +490,7 @@ class Avantage_masculin(Cartes):
                 self.game.player_not_turn.jauge_de_confiance -= 5
                 self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 
@@ -503,7 +503,7 @@ class Tonalite_virile(Cartes):
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 15
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Sens_du_sacrifice(Cartes):
@@ -525,7 +525,7 @@ class Sens_du_sacrifice(Cartes):
             del self.game.player_not_turn.mots[-1]
             self.game.player_turn.jauge_de_confiance -= 10
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Monotache(Cartes):
@@ -537,7 +537,7 @@ class Monotache(Cartes):
     def effect_carte(self):
         self.game.player_turn.carte_gratuit = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 #Femme
@@ -556,7 +556,7 @@ class Avantage_feminin(Cartes):
                 self.game.player_not_turn.jauge_de_confiance -= 5
                 self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Mauvaise_foi(Cartes):
@@ -580,7 +580,7 @@ class Mauvaise_foi(Cartes):
             self.game.player_not_turn.carte_double = True
             self.game.player_turn.jauge_de_confiance -= 5
             self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 
@@ -593,7 +593,7 @@ class Seduction(Cartes):
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 10
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Multitache(Cartes):
@@ -683,7 +683,7 @@ class Opulence(Cartes):
         else:
             self.display_opulence_cartes()
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Hautes_relations(Cartes):
@@ -696,7 +696,7 @@ class Hautes_relations(Cartes):
         if self.game.list_crowd.change_crowd:
             self.game.list_crowd.charge_crowd()
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Mepris_du_fortune(Cartes):
@@ -707,7 +707,7 @@ class Mepris_du_fortune(Cartes):
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 15
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Pot_de_vin(Cartes):
@@ -725,7 +725,7 @@ class Pot_de_vin(Cartes):
                 self.game.player_not_turn.jauge_de_confiance -= 5
                 self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 #Populaire
@@ -738,7 +738,7 @@ class Solidarite(Cartes):
     def effect_carte(self):
         self.game.player_turn.jauge_de_confiance += 15
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Priere_misericordieuse(Cartes):
@@ -757,7 +757,7 @@ class Priere_misericordieuse(Cartes):
         elif chance == 2:
             self.game.player_turn.jauge_de_confiance -= 5
             self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Coup_de_chance(Cartes):
@@ -769,7 +769,7 @@ class Coup_de_chance(Cartes):
     def effect_carte(self):
         self.game.player_turn.carte_chance = True
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
 
 class Avantage_du_nombre(Cartes):
@@ -787,5 +787,5 @@ class Avantage_du_nombre(Cartes):
                 self.game.player_not_turn.jauge_de_confiance -= 5
                 self.game.player_turn.jauge_de_confiance += 5
         self.carte_use()
-        if self.game.player_turn.play_two == False:
+        if self.game.player_turn.play_two != True:
             self.game.end_turn()
